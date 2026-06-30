@@ -1,0 +1,173 @@
+.hero {
+  position: relative;
+  background: #0a0a0a;
+  padding: 0;
+  text-align: center;
+  overflow: hidden;
+  cursor: none;
+}
+
+/* 3D perspective scene */
+.scene {
+  position: relative;
+  padding: 88px 24px 76px;
+  transform-style: preserve-3d;
+  transition: transform 0.05s linear;
+  will-change: transform;
+}
+
+/* ── Animated background ── */
+.bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  transform-style: preserve-3d;
+}
+
+/* Moving dot grid */
+.grid {
+  position: absolute;
+  inset: -40px;
+  background-image: radial-gradient(rgba(255, 107, 0, 0.2) 1px, transparent 1px);
+  background-size: 36px 36px;
+  animation: gridDrift 25s linear infinite;
+  will-change: transform;
+  transition: transform 0.12s ease-out;
+}
+
+@keyframes gridDrift {
+  0%   { background-position: 0 0; }
+  100% { background-position: 36px 36px; }
+}
+
+/* Glowing orbs */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  will-change: transform;
+  transition: transform 0.15s ease-out;
+}
+
+.orb1 {
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, #ff6b00 0%, transparent 70%);
+  top: -180px;
+  left: -120px;
+  opacity: 0.45;
+  animation: pulse1 8s ease-in-out infinite;
+}
+
+.orb2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #ff9500 0%, transparent 70%);
+  bottom: -120px;
+  right: -100px;
+  opacity: 0.4;
+  animation: pulse2 11s ease-in-out infinite;
+}
+
+.orb3 {
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, #ff4500 0%, transparent 70%);
+  top: 30%;
+  left: 50%;
+  opacity: 0.25;
+  animation: pulse1 14s ease-in-out infinite reverse;
+}
+
+.orb4 {
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, #ffffff 0%, transparent 70%);
+  top: 15%;
+  right: 15%;
+  opacity: 0.05;
+  animation: pulse2 9s ease-in-out infinite;
+}
+
+@keyframes pulse1 {
+  0%, 100% { transform: scale(1); opacity: 0.45; }
+  50%       { transform: scale(1.15); opacity: 0.6; }
+}
+
+@keyframes pulse2 {
+  0%, 100% { transform: scale(1); opacity: 0.4; }
+  50%       { transform: scale(0.88); opacity: 0.55; }
+}
+
+/* Sparkle rings */
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 107, 0, 0.25);
+  will-change: transform;
+  transition: transform 0.2s ease-out;
+}
+
+.ring1 {
+  width: 340px;
+  height: 340px;
+  top: calc(50% - 170px);
+  left: calc(50% - 170px);
+  animation: ringExpand 6s ease-out infinite;
+}
+
+.ring2 {
+  width: 520px;
+  height: 520px;
+  top: calc(50% - 260px);
+  left: calc(50% - 260px);
+  animation: ringExpand 6s ease-out infinite 2s;
+  border-color: rgba(255, 107, 0, 0.12);
+}
+
+@keyframes ringExpand {
+  0%   { transform: scale(0.85); opacity: 0.6; }
+  100% { transform: scale(1.25); opacity: 0; }
+}
+
+/* ── Content ── */
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 700px;
+  margin: 0 auto;
+  will-change: transform;
+  transition: transform 0.12s ease-out;
+}
+
+.title {
+  font-size: 2.6rem;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1.25;
+  margin: 0 0 18px;
+  text-shadow: 0 0 60px rgba(255, 107, 0, 0.3);
+}
+
+.highlight {
+  color: #ff6b00;
+  text-shadow: 0 0 40px rgba(255, 107, 0, 0.6);
+}
+
+.subtitle {
+  font-size: 1.05rem;
+  color: #aaaaaa;
+  margin: 0;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .scene {
+    padding: 56px 20px 48px;
+  }
+  .title {
+    font-size: 1.65rem;
+  }
+  .orb1 { width: 300px; height: 300px; }
+  .orb2 { width: 240px; height: 240px; }
+  .ring1, .ring2 { display: none; }
+}

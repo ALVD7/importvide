@@ -1,0 +1,189 @@
+.page {
+  min-height: 100vh;
+  background: #0a0a0a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px 36px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.logo {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.logoImport { color: #111; }
+.logoVide   { color: #ff6b00; }
+
+.title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: #111;
+  margin: 0 0 24px;
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #444;
+}
+
+.input {
+  padding: 11px 14px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #111;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #fafafa;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.input:focus {
+  border-color: #ff6b00;
+  background: #fff;
+}
+
+/* Input con botón ojo */
+.inputWrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputInner {
+  width: 100%;
+  padding: 11px 44px 11px 14px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  color: #111;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #fafafa;
+  box-sizing: border-box;
+}
+
+.inputInner:focus {
+  border-color: #ff6b00;
+  background: #fff;
+}
+
+.eyeBtn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #aaa;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: color 0.2s;
+}
+
+.eyeBtn:hover {
+  color: #ff6b00;
+}
+
+.error {
+  background: #fff0f0;
+  color: #cc0000;
+  border: 1px solid #ffcccc;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+.btn {
+  background: #ff6b00;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 13px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  margin-top: 4px;
+}
+
+.btn:hover:not(:disabled) {
+  background: #e55d00;
+  transform: translateY(-1px);
+}
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.switch {
+  text-align: center;
+  font-size: 0.88rem;
+  color: #666;
+  margin: 20px 0 0;
+}
+
+.link {
+  color: #ff6b00;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.link:hover { text-decoration: underline; }
+
+/* Success state */
+.successBox {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.successIcon { font-size: 2.5rem; }
+
+.successTitle {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #111;
+  margin: 0;
+}
+
+.successText {
+  color: #555;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}

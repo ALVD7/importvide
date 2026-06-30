@@ -1,0 +1,205 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #111;
+  border-bottom: 1px solid rgba(255, 107, 0, 0.15);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+}
+
+.inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 68px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+/* ── Logo ── */
+.logoLink {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.logoImport {
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #ffffff;
+}
+
+.logoVide {
+  font-size: 1.35rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #ff6b00;
+}
+
+/* ── Nav ── */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.navLink {
+  color: #aaaaaa;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 8px 14px;
+  border-radius: 7px;
+  transition: color 0.2s, background 0.2s;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.navLink:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.navLink[data-admin="true"] {
+  color: #ff6b00;
+}
+
+.navLink[data-admin="true"]:hover {
+  background: rgba(255, 107, 0, 0.1);
+  color: #ff8533;
+}
+
+/* ── Right group (nav + auth) ── */
+.right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.userRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.userEmail {
+  font-size: 0.82rem;
+  color: #777;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.loginBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 20px;
+  background: #ff6b00;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 700;
+  border-radius: 8px;
+  transition: background 0.2s, transform 0.1s;
+  line-height: 1;
+}
+
+.loginBtn:hover {
+  background: #e55d00;
+  transform: translateY(-1px);
+}
+
+.loginWrap {
+  position: relative;
+}
+
+.loginTooltip {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background: #1a1a1a;
+  border: 1px solid rgba(255, 107, 0, 0.35);
+  border-radius: 10px;
+  padding: 10px 14px;
+  width: 210px;
+  font-size: 0.82rem;
+  color: #ddd;
+  line-height: 1.45;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  white-space: normal;
+  z-index: 200;
+}
+
+.loginTooltip::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: 16px;
+  width: 10px;
+  height: 10px;
+  background: #1a1a1a;
+  border-left: 1px solid rgba(255, 107, 0, 0.35);
+  border-top: 1px solid rgba(255, 107, 0, 0.35);
+  transform: rotate(45deg);
+}
+
+.loginWrap:hover .loginTooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.logoutBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 16px;
+  background: transparent;
+  color: #888;
+  border: 1.5px solid #333;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  line-height: 1;
+}
+
+.logoutBtn:hover {
+  border-color: #ff6b00;
+  color: #ff6b00;
+}
+
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .inner {
+    padding: 0 16px;
+    height: 60px;
+  }
+  .logoImport,
+  .logoVide {
+    font-size: 1.15rem;
+  }
+  .userEmail {
+    display: none;
+  }
+  .nav {
+    gap: 0;
+  }
+  .navLink {
+    font-size: 0.82rem;
+    padding: 7px 10px;
+  }
+}
