@@ -1,4 +1,4 @@
-export const SITE_URL = "https://importvd.com";
+export const SITE_URL = "https://www.importvd.com";
 export const DEFAULT_OG_IMAGE = "/img/productos/portacredencial-acrilico-rigido-vertical-cinta-naranja.webp";
 
 export function localBusinessJsonLd() {
