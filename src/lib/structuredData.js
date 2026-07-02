@@ -15,6 +15,12 @@ export function localBusinessJsonLd() {
       addressCountry: "EC",
     },
     areaServed: "Ecuador",
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "08:00",
+      closes: "17:00",
+    },
     sameAs: ["https://www.instagram.com/importvide/"],
     description:
       "Importador y distribuidor de portacredenciales, lanyards y habladores acrílicos en Ecuador. Venta al por mayor para colegios, bancos, entidades públicas y eventos.",

@@ -1,6 +1,6 @@
 // Páginas SEO de IMPORTVIDE. Precios y stock provienen del catálogo real
 // (tabla products de Supabase). Medidas confirmadas en fotos de producto.
-// Los datos pendientes están marcados como [PLACEHOLDER].
+// Operación 100% en línea, sin local físico. Horario: lunes a viernes 08:00-17:00.
 
 const IMG = "/img/productos";
 
@@ -118,7 +118,7 @@ const FAQ_MAYOREO = {
 };
 const FAQ_ENTREGAS = {
   q: "¿Hacen entregas en todo Ecuador?",
-  a: "Sí. Estamos en Guayaquil y realizamos envíos a Quito, Cuenca y todo el Ecuador por courier. El tiempo de entrega estimado es de [TIEMPO DE ENTREGA NACIONAL] para envíos nacionales y [TIEMPO DE ENTREGA GUAYAQUIL] dentro de Guayaquil.",
+  a: "Sí. Operamos 100% en línea desde Guayaquil y realizamos envíos a Quito, Cuenca y todo el Ecuador. El tiempo de entrega depende del medio de envío que elijas: al cotizar por WhatsApp te confirmamos las opciones disponibles y el tiempo exacto según tu ciudad.",
 };
 const FAQ_PERSONALIZACION = {
   q: "¿Puedo personalizar las credenciales o cintas con mi logo?",
@@ -126,7 +126,7 @@ const FAQ_PERSONALIZACION = {
 };
 const FAQ_TIEMPOS = {
   q: "¿Cuánto se demora mi pedido?",
-  a: "Los productos de stock se despachan de inmediato tras confirmar el pago. Para pedidos con personalización o volúmenes especiales, el tiempo de producción se confirma en la cotización. Escríbenos por WhatsApp y te respondemos en horario laboral.",
+  a: "Los productos de stock se despachan tras confirmar el pago; el tiempo de entrega depende del medio de envío elegido. Atendemos de lunes a viernes de 08:00 a 17:00; los pedidos del fin de semana se coordinan para entrega la semana siguiente. Escríbenos por WhatsApp y te confirmamos todo en la cotización.",
 };
 const FAQ_FACTURA = {
   q: "¿Emiten factura para empresas e instituciones?",
@@ -162,7 +162,7 @@ export const seoPages = [
       {
         h2: "Precios por volumen y disponibilidad",
         paras: [
-          "Los precios publicados en nuestro catálogo en línea son referenciales; para compras institucionales cotizamos precio por volumen según cantidad: [DESCUENTO POR VOLUMEN]. Mantenemos inventario real —más de 40.000 unidades solo en el modelo caparazón— para abastecer pedidos grandes sin esperas de importación.",
+          "Los precios publicados en nuestro catálogo en línea son referenciales; para compras institucionales el descuento por volumen se negocia directamente con el encargado de ventas por WhatsApp, según la cantidad. Mantenemos inventario real —más de 40.000 unidades solo en el modelo caparazón— para abastecer pedidos grandes sin esperas de importación.",
           "Complementa tu pedido con cordones lanyard en verde, negro o azul y clips metálicos con correa de vinilo, que también tenemos en stock.",
         ],
       },
@@ -196,7 +196,7 @@ export const seoPages = [
       "Compra portacredenciales en Guayaquil directo al importador: deslizables, caparazón, cara abierta y fundas PVC. Stock local y entrega rápida. Cotiza por WhatsApp.",
     h1: "Portacredenciales en Guayaquil",
     intro: [
-      "¿Buscas portacredenciales en Guayaquil con entrega inmediata? IMPORTVIDE tiene su bodega en la ciudad, así que tu pedido no depende de tiempos de importación ni de envíos desde otras provincias: el stock está aquí, listo para despachar en [TIEMPO DE ENTREGA GUAYAQUIL].",
+      "¿Buscas portacredenciales en Guayaquil con entrega rápida? IMPORTVIDE tiene su bodega en la ciudad, así que tu pedido no depende de tiempos de importación ni de envíos desde otras provincias: el stock está aquí, listo para despachar al confirmar tu pedido.",
       "Atendemos a colegios y unidades educativas, bancos y cooperativas, hospitales, empresas privadas y entidades públicas de Guayaquil y toda la provincia del Guayas que necesitan identificar a su personal, estudiantes o visitantes.",
     ],
     sections: [
@@ -216,8 +216,8 @@ export const seoPages = [
       {
         h2: "Ventajas de comprar en Guayaquil directo al importador",
         paras: [
-          "Comprar localmente al importador significa precio de primera mano, posibilidad de ver muestras físicas antes de un pedido grande y reposición inmediata cuando ingresa personal nuevo. Si tu institución maneja compras recurrentes, te conviene un proveedor con bodega en la ciudad y stock estable del mismo modelo.",
-          "Para compras al por mayor cotizamos precio por volumen: [DESCUENTO POR VOLUMEN]. Emitimos factura y trabajamos con procesos de compra institucionales.",
+          "Comprar localmente al importador significa precio de primera mano, entrega rápida dentro de la ciudad y reposición inmediata cuando ingresa personal nuevo. Si tu institución maneja compras recurrentes, te conviene un proveedor con bodega en la ciudad y stock estable del mismo modelo.",
+          "Para compras al por mayor, el descuento se negocia directamente con el encargado de ventas por WhatsApp según la cantidad. Emitimos factura y trabajamos con procesos de compra institucionales.",
         ],
       },
       {
@@ -235,12 +235,12 @@ export const seoPages = [
     faqs: [
       {
         q: "¿Tienen local o bodega en Guayaquil?",
-        a: "Sí, nuestra operación está en Guayaquil, en [DIRECCIÓN]. Coordinamos entregas y retiros por WhatsApp en horario [HORARIO].",
+        a: "Nuestra operación está en Guayaquil, pero trabajamos 100% en línea, sin local de atención al público. Todas las ventas y entregas se coordinan por WhatsApp de lunes a viernes de 08:00 a 17:00.",
       },
       FAQ_MAYOREO,
       {
         q: "¿En cuánto tiempo entregan dentro de Guayaquil?",
-        a: "Para productos en stock, la entrega dentro de Guayaquil toma [TIEMPO DE ENTREGA GUAYAQUIL] tras confirmar el pedido.",
+        a: "Para productos en stock, el despacho se coordina de inmediato tras confirmar el pedido; el tiempo exacto depende del medio de entrega que acordemos por WhatsApp.",
       },
       FAQ_PERSONALIZACION,
       FAQ_FACTURA,
@@ -261,7 +261,7 @@ export const seoPages = [
       "Portacredenciales para empresas e instituciones de Quito: deslizables, rígidos y fundas PVC con envío por courier a todo Pichincha. Cotiza por WhatsApp.",
     h1: "Portacredenciales en Quito",
     intro: [
-      "Si tu empresa o institución está en Quito y necesita portacredenciales al por mayor, IMPORTVIDE te los envía directamente desde su bodega de importación en Guayaquil. Despachamos por courier a Quito y todo Pichincha con un tiempo estimado de [TIEMPO DE ENTREGA NACIONAL].",
+      "Si tu empresa o institución está en Quito y necesita portacredenciales al por mayor, IMPORTVIDE te los envía directamente desde su bodega de importación en Guayaquil. Despachamos por courier a Quito y todo Pichincha; el tiempo de entrega depende del medio de envío y te lo confirmamos al cotizar.",
       "Trabajamos con ministerios y entidades públicas, bancos, universidades, colegios y organizadores de congresos y ferias en la capital. Al comprar al importador directo, obtienes mejor precio que en distribuidores locales y garantía de reposición del mismo modelo.",
     ],
     sections: [
@@ -300,12 +300,12 @@ export const seoPages = [
     faqs: [
       {
         q: "¿Hacen envíos a Quito?",
-        a: "Sí, enviamos a Quito y todo Pichincha por courier con guía de rastreo. El tiempo estimado de entrega es de [TIEMPO DE ENTREGA NACIONAL] desde la confirmación del pedido.",
+        a: "Sí, enviamos a Quito y todo Pichincha por courier con guía de rastreo. El tiempo de entrega depende del medio de envío elegido y se confirma al momento de cotizar por WhatsApp.",
       },
       FAQ_MAYOREO,
       {
         q: "¿Cuál es el costo del envío a Quito?",
-        a: "Depende del volumen del pedido. En compras grandes el envío puede incluirse en la cotización: [CONDICIONES DE ENVÍO]. Consúltanos por WhatsApp.",
+        a: "Depende del volumen del pedido y del medio de envío elegido; se confirma en la cotización por WhatsApp junto con el tiempo de entrega.",
       },
       FAQ_PERSONALIZACION,
       FAQ_TIEMPOS,
@@ -338,7 +338,7 @@ export const seoPages = [
           "Clip plástico blanco de enganche rápido: la credencial se coloca y retira en segundos.",
           "Colores disponibles en stock: verde, negro y azul.",
           "Compatibles con portacredenciales rígidos, deslizables y fundas de PVC.",
-          "Venta al por mayor con precio por volumen: [DESCUENTO POR VOLUMEN].",
+          "Venta al por mayor: el precio por volumen se negocia directamente por WhatsApp según la cantidad.",
         ],
       },
       {
@@ -403,7 +403,7 @@ export const seoPages = [
         h2: "Ventajas del acrílico frente a otros materiales",
         paras: [
           "El acrílico transparente deja todo el protagonismo al contenido impreso, no se oxida ni amarillenta como otros plásticos económicos, se limpia con un paño húmedo y resiste el uso diario en ambientes de alto tráfico. Cambiar la información es tan simple como reemplazar la hoja A4 impresa: no necesitas reimprimir señalización rígida cada vez que cambia un precio o promoción.",
-          "Para cadenas y franquicias que necesitan equipar varios locales, cotizamos por volumen: [DESCUENTO POR VOLUMEN].",
+          "Para cadenas y franquicias que necesitan equipar varios locales, cotizamos por volumen: el descuento se negocia directamente con el encargado de ventas por WhatsApp según la cantidad de tu pedido.",
         ],
       },
       {
@@ -423,11 +423,11 @@ export const seoPages = [
     faqs: [
       {
         q: "¿Venden habladores acrílicos al por mayor?",
-        a: "Sí, es nuestro fuerte. Cotizamos por volumen para restaurantes, cadenas, bancos y eventos. Los precios unitarios de catálogo son $6,70 (tipo T A4), $5,99 (escritorio A4) y $3,00 (pared A4); por cantidad aplican descuentos: [DESCUENTO POR VOLUMEN].",
+        a: "Sí, es nuestro fuerte. Cotizamos por volumen para restaurantes, cadenas, bancos y eventos. Los precios unitarios de catálogo son $6,70 (tipo T A4), $5,99 (escritorio A4) y $3,00 (pared A4); por cantidad aplican descuentos que se negocian directamente con el encargado de ventas por WhatsApp.",
       },
       {
         q: "¿Tienen otros tamaños además de A4?",
-        a: "El stock permanente es en tamaño A4. Si necesitas A5, A6 u otro formato, consúltanos disponibilidad y tiempos de importación por WhatsApp: [OTROS TAMAÑOS].",
+        a: "El stock permanente es en tamaño A4. Si necesitas A5, A6 u otro formato, consúltanos disponibilidad y tiempos de importación por WhatsApp.",
       },
       FAQ_ENTREGAS,
       FAQ_TIEMPOS,
@@ -486,12 +486,12 @@ export const seoPages = [
     faqs: [
       {
         q: "Necesito credenciales para un evento este mes, ¿llegan a tiempo?",
-        a: "Sí, siempre que haya stock (mantenemos miles de unidades). El despacho es inmediato al confirmar el pago: dentro de Guayaquil toma [TIEMPO DE ENTREGA GUAYAQUIL] y al resto del país [TIEMPO DE ENTREGA NACIONAL]. Escríbenos por WhatsApp con la fecha del evento y lo coordinamos.",
+        a: "Sí, siempre que haya stock (mantenemos miles de unidades). El despacho se hace al confirmar el pago y el tiempo de entrega depende del medio de envío. Escríbenos por WhatsApp con la fecha del evento y coordinamos para que llegue a tiempo.",
       },
       FAQ_MAYOREO,
       {
         q: "¿Imprimen también las acreditaciones con los datos de los asistentes?",
-        a: "Nuestro fuerte es el insumo físico (fundas, cordones y clips). Sobre impresión de acreditaciones, consúltanos tu caso por WhatsApp: [SERVICIO DE IMPRESIÓN].",
+        a: "Nuestro fuerte es el insumo físico (fundas, cordones y clips). Sobre impresión de acreditaciones, consúltanos tu caso por WhatsApp.",
       },
       FAQ_PERSONALIZACION,
     ],
@@ -534,7 +534,7 @@ export const seoPages = [
       {
         h2: "Cotización para instituciones educativas",
         paras: [
-          "Envíanos por WhatsApp (+593 98 011 8073) el número de estudiantes y el modelo que te interesa: te preparamos una proforma con precio por volumen ([DESCUENTO POR VOLUMEN]) y factura a nombre de la institución. Si estás en Guayaquil puedes coordinar la revisión de muestras físicas antes de decidir; al resto del país enviamos por courier en [TIEMPO DE ENTREGA NACIONAL].",
+          "Envíanos por WhatsApp (+593 98 011 8073) el número de estudiantes y el modelo que te interesa: te preparamos una proforma con precio por volumen (negociado según la cantidad) y factura a nombre de la institución. Atendemos de lunes a viernes de 08:00 a 17:00 y enviamos a todo el país; el tiempo de entrega depende del medio de envío elegido.",
         ],
       },
     ],
@@ -589,7 +589,7 @@ export const seoPages = [
       {
         h2: "Compras corporativas con factura",
         paras: [
-          "Cotizamos dotaciones completas con factura y precio por volumen ([DESCUENTO POR VOLUMEN]). Para áreas de compras y proveeduría podemos confirmar stock por escrito y sostener el mismo modelo en el tiempo, de modo que las reposiciones por ingreso de personal no generen credenciales mezcladas de distintos formatos.",
+          "Cotizamos dotaciones completas con factura; el precio por volumen se negocia directamente con el encargado de ventas por WhatsApp. Para áreas de compras y proveeduría podemos confirmar stock por escrito y sostener el mismo modelo en el tiempo, de modo que las reposiciones por ingreso de personal no generen credenciales mezcladas de distintos formatos.",
           "Completa el kit con cordones lanyard en el color de tu marca (verde, negro o azul en stock) o clips metálicos con correa de vinilo para quienes usan la credencial en el bolsillo de la camisa.",
         ],
       },
