@@ -1,16 +1,22 @@
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, Link, useLocation } from "react-router-dom";
 import { AuthProvider, useAuth } from "./context/AuthContext";
-import { useState, useEffect } from "react";
+import { useState, useEffect, lazy, Suspense } from "react";
 import { supabase } from "./lib/supabase";
 import Header from "./components/Header";
 import HeroBanner from "./components/HeroBanner";
 import ProductCard from "./components/ProductCard";
-import SalesDashboard from "./components/SalesDashboard";
+
+// Solo lo ve el admin: se carga bajo demanda para no enviar recharts a todos los visitantes
+const SalesDashboard = lazy(() => import("./components/SalesDashboard"));
 import Footer from "./components/Footer";
+import Seo from "./components/Seo";
+import { localBusinessJsonLd } from "./lib/structuredData";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ProductDetail from "./pages/ProductDetail";
 import Politicas from "./pages/Politicas";
+import SeoLanding from "./pages/SeoLanding";
+import { seoPages } from "./data/seoPages";
 import styles from "./App.module.css";
 
 const EMPTY_FORM = { name: "", price: "", stock: "", description: "", image: "", category: "" };
@@ -152,6 +158,12 @@ function Home() {
 
   return (
     <div className={styles.app}>
+      <Seo
+        title="IMPORTVIDE — Portacredenciales, Lanyards y Habladores Acrílicos en Ecuador"
+        description="Importador directo en Guayaquil de portacredenciales, lanyards y habladores acrílicos. Venta al por mayor para colegios, bancos y eventos con envío a todo Ecuador."
+        path="/"
+        jsonLd={[localBusinessJsonLd()]}
+      />
       <Header />
       <HeroBanner />
       <main className={styles.main} id="productos">
@@ -159,6 +171,14 @@ function Home() {
           <div className={styles.sectionTop}>
             <h2 className={styles.sectionTitle}>Nuestros Productos</h2>
             <p className={styles.sectionSub}>Consulta disponibilidad y precio por WhatsApp con un solo clic</p>
+            <p className={styles.sectionSub}>
+              Somos importadores directos de <Link to="/portacredenciales">portacredenciales</Link>,{" "}
+              <Link to="/lanyards-ecuador">lanyards y cintas</Link> y{" "}
+              <Link to="/habladores-acrilicos">habladores acrílicos</Link> en Guayaquil, con venta al
+              por mayor para <Link to="/portacredenciales-para-colegios">colegios</Link>,{" "}
+              <Link to="/portacredenciales-para-empresas">empresas y bancos</Link> y{" "}
+              <Link to="/credenciales-para-eventos">eventos</Link> en todo Ecuador.
+            </p>
             {isAdmin && (
               <button className={styles.addBtn} onClick={openCreate}>
                 + Agregar producto
@@ -167,7 +187,11 @@ function Home() {
           </div>
         </div>
 
-        {isAdmin && <SalesDashboard />}
+        {isAdmin && (
+          <Suspense fallback={<div className={styles.loadingProducts}>Cargando panel...</div>}>
+            <SalesDashboard />
+          </Suspense>
+        )}
 
         {loadingProducts ? (
           <div className={styles.loadingProducts}>Cargando productos...</div>
@@ -228,7 +252,7 @@ function Home() {
                   <div className={styles.previewGrid}>
                     {imagePreviews.map((src, i) => (
                       <div key={i} className={styles.previewThumb}>
-                        <img src={src} alt={`img-${i}`} className={styles.previewImg} />
+                        <img src={src} alt={`Vista previa ${i + 1}`} className={styles.previewImg} />
                         <button type="button" className={styles.removeImgBtn} onClick={() => removeImage(i)}>✕</button>
                         {i === 0 && <span className={styles.mainBadge}>Principal</span>}
                       </div>
@@ -273,6 +297,12 @@ function Home() {
   );
 }
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  return null;
+}
+
 function AdminRoute() {
   const { user, role, loading } = useAuth();
   if (loading) return <div className={styles.loading}>Cargando...</div>;
@@ -291,6 +321,7 @@ export default function App() {
   return (
     <BrowserRouter>
       <AuthProvider>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login"    element={<AuthRoute><Login /></AuthRoute>} />
@@ -298,6 +329,9 @@ export default function App() {
           <Route path="/admin"    element={<AdminRoute />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/politicas" element={<Politicas />} />
+          {seoPages.map((page) => (
+            <Route key={page.slug} path={`/${page.slug}`} element={<SeoLanding page={page} />} />
+          ))}
           <Route path="*"         element={<Navigate to="/" replace />} />
         </Routes>
       </AuthProvider>

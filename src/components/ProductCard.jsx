@@ -15,7 +15,7 @@ export default function ProductCard({ product, isAdmin, onEdit, onDelete }) {
 
       <a href={detailUrl} target="_blank" rel="noopener noreferrer" className={styles.cardLink}>
         <div className={styles.imageWrap}>
-          <img src={product.image} alt={product.name} className={styles.image} />
+          <img src={product.image} alt={product.name} className={styles.image} loading="lazy" decoding="async" />
           {product.category && <span className={styles.badge}>{product.category}</span>}
         </div>
         <div className={styles.body}>

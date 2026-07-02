@@ -24,8 +24,11 @@ export default function Header() {
         {/* Nav + Auth agrupados a la derecha */}
         <div className={styles.right}>
           <nav className={styles.nav}>
-            <a href="#productos" className={styles.navLink}>Productos</a>
-            <a href="#contacto" className={styles.navLink}>Contacto</a>
+            <a href="/#productos" className={styles.navLink}>Productos</a>
+            <Link to="/portacredenciales" className={styles.navLink}>Portacredenciales</Link>
+            <Link to="/lanyards-ecuador" className={styles.navLink}>Lanyards</Link>
+            <Link to="/habladores-acrilicos" className={styles.navLink}>Habladores</Link>
+            <a href="/#contacto" className={styles.navLink}>Contacto</a>
             {role === "admin" && (
               <Link to="/admin" className={styles.navLink} data-admin="true">
                 ⚙ Admin

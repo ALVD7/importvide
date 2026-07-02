@@ -4,6 +4,8 @@ import { supabase } from "../lib/supabase";
 import { buildWhatsAppLink } from "../data/products";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Seo from "../components/Seo";
+import { productJsonLd } from "../lib/structuredData";
 import styles from "./ProductDetail.module.css";
 
 export default function ProductDetail() {
@@ -54,6 +56,25 @@ export default function ProductDetail() {
 
   return (
     <div className={styles.page}>
+      <Seo
+        title={`${product.name} | IMPORTVIDE Ecuador`}
+        description={
+          product.description ||
+          `${product.name} disponible en IMPORTVIDE. Venta al por mayor en Guayaquil con envío a todo Ecuador. Consulta precio y stock por WhatsApp.`
+        }
+        path={`/product/${product.id}`}
+        image={product.image}
+        jsonLd={[
+          productJsonLd({
+            id: product.id,
+            name: product.name,
+            price: Number(product.price),
+            inStock: product.stock > 0,
+            img: product.image ?? "",
+            alt: product.description || product.name,
+          }),
+        ]}
+      />
       <Header />
       <main className={styles.main}>
         <Link to="/" className={styles.breadcrumb}>← Volver al catálogo</Link>
@@ -67,8 +88,9 @@ export default function ProductDetail() {
                   <img
                     key={currentIdx}
                     src={allImages[currentIdx]}
-                    alt={`${product.name} ${currentIdx + 1}`}
+                    alt={`${product.name} — foto ${currentIdx + 1} de ${allImages.length}`}
                     className={styles.mainImage}
+                    decoding="async"
                   />
                   {allImages.length > 1 && (
                     <>
@@ -108,7 +130,7 @@ export default function ProductDetail() {
                     className={`${styles.thumb} ${i === currentIdx ? styles.thumbActive : ""}`}
                     onClick={() => setCurrentIdx(i)}
                   >
-                    <img src={src} alt={`thumb-${i}`} className={styles.thumbImg} />
+                    <img src={src} alt={`${product.name} miniatura ${i + 1}`} className={styles.thumbImg} loading="lazy" />
                   </button>
                 ))}
               </div>

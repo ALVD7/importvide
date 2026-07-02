@@ -54,6 +54,17 @@ export default function Footer() {
           </a>
         </div>
 
+        <nav className={styles.seoNav} aria-label="Categorías de productos">
+          <Link to="/portacredenciales" className={styles.seoNavLink}>Portacredenciales</Link>
+          <Link to="/portacredenciales-guayaquil" className={styles.seoNavLink}>Portacredenciales Guayaquil</Link>
+          <Link to="/portacredenciales-quito" className={styles.seoNavLink}>Portacredenciales Quito</Link>
+          <Link to="/lanyards-ecuador" className={styles.seoNavLink}>Lanyards Ecuador</Link>
+          <Link to="/habladores-acrilicos" className={styles.seoNavLink}>Habladores acrílicos</Link>
+          <Link to="/credenciales-para-eventos" className={styles.seoNavLink}>Credenciales para eventos</Link>
+          <Link to="/portacredenciales-para-colegios" className={styles.seoNavLink}>Para colegios</Link>
+          <Link to="/portacredenciales-para-empresas" className={styles.seoNavLink}>Para empresas y bancos</Link>
+        </nav>
+
         <Link to="/politicas" className={styles.policyLink}>
           Política de devoluciones
         </Link>
