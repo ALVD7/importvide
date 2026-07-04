@@ -103,6 +103,14 @@ for (const page of seoPages) {
     <meta property="og:locale" content="es_EC" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="preconnect" href="https://cbfvcyxrrpseasuujkcz.supabase.co" crossorigin />
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HPFQPCHE9W"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-HPFQPCHE9W');
+    </script>
     ${baseStyle}
     ${assetTags}
     ${jsonLd}
