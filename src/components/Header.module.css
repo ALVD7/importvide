@@ -204,7 +204,7 @@
 }
 
 /* ── Mobile / tablet ── */
-@media (max-width: 900px) {
+@media (max-width: 960px) {
   .menuBtn {
     display: inline-flex;
   }

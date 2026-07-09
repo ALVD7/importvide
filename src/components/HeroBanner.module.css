@@ -160,6 +160,16 @@
   line-height: 1.6;
 }
 
+/* Tablet */
+@media (max-width: 900px) {
+  .scene {
+    padding: 72px 24px 60px;
+  }
+  .title {
+    font-size: 2.1rem;
+  }
+}
+
 @media (max-width: 600px) {
   .scene {
     padding: 56px 20px 48px;

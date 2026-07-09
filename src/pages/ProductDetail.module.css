@@ -277,12 +277,23 @@
   box-shadow: 0 8px 24px rgba(37,211,102,0.4);
 }
 
-@media (max-width: 700px) {
+/* Tablet: mantiene 2 columnas pero con menos separación */
+@media (max-width: 1024px) {
+  .layout {
+    gap: 32px;
+  }
+}
+
+/* Tablet vertical y móvil: una sola columna */
+@media (max-width: 820px) {
   .layout {
     grid-template-columns: 1fr;
     gap: 28px;
   }
   .imageCol { position: static; }
+}
+
+@media (max-width: 700px) {
   .name { font-size: 1.4rem; }
   .price { font-size: 1.8rem; }
 }
