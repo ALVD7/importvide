@@ -182,7 +182,59 @@
   color: #ff6b00;
 }
 
-/* ── Mobile ── */
+/* ── Hamburguesa (oculta en escritorio) ── */
+.menuBtn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 1.5px solid #333;
+  border-radius: 8px;
+  color: #ddd;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+  flex-shrink: 0;
+}
+
+.menuBtn:hover {
+  border-color: #ff6b00;
+  color: #ff6b00;
+}
+
+/* ── Mobile / tablet ── */
+@media (max-width: 900px) {
+  .menuBtn {
+    display: inline-flex;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .navOpen {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #111;
+    border-bottom: 1px solid rgba(255, 107, 0, 0.25);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
+    padding: 8px 16px 14px;
+    gap: 2px;
+  }
+
+  .navOpen .navLink {
+    padding: 13px 12px;
+    font-size: 0.95rem;
+    border-radius: 8px;
+  }
+}
+
 @media (max-width: 600px) {
   .inner {
     padding: 0 16px;
@@ -195,11 +247,11 @@
   .userEmail {
     display: none;
   }
-  .nav {
-    gap: 0;
+  .loginBtn {
+    padding: 0 14px;
+    font-size: 0.84rem;
   }
-  .navLink {
-    font-size: 0.82rem;
-    padding: 7px 10px;
+  .loginTooltip {
+    display: none;
   }
 }
