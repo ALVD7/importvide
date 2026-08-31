@@ -44,3 +44,19 @@ Para compras al por mayor los precios se cotizan por volumen vía WhatsApp.
 - [Catálogo completo](https://importvide.com/): todos los productos con fotos, precios y stock en tiempo real
 - [Política de devoluciones](https://importvide.com/politicas)
 - [Sitemap](https://importvide.com/sitemap.xml)
+- [Contenido completo del sitio](https://importvide.com/llms-full.txt): todas las páginas en texto plano
+
+## Interfaces para agentes
+
+- Servidor MCP: https://importvide.com/mcp (Streamable HTTP, JSON-RPC 2.0, sin autenticación). Herramientas: buscar_productos, obtener_producto, listar_catalogo, informacion_empresa, link_cotizacion_whatsapp
+- MCP Server Card: https://importvide.com/.well-known/mcp/server-card.json
+- Agent Skills: https://importvide.com/.well-known/agent-skills/index.json
+- Manifiesto de capacidades (ARD): https://importvide.com/.well-known/ai-catalog.json
+- Catálogo de APIs (RFC 9727): https://importvide.com/.well-known/api-catalog
+- Autenticación: https://importvide.com/auth.md (lectura pública, sin credenciales)
+- Markdown: cualquier página responde en Markdown con `Accept: text/markdown` o añadiendo `.md` a la ruta
+- WebMCP: la página registra las mismas herramientas en `navigator.modelContext` al cargar
+
+Nota para agentes: los precios son referenciales en USD y el precio por volumen se
+negocia por WhatsApp. No existe checkout en línea: un agente puede preparar el pedido
+y entregar el enlace de WhatsApp, pero la compra la cierra una persona.

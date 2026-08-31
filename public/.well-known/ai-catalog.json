@@ -1,0 +1,60 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "IMPORTVIDE",
+    "identifier": "did:web:importvide.com",
+    "description": "Importador directo y distribuidor mayorista de portacredenciales, lanyards y habladores acrílicos en Guayaquil, Ecuador.",
+    "url": "https://importvide.com"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:importvide.com:server:catalogo",
+      "displayName": "Servidor MCP del catálogo IMPORTVIDE",
+      "description": "Herramientas MCP para buscar productos, consultar precios en USD, medidas y stock, y generar enlaces de cotización por WhatsApp.",
+      "type": "application/mcp-server-card+json",
+      "url": "https://importvide.com/.well-known/mcp/server-card.json",
+      "representativeQueries": [
+        "cuánto cuesta un portacredencial deslizable en Ecuador",
+        "necesito 500 lanyards al por mayor en Guayaquil",
+        "qué medidas tiene el portacarnet para credenciales de 8,5 x 5,5 cm",
+        "precio de habladores acrílicos A4 para menú de restaurante",
+        "quién vende credenciales para eventos en Quito"
+      ]
+    },
+    {
+      "identifier": "urn:air:importvide.com:doc:llms-txt",
+      "displayName": "Resumen IMPORTVIDE para modelos de lenguaje",
+      "description": "Descripción del negocio, categorías, precios de referencia, envíos y datos de contacto en formato llms.txt.",
+      "type": "text/plain",
+      "url": "https://importvide.com/llms.txt",
+      "representativeQueries": [
+        "qué vende IMPORTVIDE",
+        "horario y contacto de IMPORTVIDE Guayaquil",
+        "hacen envíos a todo Ecuador y emiten factura"
+      ]
+    },
+    {
+      "identifier": "urn:air:importvide.com:skills:index",
+      "displayName": "Agent Skills de IMPORTVIDE",
+      "description": "Instrucciones para que un agente cotice al por mayor, elija el portacredencial correcto y consulte el catálogo.",
+      "type": "application/json",
+      "url": "https://importvide.com/.well-known/agent-skills/index.json",
+      "representativeQueries": [
+        "cómo pido una cotización al por mayor a IMPORTVIDE",
+        "qué portacredencial me sirve para una tarjeta de proximidad",
+        "cómo consulto el catálogo de IMPORTVIDE desde un agente"
+      ]
+    },
+    {
+      "identifier": "urn:air:importvide.com:doc:api-catalog",
+      "displayName": "API Catalog de IMPORTVIDE (RFC 9727)",
+      "description": "Linkset con las APIs y documentos legibles por máquina publicados por IMPORTVIDE.",
+      "type": "application/linkset+json",
+      "url": "https://importvide.com/.well-known/api-catalog",
+      "representativeQueries": [
+        "qué APIs expone importvide.com",
+        "dónde está la documentación machine-readable de IMPORTVIDE"
+      ]
+    }
+  ]
+}

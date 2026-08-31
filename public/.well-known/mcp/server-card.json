@@ -1,0 +1,18 @@
+{
+  "serverInfo": {
+    "name": "IMPORTVIDE Catálogo",
+    "version": "1.0.0"
+  },
+  "description": "Catálogo mayorista de IMPORTVIDE (Guayaquil, Ecuador): portacredenciales, lanyards, habladores acrílicos y credenciales para eventos. Permite buscar productos, consultar precios en USD, medidas y stock, y generar un enlace de cotización por WhatsApp.",
+  "url": "https://importvide.com/mcp",
+  "transport": {
+    "type": "streamable-http",
+    "endpoint": "https://importvide.com/mcp"
+  },
+  "capabilities": {
+    "tools": true,
+    "resources": false,
+    "prompts": false
+  },
+  "documentation": "https://importvide.com/llms.txt"
+}

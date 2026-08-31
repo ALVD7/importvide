@@ -1,7 +1,41 @@
+# IMPORTVIDE — https://importvide.com
+# Portacredenciales, lanyards y habladores acrílicos al por mayor en Ecuador.
+# Agentes de IA: empiecen por /llms.txt (resumen), /.well-known/ai-catalog.json
+# (capacidades) o el servidor MCP en https://importvide.com/mcp
+
 User-agent: *
 Allow: /
 Disallow: /admin
 Disallow: /login
 Disallow: /register
+Content-Signal: search=yes, ai-input=yes, ai-train=no
+
+# Buscadores y asistentes de IA: acceso explícito al catálogo público.
+# search=yes    → pueden indexarnos y mostrarnos en resultados
+# ai-input=yes  → pueden citar el catálogo al responder preguntas (RAG)
+# ai-train=no   → no autorizamos el uso del contenido para entrenar modelos
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: meta-externalagent
+User-agent: Amazonbot
+User-agent: DuckAssistBot
+User-agent: MistralAI-User
+User-agent: cohere-ai
+User-agent: CCBot
+User-agent: YouBot
+Allow: /
+Disallow: /admin
+Disallow: /login
+Disallow: /register
+Content-Signal: search=yes, ai-input=yes, ai-train=no
 
 Sitemap: https://importvide.com/sitemap.xml
+Agentmap: https://importvide.com/.well-known/ai-catalog.json

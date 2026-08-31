@@ -1,3 +1,92 @@
 {
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    { "source": "/mcp", "destination": "/api/mcp" },
+    {
+      "source": "/",
+      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
+      "destination": "/index.md"
+    },
+    {
+      "source": "/:slug(portacredenciales-guayaquil|portacredenciales-para-colegios|portacredenciales-para-empresas|portacredenciales-quito|portacredenciales|credenciales-para-eventos|habladores-acrilicos|lanyards-ecuador)",
+      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
+      "destination": "/:slug.md"
+    },
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "headers": [
+    {
+      "source": "/",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "</.well-known/api-catalog>; rel=\"api-catalog\", </.well-known/mcp/server-card.json>; rel=\"service-desc\"; type=\"application/json\", </llms.txt>; rel=\"describedby\"; type=\"text/plain\", </llms-full.txt>; rel=\"service-doc\"; type=\"text/plain\", </.well-known/ai-catalog.json>; rel=\"ai-catalog\"; type=\"application/json\", </index.md>; rel=\"alternate\"; type=\"text/markdown\""
+        }
+      ]
+    },
+    {
+      "source": "/:slug(portacredenciales-guayaquil|portacredenciales-para-colegios|portacredenciales-para-empresas|portacredenciales-quito|portacredenciales|credenciales-para-eventos|habladores-acrilicos|lanyards-ecuador)",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "</.well-known/api-catalog>; rel=\"api-catalog\", </.well-known/mcp/server-card.json>; rel=\"service-desc\"; type=\"application/json\", </llms.txt>; rel=\"describedby\"; type=\"text/plain\", </.well-known/ai-catalog.json>; rel=\"ai-catalog\"; type=\"application/json\""
+        }
+      ]
+    },
+    {
+      "source": "/product/(.*)",
+      "headers": [
+        {
+          "key": "Link",
+          "value": "</.well-known/api-catalog>; rel=\"api-catalog\", </.well-known/mcp/server-card.json>; rel=\"service-desc\"; type=\"application/json\", </llms.txt>; rel=\"describedby\"; type=\"text/plain\""
+        }
+      ]
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
+      "headers": [{ "key": "Content-Type", "value": "text/markdown; charset=utf-8" }]
+    },
+    {
+      "source": "/:slug(portacredenciales-guayaquil|portacredenciales-para-colegios|portacredenciales-para-empresas|portacredenciales-quito|portacredenciales|credenciales-para-eventos|habladores-acrilicos|lanyards-ecuador)",
+      "has": [{ "type": "header", "key": "accept", "value": ".*text/markdown.*" }],
+      "headers": [{ "key": "Content-Type", "value": "text/markdown; charset=utf-8" }]
+    },
+    {
+      "source": "/(.*).md",
+      "headers": [
+        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
+      "source": "/.well-known/api-catalog",
+      "headers": [
+        { "key": "Content-Type", "value": "application/linkset+json" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
+      "source": "/.well-known/(.*)",
+      "headers": [{ "key": "Access-Control-Allow-Origin", "value": "*" }]
+    },
+    {
+      "source": "/.well-known/agent-skills/(.*)/SKILL.md",
+      "headers": [{ "key": "Content-Type", "value": "text/markdown; charset=utf-8" }]
+    },
+    {
+      "source": "/auth.md",
+      "headers": [
+        { "key": "Content-Type", "value": "text/markdown; charset=utf-8" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    },
+    {
+      "source": "/(llms.txt|llms-full.txt)",
+      "headers": [
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" },
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    }
+  ]
 }

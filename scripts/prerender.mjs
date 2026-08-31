@@ -102,6 +102,11 @@ for (const page of seoPages) {
     <meta property="og:image" content="${ogImage}" />
     <meta property="og:locale" content="es_EC" />
     <meta name="twitter:card" content="summary_large_image" />
+    <link rel="alternate" type="text/markdown" href="/${page.slug}.md" title="Esta página en Markdown" />
+    <link rel="describedby" type="text/plain" href="/llms.txt" />
+    <link rel="ai-catalog" type="application/json" href="/.well-known/ai-catalog.json" />
+    <link rel="service-desc" type="application/json" href="/.well-known/mcp/server-card.json" />
+    <link rel="api-catalog" href="/.well-known/api-catalog" />
     <link rel="preconnect" href="https://cbfvcyxrrpseasuujkcz.supabase.co" crossorigin />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HPFQPCHE9W"></script>
     <script>

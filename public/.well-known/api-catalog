@@ -1,0 +1,48 @@
+{
+  "linkset": [
+    {
+      "anchor": "https://importvide.com/mcp",
+      "service-desc": [
+        {
+          "href": "https://importvide.com/.well-known/mcp/server-card.json",
+          "type": "application/json",
+          "title": "MCP Server Card — catálogo IMPORTVIDE"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://importvide.com/llms.txt",
+          "type": "text/plain",
+          "title": "Resumen del negocio y del catálogo para modelos de lenguaje"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://importvide.com/api/health"
+        }
+      ]
+    },
+    {
+      "anchor": "https://importvide.com/",
+      "describedby": [
+        {
+          "href": "https://importvide.com/llms.txt",
+          "type": "text/plain",
+          "title": "IMPORTVIDE en formato llms.txt"
+        },
+        {
+          "href": "https://importvide.com/.well-known/ai-catalog.json",
+          "type": "application/json",
+          "title": "Manifiesto ARD de capacidades para agentes"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://importvide.com/llms-full.txt",
+          "type": "text/plain",
+          "title": "Contenido completo del sitio en texto plano"
+        }
+      ]
+    }
+  ]
+}
