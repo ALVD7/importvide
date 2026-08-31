@@ -10,18 +10,18 @@ Datos clave:
 - Moneda: USD · Emite factura para empresas e instituciones
 - Descuentos por volumen: se negocian directamente por WhatsApp según la cantidad
 - Envíos: a todo Ecuador; el tiempo de entrega depende del medio de envío elegido
-- Web: https://www.importvd.com
+- Web: https://importvide.com
 
 ## Categorías de productos
 
-- [Portacredenciales](https://www.importvd.com/portacredenciales): guía completa de portacredenciales rígidos, deslizables, de acrílico y flexibles tipo carnet. Medidas estándar: 11 × 7 cm exterior para carnet de 8,5 × 5,5 cm; fundas PVC de 6 × 9 cm (vertical) y 9 × 6 cm (horizontal).
-- [Portacredenciales en Guayaquil](https://www.importvd.com/portacredenciales-guayaquil): stock local con despacho rápido en Guayaquil.
-- [Portacredenciales en Quito](https://www.importvd.com/portacredenciales-quito): envío por courier a Quito y Pichincha.
-- [Lanyards y cintas portacredenciales](https://www.importvd.com/lanyards-ecuador): cordones en verde, negro y azul con clip plástico; más de 20.000 unidades en stock.
-- [Habladores acrílicos y exhibidores](https://www.importvd.com/habladores-acrilicos): habladores de mesa tipo T A4 ($6,70), de escritorio A4 ($5,99) y de pared A4 ($3,00); para menús, precios y señalización.
-- [Credenciales para eventos](https://www.importvd.com/credenciales-para-eventos): fundas PVC flexibles para staff, prensa y asistentes de congresos, ferias y conciertos.
-- [Portacredenciales para colegios](https://www.importvd.com/portacredenciales-para-colegios): porta carnets estudiantiles resistentes con precios por volumen para instituciones educativas.
-- [Portacredenciales para empresas y bancos](https://www.importvd.com/portacredenciales-para-empresas): identificación corporativa, compatible con tarjetas de proximidad/RFID.
+- [Portacredenciales](https://importvide.com/portacredenciales): guía completa de portacredenciales rígidos, deslizables, de acrílico y flexibles tipo carnet. Medidas estándar: 11 × 7 cm exterior para carnet de 8,5 × 5,5 cm; fundas PVC de 6 × 9 cm (vertical) y 9 × 6 cm (horizontal).
+- [Portacredenciales en Guayaquil](https://importvide.com/portacredenciales-guayaquil): stock local con despacho rápido en Guayaquil.
+- [Portacredenciales en Quito](https://importvide.com/portacredenciales-quito): envío por courier a Quito y Pichincha.
+- [Lanyards y cintas portacredenciales](https://importvide.com/lanyards-ecuador): cordones en verde, negro y azul con clip plástico; más de 20.000 unidades en stock.
+- [Habladores acrílicos y exhibidores](https://importvide.com/habladores-acrilicos): habladores de mesa tipo T A4 ($6,70), de escritorio A4 ($5,99) y de pared A4 ($3,00); para menús, precios y señalización.
+- [Credenciales para eventos](https://importvide.com/credenciales-para-eventos): fundas PVC flexibles para staff, prensa y asistentes de congresos, ferias y conciertos.
+- [Portacredenciales para colegios](https://importvide.com/portacredenciales-para-colegios): porta carnets estudiantiles resistentes con precios por volumen para instituciones educativas.
+- [Portacredenciales para empresas y bancos](https://importvide.com/portacredenciales-para-empresas): identificación corporativa, compatible con tarjetas de proximidad/RFID.
 
 ## Catálogo (precios de referencia en USD)
 
@@ -41,6 +41,6 @@ Para compras al por mayor los precios se cotizan por volumen vía WhatsApp.
 
 ## Recursos
 
-- [Catálogo completo](https://www.importvd.com/): todos los productos con fotos, precios y stock en tiempo real
-- [Política de devoluciones](https://www.importvd.com/politicas)
-- [Sitemap](https://www.importvd.com/sitemap.xml)
+- [Catálogo completo](https://importvide.com/): todos los productos con fotos, precios y stock en tiempo real
+- [Política de devoluciones](https://importvide.com/politicas)
+- [Sitemap](https://importvide.com/sitemap.xml)
