@@ -32,6 +32,10 @@
       "destination": "/api/mcp"
     },
     {
+      "source": "/.well-known/(.*)",
+      "destination": "/api/well-known"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
