@@ -18,11 +18,14 @@ const desdeCatalogoEstatico = () =>
     category: "",
   }));
 
+// Una fila con precio nulo o texto no debe tumbar el build.
+const numero = (v) => (Number.isFinite(Number(v)) ? Number(v) : 0);
+
 const normalizar = (row) => ({
   id: row.id,
-  name: row.name,
-  price: Number(row.price),
-  stock: Number.isFinite(Number(row.stock)) ? Number(row.stock) : null,
+  name: row.name ?? "Producto",
+  price: numero(row.price),
+  stock: row.stock === null || row.stock === undefined ? null : numero(row.stock),
   inStock: Number(row.stock) > 0,
   description: row.description ?? "",
   image: row.images?.[0] ?? row.image ?? "",

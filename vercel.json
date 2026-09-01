@@ -26,7 +26,7 @@
       "permanent": false
     },
     {
-      "source": "/product/:id",
+      "source": "/product/:id([0-9a-fA-F-]+)",
       "has": [
         {
           "type": "header",
