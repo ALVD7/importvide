@@ -134,7 +134,7 @@ const paginas = seoPages.map((page) => {
 
 // Markdown de cada ficha de producto (mismo origen que el prerender HTML).
 const fichas = await cargarProductos();
-mkdirSync(distPath("product/"), { recursive: true });
+
 for (const p of fichas) {
   const descripcion =
     p.description ||
@@ -144,8 +144,9 @@ for (const p of fichas) {
     .map((page) => `- [${page.h1}](${SITE_URL}/${page.slug})`)
     .join("\n");
 
+  mkdirSync(distPath(`product/${p.id}/`), { recursive: true });
   writeFileSync(
-    distPath(`product/${p.id}.md`),
+    distPath(`product/${p.id}/index.md`),
     `# ${p.name}
 
 - **URL canónica:** ${SITE_URL}/product/${p.id}

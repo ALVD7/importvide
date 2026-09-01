@@ -198,7 +198,7 @@ for (const producto of productos) {
       description,
       canonical,
       ogImage: producto.image,
-      markdown: `/product/${producto.id}.md`,
+      markdown: `/product/${producto.id}/index.md`,
       jsonLd: ldTags([
         breadcrumbJsonLd([
           { name: "Inicio", path: "/" },

@@ -26,7 +26,7 @@
       "permanent": false
     },
     {
-      "source": "/product/:id([0-9a-fA-F-]+)",
+      "source": "/product/:id",
       "has": [
         {
           "type": "header",
@@ -34,7 +34,7 @@
           "value": ".*text/markdown.*"
         }
       ],
-      "destination": "/product/:id.md",
+      "destination": "/product/:id/index.md",
       "permanent": false
     }
   ],
