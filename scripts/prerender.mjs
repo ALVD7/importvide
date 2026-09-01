@@ -278,6 +278,32 @@ const indexHtml = shell
 writeFileSync(new URL("index.html", dist), indexHtml);
 console.log("prerender: / (portada)");
 
+// ── Sitemap ──────────────────────────────────────────────────────────────
+// Se genera aquí para que liste exactamente las páginas que se acaban de
+// prerenderizar: si se añade un producto desde el panel, entra solo.
+const hoy = new Date().toISOString().slice(0, 10);
+// Fecha del copy de las landings y de la página de políticas: vive en el
+// repositorio, así que solo cambia cuando se edita ese texto.
+const LASTMOD_CONTENIDO = "2026-07-02";
+
+const entrada = (loc, lastmod, priority) =>
+  `  <url><loc>${loc}</loc><lastmod>${lastmod}</lastmod><priority>${priority}</priority></url>`;
+
+const sitemap = [
+  '<?xml version="1.0" encoding="UTF-8"?>',
+  '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+  entrada(`${SITE_URL}/`, hoy, "1.0"),
+  ...seoPages.map((p) => entrada(`${SITE_URL}/${p.slug}`, LASTMOD_CONTENIDO, "0.9")),
+  ...productos.map((p) =>
+    entrada(`${SITE_URL}/product/${p.id}`, (p.createdAt ?? hoy).slice(0, 10), "0.7")
+  ),
+  entrada(`${SITE_URL}/politicas`, LASTMOD_CONTENIDO, "0.3"),
+  "</urlset>",
+].join("\n");
+
+writeFileSync(new URL("sitemap.xml", dist), `${sitemap}\n`);
+console.log(`prerender: sitemap.xml con ${productos.length + seoPages.length + 2} URLs`);
+
 console.log(
   `prerender OK: portada + ${productos.length} fichas + ${seoPages.length} landings`
 );

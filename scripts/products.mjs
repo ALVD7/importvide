@@ -16,6 +16,7 @@ const desdeCatalogoEstatico = () =>
     description: p.alt,
     image: `${IMG_BASE}${p.img}`,
     category: "",
+    createdAt: null,
   }));
 
 // Una fila con precio nulo o texto no debe tumbar el build.
@@ -30,6 +31,7 @@ const normalizar = (row) => ({
   description: row.description ?? "",
   image: row.images?.[0] ?? row.image ?? "",
   category: row.category ?? "",
+  createdAt: row.created_at ?? null,
 });
 
 export async function cargarProductos() {
@@ -43,7 +45,7 @@ export async function cargarProductos() {
 
   try {
     const res = await fetch(
-      `${url}/rest/v1/products?select=id,name,price,stock,description,image,images,category&order=created_at.desc`,
+      `${url}/rest/v1/products?select=id,name,price,stock,description,image,images,category,created_at&order=created_at.desc`,
       { headers: { apikey: key, Authorization: `Bearer ${key}` } }
     );
     if (!res.ok) throw new Error(`Supabase respondió ${res.status}`);
