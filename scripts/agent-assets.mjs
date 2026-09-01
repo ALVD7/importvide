@@ -11,6 +11,7 @@ import { readFileSync, writeFileSync, readdirSync, existsSync, mkdirSync } from 
 import { createHash } from "node:crypto";
 import { seoPages, CATALOG } from "../src/data/seoPages.js";
 import { productos, CATEGORIAS, EMPRESA, SITE_URL } from "../src/data/agentCatalog.js";
+import { cargarProductos } from "./products.mjs";
 
 const dist = new URL("../dist/", import.meta.url);
 const distPath = (p) => new URL(p, dist);
@@ -131,6 +132,35 @@ const paginas = seoPages.map((page) => {
   return md;
 });
 
+// Markdown de cada ficha de producto (mismo origen que el prerender HTML).
+const fichas = await cargarProductos();
+mkdirSync(distPath("product/"), { recursive: true });
+for (const p of fichas) {
+  const descripcion =
+    p.description ||
+    `${p.name} disponible en IMPORTVIDE. Venta al por mayor en Guayaquil con envío a todo Ecuador.`;
+  const relacionadas = seoPages
+    .filter((page) => page.products.some((k) => CATALOG[k]?.id === p.id))
+    .map((page) => `- [${page.h1}](${SITE_URL}/${page.slug})`)
+    .join("\n");
+
+  writeFileSync(
+    distPath(`product/${p.id}.md`),
+    `# ${p.name}
+
+- **URL canónica:** ${SITE_URL}/product/${p.id}
+- **Precio referencial:** $${p.price.toFixed(2)} USD
+- **Disponibilidad:** ${p.inStock ? `en stock${p.stock ? ` (${p.stock} unidades)` : ""}` : "sin stock"}
+${p.category ? `- **Categoría:** ${p.category}\n` : ""}${p.image ? `- **Foto:** ${p.image}\n` : ""}
+## Descripción
+
+${descripcion}
+
+El precio por volumen se cotiza por WhatsApp: ${EMPRESA.whatsapp_url}
+${relacionadas ? `\n## Categorías relacionadas\n\n${relacionadas}\n` : ""}${PIE}`
+  );
+}
+
 writeFileSync(
   distPath("llms-full.txt"),
   [
@@ -174,5 +204,5 @@ writeFileSync(
 );
 
 console.log(
-  `agent-assets OK: ${paginas.length + 1} Markdown, llms-full.txt y ${skills.length} agent skills`
+  `agent-assets OK: ${paginas.length + 1 + fichas.length} Markdown, llms-full.txt y ${skills.length} agent skills`
 );

@@ -24,6 +24,18 @@
       ],
       "destination": "/:slug.md",
       "permanent": false
+    },
+    {
+      "source": "/product/:id",
+      "has": [
+        {
+          "type": "header",
+          "key": "accept",
+          "value": ".*text/markdown.*"
+        }
+      ],
+      "destination": "/product/:id.md",
+      "permanent": false
     }
   ],
   "rewrites": [
