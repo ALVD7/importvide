@@ -1,0 +1,31 @@
+.reveal {
+  opacity: 0;
+  transition:
+    opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.up      { transform: translate3d(0, 38px, 0); }
+.down    { transform: translate3d(0, -32px, 0); }
+.left    { transform: translate3d(-42px, 0, 0); }
+.right   { transform: translate3d(42px, 0, 0); }
+.scale   { transform: scale(0.92); }
+.blur    { filter: blur(14px); transform: translate3d(0, 24px, 0); }
+.fade    { transform: none; }
+
+.in {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
+  }
+}

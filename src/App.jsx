@@ -4,6 +4,11 @@ import { useState, useEffect, lazy, Suspense } from "react";
 import { supabase } from "./lib/supabase";
 import Header from "./components/Header";
 import HeroBanner from "./components/HeroBanner";
+import Marquee from "./components/Marquee";
+import ScrollStory from "./components/ScrollStory";
+import StatsBand from "./components/StatsBand";
+import CtaBand from "./components/CtaBand";
+import Reveal from "./components/Reveal";
 import ProductCard from "./components/ProductCard";
 
 // Solo lo ve el admin: se carga bajo demanda para no enviar recharts a todos los visitantes
@@ -166,19 +171,29 @@ function Home() {
       />
       <Header />
       <HeroBanner />
+      <Marquee />
+      <ScrollStory />
+      <StatsBand productCount={products.length} />
       <main className={styles.main} id="productos">
         <div className={styles.sectionHeader}>
           <div className={styles.sectionTop}>
-            <h2 className={styles.sectionTitle}>Nuestros Productos</h2>
-            <p className={styles.sectionSub}>Consulta disponibilidad y precio por WhatsApp con un solo clic</p>
-            <p className={styles.sectionSub}>
+            <Reveal as="span" variant="fade" className={styles.sectionKicker}>
+              Catálogo
+            </Reveal>
+            <Reveal as="h2" delay={60} className={styles.sectionTitle}>
+              Nuestros productos
+            </Reveal>
+            <Reveal as="p" delay={120} className={styles.sectionSub}>
+              Consulta disponibilidad y precio por WhatsApp con un solo clic
+            </Reveal>
+            <Reveal as="p" delay={180} className={styles.sectionSub}>
               Somos importadores directos de <Link to="/portacredenciales">portacredenciales</Link>,{" "}
               <Link to="/lanyards-ecuador">lanyards y cintas</Link> y{" "}
               <Link to="/habladores-acrilicos">habladores acrílicos</Link> en Guayaquil, con venta al
               por mayor para <Link to="/portacredenciales-para-colegios">colegios</Link>,{" "}
               <Link to="/portacredenciales-para-empresas">empresas y bancos</Link> y{" "}
               <Link to="/credenciales-para-eventos">eventos</Link> en todo Ecuador.
-            </p>
+            </Reveal>
             {isAdmin && (
               <button className={styles.addBtn} onClick={openCreate}>
                 + Agregar producto
@@ -199,18 +214,20 @@ function Home() {
           <div className={styles.empty}>No hay productos aún.</div>
         ) : (
           <div className={styles.grid}>
-            {products.map((product) => (
-              <ProductCard
-                key={product.id}
-                product={product}
-                isAdmin={isAdmin}
-                onEdit={openEdit}
-                onDelete={setDeleteTarget}
-              />
+            {products.map((product, i) => (
+              <Reveal key={product.id} variant="blur" delay={(i % 4) * 90}>
+                <ProductCard
+                  product={product}
+                  isAdmin={isAdmin}
+                  onEdit={openEdit}
+                  onDelete={setDeleteTarget}
+                />
+              </Reveal>
             ))}
           </div>
         )}
       </main>
+      <CtaBand />
       <Footer />
 
       {/* ── Modal: Create / Edit ── */}
@@ -298,8 +315,48 @@ function Home() {
 }
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
-  useEffect(() => { window.scrollTo(0, 0); }, [pathname]);
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    if (!hash) {
+      // "instant" evita que el scroll suave del CSS anime cada cambio de ruta.
+      window.scrollTo({ top: 0, behavior: "instant" });
+      return;
+    }
+    // Al llegar desde otra página, la portada se monta con el catálogo vacío:
+    // cuando los productos llegan de Supabase crecen varios miles de píxeles y
+    // empujan la sección destino hacia abajo. Por eso no basta con un solo
+    // salto: hay que reajustar mientras la altura siga cambiando, y soltar el
+    // control en cuanto el usuario mueva el scroll por su cuenta.
+    const id = hash.slice(1);
+    let observer;
+
+    const align = () => {
+      document.getElementById(id)?.scrollIntoView({ behavior: "instant", block: "start" });
+    };
+
+    const release = () => {
+      observer?.disconnect();
+      window.removeEventListener("wheel", release);
+      window.removeEventListener("touchstart", release);
+      window.removeEventListener("keydown", release);
+    };
+
+    observer = new ResizeObserver(align);
+    observer.observe(document.body);
+    window.addEventListener("wheel", release, { passive: true });
+    window.addEventListener("touchstart", release, { passive: true });
+    window.addEventListener("keydown", release);
+
+    align();
+    const timer = setTimeout(release, 2500);
+
+    return () => {
+      release();
+      clearTimeout(timer);
+    };
+  }, [pathname, hash]);
+
   return null;
 }
 

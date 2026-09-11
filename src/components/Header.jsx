@@ -1,12 +1,25 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import styles from "./Header.module.css";
 
 export default function Header() {
   const { user, role, signOut } = useAuth();
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // Solo la portada tiene hero oscuro a pantalla completa: ahí la barra puede
+  // arrancar transparente y volverse sólida al bajar.
+  const overlay = pathname === "/" && !scrolled && !menuOpen;
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const handleLogout = async () => {
     await signOut();
@@ -15,12 +28,36 @@ export default function Header() {
 
   const closeMenu = () => setMenuOpen(false);
 
+  // El logo siempre lleva al inicio de la portada, incluso si ya estamos en ella
+  // (en ese caso React Router no navegaría y la página se quedaría donde está).
+  const goHome = (e) => {
+    e.preventDefault();
+    closeMenu();
+    if (pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/");
+    }
+  };
+
+  // Productos y Contacto viven en la portada: desde otra página se navega a "/"
+  // con el hash y ScrollToTop se encarga de bajar a la sección.
+  const goToSection = (e, id) => {
+    e.preventDefault();
+    closeMenu();
+    if (pathname === "/") {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    } else {
+      navigate(`/#${id}`);
+    }
+  };
+
   return (
-    <header className={styles.header}>
+    <header className={`${styles.header} ${overlay ? styles.overlay : ""}`}>
       <div className={styles.inner}>
 
         {/* Logo */}
-        <Link to="/" className={styles.logoLink} onClick={closeMenu}>
+        <Link to="/" className={styles.logoLink} onClick={goHome}>
           <span className={styles.logoImport}>IMPORT</span>
           <span className={styles.logoVide}>VIDE</span>
         </Link>
@@ -31,11 +68,11 @@ export default function Header() {
             className={`${styles.nav} ${menuOpen ? styles.navOpen : ""}`}
             onClick={closeMenu}
           >
-            <a href="/#productos" className={styles.navLink}>Productos</a>
             <Link to="/portacredenciales" className={styles.navLink}>Portacredenciales</Link>
             <Link to="/lanyards-ecuador" className={styles.navLink}>Lanyards</Link>
             <Link to="/habladores-acrilicos" className={styles.navLink}>Habladores</Link>
-            <a href="/#contacto" className={styles.navLink}>Contacto</a>
+            <a href="/#productos" className={styles.navLink} onClick={(e) => goToSection(e, "productos")}>Productos</a>
+            <a href="/#contacto" className={styles.navLink} onClick={(e) => goToSection(e, "contacto")}>Contacto</a>
             {role === "admin" && (
               <Link to="/admin" className={styles.navLink} data-admin="true">
                 ⚙ Admin

@@ -1,0 +1,220 @@
+.wrap {
+  position: relative;
+  height: 420vh;
+  background: #050505;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Se corre a la derecha para que el producto no quede debajo del texto */
+  transform: scale(1.24) translateX(12%);
+  filter: saturate(1.14) contrast(1.04) brightness(1.06);
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(96deg, rgba(5, 5, 5, 0.97) 0%, rgba(5, 5, 5, 0.9) 26%, rgba(5, 5, 5, 0.55) 45%, transparent 72%),
+    linear-gradient(180deg, rgba(5, 5, 5, 0.82) 0%, transparent 26%, transparent 74%, rgba(5, 5, 5, 0.92) 100%);
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: clamp(80px, 11vh, 120px) 24px clamp(48px, 7vh, 72px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ── Encabezado ────────────────────────────────────────── */
+.kicker {
+  display: inline-block;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #ff6b00;
+  margin-bottom: 14px;
+}
+
+.heading {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.9rem, 4.6vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  color: #fff;
+  margin: 0;
+  max-width: 15ch;
+}
+
+.em {
+  font-style: normal;
+  background: linear-gradient(96deg, #ff8a2b, #ff6b00 55%, #ffb066);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ── Pasos que se relevan ──────────────────────────────── */
+.steps {
+  position: relative;
+  min-height: 240px;
+  max-width: 480px;
+  margin-bottom: 28px;
+}
+
+.step {
+  position: absolute;
+  inset: auto 0 0 0;
+  opacity: 0;
+  transform: translate3d(0, 34px, 0);
+  filter: blur(6px);
+  transition:
+    opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.stepActive {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  pointer-events: auto;
+}
+
+.stepN {
+  display: block;
+  font-family: var(--font-display, inherit);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: rgba(255, 107, 0, 0.9);
+  margin-bottom: 14px;
+}
+
+.stepTitle {
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.5rem, 3vw, 2.3rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  color: #fff;
+  margin: 0 0 14px;
+}
+
+.stepText {
+  font-size: clamp(0.95rem, 1.3vw, 1.08rem);
+  line-height: 1.68;
+  color: rgba(255, 255, 255, 0.62);
+  margin: 0;
+}
+
+/* ── Riel de progreso ──────────────────────────────────── */
+.rail {
+  display: flex;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-width: 480px;
+}
+
+.railItem {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.railBar {
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.16);
+  transition: background 0.5s ease, box-shadow 0.5s ease;
+}
+
+.railDone .railBar {
+  background: #ff6b00;
+  box-shadow: 0 0 16px rgba(255, 107, 0, 0.65);
+}
+
+.railLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.3);
+  transition: color 0.5s ease;
+}
+
+.railDone .railLabel { color: rgba(255, 255, 255, 0.78); }
+
+/* ── Sin scrub: la sección se vuelve una lista normal ──── */
+.static {
+  height: auto;
+}
+
+.static .sticky {
+  position: relative;
+  height: auto;
+  padding: 80px 0;
+}
+
+.static .video { display: none; }
+
+.static .steps {
+  position: static;
+  min-height: 0;
+  max-width: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.static .step {
+  position: static;
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+
+.static .rail { display: none; }
+
+@media (max-width: 900px) {
+  .wrap { height: 380vh; }
+  .video { transform: none; }
+  .scrim {
+    background:
+      linear-gradient(180deg, rgba(5, 5, 5, 0.94) 0%, rgba(5, 5, 5, 0.45) 32%, rgba(5, 5, 5, 0.86) 68%, #050505 100%);
+  }
+  .steps { min-height: 265px; max-width: none; }
+  .rail { max-width: none; }
+}

@@ -18,21 +18,28 @@
 
 .app {
   min-height: 100vh;
-  background: #f7f7f7;
+  background: #ffffff;
   display: flex;
   flex-direction: column;
+}
+
+/* En la portada el footer va pegado al bloque oscuro de contacto: su margen
+   superior dejaría una franja blanca entre dos secciones negras. */
+.app > footer {
+  margin-top: 0;
 }
 
 .main {
   max-width: 1280px;
   margin: 0 auto;
   width: 100%;
-  padding: 48px 24px;
+  padding: clamp(72px, 11vh, 116px) 24px clamp(80px, 12vh, 128px);
   box-sizing: border-box;
+  scroll-margin-top: calc(var(--header-h) + 12px);
 }
 
 .sectionHeader {
-  margin-bottom: 40px;
+  margin-bottom: 56px;
   text-align: center;
 }
 
@@ -40,19 +47,32 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
+}
+
+.sectionKicker {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #ff6b00;
 }
 
 .sectionTitle {
-  font-size: 1.8rem;
+  font-family: var(--font-display, inherit);
+  font-size: clamp(1.9rem, 4vw, 3rem);
   font-weight: 800;
-  color: #111;
-  margin: 0 0 8px;
+  letter-spacing: -0.035em;
+  line-height: 1.06;
+  color: #0a0a0a;
+  margin: 0;
 }
 
 .sectionSub {
-  color: #666;
+  color: #6b6b6b;
   font-size: 1rem;
+  line-height: 1.7;
+  max-width: 680px;
   margin: 0;
 }
 
@@ -77,8 +97,14 @@
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 28px;
+}
+
+/* Cada tarjeta va envuelta en <Reveal>: el envoltorio debe estirarse
+   para que todas las tarjetas de una fila queden a la misma altura. */
+.grid > * {
+  height: 100%;
 }
 
 /* ── Modals ── */

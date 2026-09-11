@@ -1,11 +1,17 @@
 .card {
+  position: relative;
+  height: 100%;
   background: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 8px 24px -18px rgba(0, 0, 0, 0.35);
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition:
+    transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.45s ease;
 }
 
 .adminBar {
@@ -44,8 +50,13 @@
 .deleteBtn:hover { background: #ffe0e0; }
 
 .card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.14);
+  transform: translateY(-8px);
+  border-color: rgba(255, 107, 0, 0.35);
+  box-shadow:
+    0 1px 2px rgba(0, 0, 0, 0.04),
+    0 26px 48px -24px rgba(0, 0, 0, 0.42),
+    0 0 0 1px rgba(255, 107, 0, 0.08),
+    0 18px 60px -30px rgba(255, 107, 0, 0.6);
 }
 
 .cardLink {
@@ -74,11 +85,26 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s;
+  transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .card:hover .image {
-  transform: scale(1.04);
+  transform: scale(1.07);
+}
+
+/* Barrido de luz sobre la foto al pasar el cursor */
+.imageWrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 35%, rgba(255, 255, 255, 0.5) 50%, transparent 65%);
+  transform: translateX(-100%);
+  transition: transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.card:hover .imageWrap::after {
+  transform: translateX(100%);
 }
 
 .badge {
