@@ -112,7 +112,7 @@ export default function ScrollStory() {
         <video
           className={styles.video}
           ref={videoRef}
-          src="/video/orbit-scrub.mp4"
+          src="/video/bodega-scrub.mp4"
           muted
           playsInline
           preload="auto"

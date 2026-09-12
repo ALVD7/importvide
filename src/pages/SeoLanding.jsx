@@ -12,7 +12,6 @@ import styles from "./SeoLanding.module.css";
 const HERO_VIDEO = {
   "lanyards-ecuador": "/video/lanyards.mp4",
   "habladores-acrilicos": "/video/habladores.mp4",
-  "credenciales-para-eventos": "/video/orbit-scrub.mp4",
 };
 
 export default function SeoLanding({ page }) {

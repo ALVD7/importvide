@@ -18,9 +18,10 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Se corre a la derecha para que el producto no quede debajo del texto */
-  transform: scale(1.24) translateX(12%);
-  filter: saturate(1.14) contrast(1.04) brightness(1.06);
+  /* Un corrimiento leve: el pasillo es simétrico y un encuadre muy
+     descentrado rompería su perspectiva */
+  transform: scale(1.12) translateX(5%);
+  filter: saturate(1.08) contrast(1.06);
 }
 
 .scrim {
