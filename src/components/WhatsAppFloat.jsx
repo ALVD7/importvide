@@ -4,7 +4,7 @@ import { whatsappUrl } from "../data/business";
 import { seoPages } from "../data/seoPages";
 import styles from "./WhatsAppFloat.module.css";
 
-const OCULTO_EN = ["/login", "/register", "/admin"];
+const OCULTO_EN = ["/login", "/register", "/admin", "/admin/cotizaciones"];
 
 // El mensaje prellenado depende de la página: en una landing nombra el
 // producto y en una ficha incluye el enlace. El origen de la visita lo añade

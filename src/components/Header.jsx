@@ -75,9 +75,14 @@ export default function Header() {
             <Link to="/contacto" className={styles.navLink}>Contacto</Link>
             <Link to="/cotizar" className={styles.navLink} data-cta="true">Cotizar</Link>
             {role === "admin" && (
-              <Link to="/admin" className={styles.navLink} data-admin="true">
-                ⚙ Admin
-              </Link>
+              <>
+                <Link to="/admin/cotizaciones" className={styles.navLink} data-admin="true">
+                  Cotizaciones
+                </Link>
+                <Link to="/admin" className={styles.navLink} data-admin="true">
+                  ⚙ Admin
+                </Link>
+              </>
             )}
           </nav>
 

@@ -110,7 +110,8 @@ function productoDeLaPagina() {
 
 function alHacerClic(e) {
   const a = e.target.closest?.("a[href]");
-  if (!a) return;
+  // Los enlaces del panel de admin (escribirle a un cliente) no son conversiones.
+  if (!a || "sinMedir" in a.dataset) return;
   const href = a.getAttribute("href") ?? "";
 
   if (a.hostname === "wa.me") {

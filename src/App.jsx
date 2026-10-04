@@ -27,6 +27,7 @@ import NotFound from "./pages/NotFound";
 import Cotizar from "./pages/Cotizar";
 import Privacidad from "./pages/Privacidad";
 import WhatsAppFloat from "./components/WhatsAppFloat";
+import CotizacionesAdmin from "./pages/CotizacionesAdmin";
 import { seoPages } from "./data/seoPages";
 import styles from "./App.module.css";
 
@@ -392,6 +393,7 @@ export default function App() {
           <Route path="/login"    element={<AuthRoute><Login /></AuthRoute>} />
           <Route path="/register" element={<AuthRoute><Register /></AuthRoute>} />
           <Route path="/admin"    element={<AdminRoute />} />
+          <Route path="/admin/cotizaciones" element={<CotizacionesAdmin />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/politicas" element={<Politicas />} />
           <Route path="/contacto" element={<Contacto />} />

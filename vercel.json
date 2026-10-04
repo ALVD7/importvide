@@ -59,6 +59,10 @@
     {
       "source": "/:ruta(login|register|admin)",
       "destination": "/app.html"
+    },
+    {
+      "source": "/admin/:ruta*",
+      "destination": "/app.html"
     }
   ],
   "headers": [
@@ -188,6 +192,21 @@
           "value": "public, max-age=31536000, immutable"
         }
       ]
+    },
+    {
+      "source": "/admin/:ruta*",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
+        }
+      ]
+    }
+  ],
+  "crons": [
+    {
+      "path": "/api/recordatorio-cotizaciones",
+      "schedule": "0 13 * * *"
     }
   ]
 }
