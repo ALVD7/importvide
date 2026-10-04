@@ -77,6 +77,11 @@
   background: rgba(255, 255, 255, 0.06);
 }
 
+.navLink[data-cta="true"] {
+  color: #ff6b00;
+  font-weight: 700;
+}
+
 .navLink[data-admin="true"] {
   color: #ff6b00;
 }

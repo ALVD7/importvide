@@ -24,6 +24,8 @@ import SeoLanding from "./pages/SeoLanding";
 import Contacto from "./pages/Contacto";
 import PreguntasFrecuentes from "./pages/PreguntasFrecuentes";
 import NotFound from "./pages/NotFound";
+import Cotizar from "./pages/Cotizar";
+import Privacidad from "./pages/Privacidad";
 import WhatsAppFloat from "./components/WhatsAppFloat";
 import { seoPages } from "./data/seoPages";
 import styles from "./App.module.css";
@@ -392,6 +394,8 @@ export default function App() {
           <Route path="/politicas" element={<Politicas />} />
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/preguntas-frecuentes" element={<PreguntasFrecuentes />} />
+          <Route path="/cotizar" element={<Cotizar />} />
+          <Route path="/privacidad" element={<Privacidad />} />
           {seoPages.map((page) => (
             <Route key={page.slug} path={`/${page.slug}`} element={<SeoLanding page={page} />} />
           ))}

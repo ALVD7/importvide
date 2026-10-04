@@ -73,6 +73,7 @@ export default function Header() {
             <Link to="/habladores-acrilicos" className={styles.navLink}>Acrílicos</Link>
             <a href="/#productos" className={styles.navLink} onClick={(e) => goToSection(e, "productos")}>Productos</a>
             <Link to="/contacto" className={styles.navLink}>Contacto</Link>
+            <Link to="/cotizar" className={styles.navLink} data-cta="true">Cotizar</Link>
             {role === "admin" && (
               <Link to="/admin" className={styles.navLink} data-admin="true">
                 ⚙ Admin

@@ -108,3 +108,24 @@ export const FAQ_GROUPS = [
     ],
   },
 ];
+
+// ── Formulario /cotizar ──────────────────────────────────────────────────
+// Productos que se pueden pedir. `slug` permite llegar desde una landing con
+// /cotizar?producto=<slug> y el formulario ya preseleccionado.
+export const PRODUCTOS_COTIZABLES = [
+  { value: "Cordones / lanyards", slugs: ["cordones-personalizados", "lanyards-ecuador"] },
+  {
+    value: "Portacredenciales / porta carnets",
+    slugs: [
+      "portacredenciales",
+      "portacredenciales-guayaquil",
+      "portacredenciales-quito",
+      "portacredenciales-para-colegios",
+      "portacredenciales-para-empresas",
+    ],
+  },
+  { value: "Credenciales para eventos", slugs: ["credenciales-para-eventos"] },
+  { value: "Soportes acrílicos de escritorio", slugs: ["soportes-acrilicos-escritorio"] },
+  { value: "Habladores de pared acrílicos", slugs: ["soportes-acrilicos-pared", "habladores-acrilicos"] },
+  { value: "Varios productos", slugs: [] },
+];

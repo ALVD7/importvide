@@ -5,7 +5,7 @@
 // el control al montar.
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { seoPages, CATALOG, PENDING_SPEC } from "../src/data/seoPages.js";
-import { STATIC_PAGES, FAQ_GROUPS } from "../src/data/staticPages.js";
+import { STATIC_PAGES, FAQ_GROUPS, PRODUCTOS_COTIZABLES } from "../src/data/staticPages.js";
 import { BUSINESS } from "../src/data/business.js";
 import {
   SITE_URL,
@@ -321,6 +321,12 @@ const CONTENIDO_ESTATICO = {
       (g) => `<h2>${esc(g.title)}</h2>
   ${g.faqs.map((f) => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("\n  ")}`
     ).join("\n  "),
+  cotizar: () => `
+  <p>Cuéntanos qué necesitas y te respondemos con disponibilidad, precio por volumen y opciones de envío. ${esc(BUSINESS.hours.label)}.</p>
+  <p>Productos que cotizamos: ${PRODUCTOS_COTIZABLES.map((p) => esc(p.value)).join(", ")}.</p>
+  <p>Escríbenos por <a href="https://wa.me/${BUSINESS.whatsapp}">WhatsApp al ${esc(BUSINESS.phoneDisplay)}</a> o usa el formulario de esta página.</p>`,
+  privacidad: () => `
+  <p>${esc(BUSINESS.name)} usa los datos del formulario de cotización y de WhatsApp para responder tu solicitud, preparar la proforma y la factura y coordinar el envío. Usamos Google Analytics para medir el uso del sitio. Puedes pedir acceso, rectificación o eliminación de tus datos por WhatsApp al ${esc(BUSINESS.phoneDisplay)}.</p>`,
   politicas: () => `
   <p>No realizamos devoluciones ni reembolsos una vez despachado el pedido, salvo si se pierde en tránsito o llega totalmente dañado o con un daño significativo. Repórtalo por WhatsApp dentro de las 48 horas de recibido, con fotos del producto y del empaque y el comprobante de compra.</p>`,
 };

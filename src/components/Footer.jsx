@@ -100,9 +100,11 @@ export default function Footer() {
         </nav>
 
         <nav className={styles.infoNav} aria-label="Información">
+          <Link to="/cotizar" className={styles.policyLink}>Cotizar</Link>
           <Link to="/contacto" className={styles.policyLink}>Contacto</Link>
           <Link to="/preguntas-frecuentes" className={styles.policyLink}>Preguntas frecuentes</Link>
           <Link to="/politicas" className={styles.policyLink}>Política de devoluciones</Link>
+          <Link to="/privacidad" className={styles.policyLink}>Privacidad y cookies</Link>
         </nav>
 
         <p className={styles.copy}>© {new Date().getFullYear()} IMPORTVIDE. Todos los derechos reservados.</p>
