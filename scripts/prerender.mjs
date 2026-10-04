@@ -72,6 +72,7 @@ function documento({ title, description, canonical, ogImage, markdown, jsonLd = 
     <link rel="service-desc" type="application/json" href="/.well-known/mcp/server-card.json" />
     <link rel="api-catalog" href="/.well-known/api-catalog" />
     <link rel="preconnect" href="https://cbfvcyxrrpseasuujkcz.supabase.co" crossorigin />
+    <link rel="preload" href="/fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin />
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HPFQPCHE9W"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
