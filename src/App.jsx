@@ -32,6 +32,9 @@ import styles from "./App.module.css";
 
 const EMPTY_FORM = { name: "", price: "", stock: "", description: "", image: "", category: "" };
 
+const queryProducts = () =>
+  supabase.from("products").select("*").order("created_at", { ascending: false });
+
 function Home() {
   const { role } = useAuth();
   const isAdmin = role === "admin";
@@ -51,16 +54,15 @@ function Home() {
   const [deleting, setDeleting] = useState(false);
   const [formError, setFormError]   = useState("");
 
-  const fetchProducts = async () => {
-    const { data } = await supabase
-      .from("products")
-      .select("*")
-      .order("created_at", { ascending: false });
+  const applyProducts = ({ data }) => {
     setProducts(data ?? []);
     setLoadingProducts(false);
   };
 
-  useEffect(() => { fetchProducts(); }, []);
+  const fetchProducts = () => queryProducts().then(applyProducts);
+
+  // El setState ocurre al resolver la promesa, no dentro del efecto.
+  useEffect(() => { queryProducts().then(applyProducts); }, []);
 
   // ── Form ──────────────────────────────────────────
   const openCreate = () => {

@@ -15,17 +15,31 @@ function getMonthRange(year, month) {
   return { from, to };
 }
 
+function CustomTooltip({ active, payload }) {
+  if (!active || !payload?.length) return null;
+  return (
+    <div className={styles.tooltip}>
+      <p className={styles.tooltipName}>{payload[0].payload.name}</p>
+      <p className={styles.tooltipVal}>{payload[0].value} unidades</p>
+    </div>
+  );
+}
+
 export default function SalesDashboard() {
   const now = new Date();
   const [month, setMonth] = useState(now.getMonth());
   const [year,  setYear]  = useState(now.getFullYear());
-  const [data,  setData]  = useState([]);
-  const [loading, setLoading] = useState(true);
+  // Resultado etiquetado con el mes que lo produjo: "cargando" es simplemente
+  // que el resultado guardado no corresponde al mes elegido.
+  const [result, setResult] = useState({ key: null, data: [] });
   const [collapsed, setCollapsed] = useState(false);
+
+  const key = `${year}-${month}`;
+  const loading = result.key !== key;
+  const data = loading ? [] : result.data;
 
   useEffect(() => {
     const { from, to } = getMonthRange(year, month);
-    setLoading(true);
     supabase
       .from("invoice_logs")
       .select("product_name, quantity")
@@ -40,26 +54,15 @@ export default function SalesDashboard() {
         const sorted = Object.entries(map)
           .map(([name, total]) => ({ name, total }))
           .sort((a, b) => b.total - a.total);
-        setData(sorted);
-        setLoading(false);
+        setResult({ key: `${year}-${month}`, data: sorted });
       });
   }, [month, year]);
 
   const topProduct  = data[0] ?? null;
-  const totalUnits  = data.reduce((s, d) => s + d.total, 0);
 
   const years = [];
   for (let y = now.getFullYear(); y >= now.getFullYear() - 2; y--) years.push(y);
 
-  const CustomTooltip = ({ active, payload }) => {
-    if (!active || !payload?.length) return null;
-    return (
-      <div className={styles.tooltip}>
-        <p className={styles.tooltipName}>{payload[0].payload.name}</p>
-        <p className={styles.tooltipVal}>{payload[0].value} unidades</p>
-      </div>
-    );
-  };
 
   return (
     <div className={styles.wrap}>

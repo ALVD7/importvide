@@ -24,17 +24,21 @@ export default function Admin() {
   const [deleting, setDeleting] = useState(false);
 
   // ── Fetch products ──────────────────────────────────
-  const fetchProducts = async () => {
-    setLoadingList(true);
-    const { data } = await supabase
-      .from("products")
-      .select("*")
-      .order("created_at", { ascending: false });
+  const queryProducts = () =>
+    supabase.from("products").select("*").order("created_at", { ascending: false });
+
+  const applyProducts = ({ data }) => {
     setProducts(data ?? []);
     setLoadingList(false);
   };
 
-  useEffect(() => { fetchProducts(); }, []);
+  const fetchProducts = () => {
+    setLoadingList(true);
+    return queryProducts().then(applyProducts);
+  };
+
+  // loadingList ya arranca en true: el efecto solo espera la respuesta.
+  useEffect(() => { queryProducts().then(applyProducts); }, []);
 
   // ── Form helpers ────────────────────────────────────
   const handleChange = (e) => {

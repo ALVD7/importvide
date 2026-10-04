@@ -48,4 +48,6 @@ export function AuthProvider({ children }) {
   );
 }
 
+// El hook vive junto a su Provider a propósito; solo afecta al recargado en caliente en desarrollo.
+// eslint-disable-next-line react-refresh/only-export-components
 export const useAuth = () => useContext(AuthContext);
