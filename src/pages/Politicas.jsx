@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import styles from "./Politicas.module.css";
+import styles from "./Info.module.css";
 
 export default function Politicas() {
   return (

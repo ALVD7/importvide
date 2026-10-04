@@ -121,3 +121,90 @@
   .title { font-size: 1.5rem; }
   .card { padding: 20px 16px; }
 }
+
+/* ── Compartido por /contacto, /preguntas-frecuentes, /cotizar y /privacidad ── */
+.lead {
+  font-size: 1rem;
+  color: #444;
+  line-height: 1.7;
+  margin: 0 0 28px;
+}
+
+.text a,
+.lead a {
+  color: #ff6b00;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.secondaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #fff;
+  color: #111;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 700;
+  padding: 12px 20px;
+  border-radius: 10px;
+  transition: border-color 0.2s, transform 0.15s;
+}
+
+.secondaryBtn:hover {
+  border-color: #ff6b00;
+  transform: translateY(-2px);
+}
+
+.groupTitle {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: #111;
+  margin: 36px 0 12px;
+}
+
+.faq {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  margin-bottom: 10px;
+  padding: 0 20px;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: #111;
+  padding: 16px 0;
+  line-height: 1.5;
+}
+
+.faq p {
+  margin: 0 0 16px;
+  color: #444;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+.dataList {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 8px 16px;
+  margin: 0;
+  font-size: 0.93rem;
+}
+
+.dataList dt { font-weight: 700; color: #111; }
+.dataList dd { margin: 0; color: #444; }
+.dataList a { color: #ff6b00; font-weight: 600; }
+
+@media (max-width: 600px) {
+  .dataList { grid-template-columns: 1fr; gap: 2px; }
+  .dataList dd { margin-bottom: 10px; }
+}

@@ -108,3 +108,59 @@
   font-size: 0.8rem;
   margin: 0;
 }
+
+.nap {
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: #999;
+  font-size: 0.86rem;
+  line-height: 1.6;
+  margin-top: 6px;
+}
+
+.nap a {
+  color: #ddd;
+  text-decoration: none;
+}
+
+.nap a:hover { color: #ff6b00; }
+
+.google {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.googleLink {
+  color: #bbb;
+  font-size: 0.86rem;
+  padding: 8px 14px;
+  border: 1px solid #333;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.googleLink:hover { color: #fff; border-color: #555; }
+
+.reviewBtn {
+  color: #111;
+  background: #ffc107;
+  font-size: 0.86rem;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.reviewBtn:hover { background: #ffcd38; }
+
+.infoNav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px 18px;
+}

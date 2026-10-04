@@ -21,6 +21,8 @@ import Register from "./pages/Register";
 import ProductDetail from "./pages/ProductDetail";
 import Politicas from "./pages/Politicas";
 import SeoLanding from "./pages/SeoLanding";
+import Contacto from "./pages/Contacto";
+import PreguntasFrecuentes from "./pages/PreguntasFrecuentes";
 import { seoPages } from "./data/seoPages";
 import styles from "./App.module.css";
 
@@ -386,6 +388,8 @@ export default function App() {
           <Route path="/admin"    element={<AdminRoute />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/politicas" element={<Politicas />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/preguntas-frecuentes" element={<PreguntasFrecuentes />} />
           {seoPages.map((page) => (
             <Route key={page.slug} path={`/${page.slug}`} element={<SeoLanding page={page} />} />
           ))}

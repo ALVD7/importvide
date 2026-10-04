@@ -40,8 +40,8 @@ export default function Header() {
     }
   };
 
-  // Productos y Contacto viven en la portada: desde otra página se navega a "/"
-  // con el hash y ScrollToTop se encarga de bajar a la sección.
+  // Productos vive en la portada: desde otra página se navega a "/" con el
+  // hash y ScrollToTop se encarga de bajar a la sección.
   const goToSection = (e, id) => {
     e.preventDefault();
     closeMenu();
@@ -69,10 +69,10 @@ export default function Header() {
             onClick={closeMenu}
           >
             <Link to="/portacredenciales" className={styles.navLink}>Portacredenciales</Link>
-            <Link to="/lanyards-ecuador" className={styles.navLink}>Lanyards</Link>
-            <Link to="/habladores-acrilicos" className={styles.navLink}>Habladores</Link>
+            <Link to="/cordones-personalizados" className={styles.navLink}>Cordones</Link>
+            <Link to="/habladores-acrilicos" className={styles.navLink}>Acrílicos</Link>
             <a href="/#productos" className={styles.navLink} onClick={(e) => goToSection(e, "productos")}>Productos</a>
-            <a href="/#contacto" className={styles.navLink} onClick={(e) => goToSection(e, "contacto")}>Contacto</a>
+            <Link to="/contacto" className={styles.navLink}>Contacto</Link>
             {role === "admin" && (
               <Link to="/admin" className={styles.navLink} data-admin="true">
                 ⚙ Admin

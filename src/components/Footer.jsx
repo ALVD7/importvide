@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import { WHATSAPP_NUMBER } from "../data/products";
+import { BUSINESS, whatsappUrl } from "../data/business";
 import styles from "./Footer.module.css";
 
-const INSTAGRAM_URL = "https://www.instagram.com/importvide/";
-const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
+const INSTAGRAM_URL = BUSINESS.instagram;
+const WHATSAPP_URL = whatsappUrl();
 
 function InstagramIcon() {
   return (
@@ -23,7 +23,7 @@ function WhatsAppIcon() {
 
 export default function Footer() {
   return (
-    <footer className={styles.footer} id="contacto">
+    <footer className={styles.footer}>
       <div className={styles.inner}>
         <div className={styles.logo}>
           <span className={styles.logoImport}>IMPORT</span>
@@ -54,20 +54,55 @@ export default function Footer() {
           </a>
         </div>
 
-        <nav className={styles.seoNav} aria-label="Categorías de productos">
-          <Link to="/portacredenciales" className={styles.seoNavLink}>Portacredenciales</Link>
-          <Link to="/portacredenciales-guayaquil" className={styles.seoNavLink}>Portacredenciales Guayaquil</Link>
-          <Link to="/portacredenciales-quito" className={styles.seoNavLink}>Portacredenciales Quito</Link>
+        {/* NAP: debe coincidir exactamente con la ficha de Google Business */}
+        <address className={styles.nap}>
+          <span>{BUSINESS.name} · {BUSINESS.city}, Ecuador · Envíos a todo el país</span>
+          <span>
+            <a href={`tel:${BUSINESS.phone}`} data-ubicacion="footer">{BUSINESS.phoneDisplay}</a>
+            {BUSINESS.email && (
+              <>
+                {" · "}
+                <a href={`mailto:${BUSINESS.email}`} data-ubicacion="footer">{BUSINESS.email}</a>
+              </>
+            )}
+          </span>
+          <span>{BUSINESS.hours.label}</span>
+        </address>
+
+        {(BUSINESS.googleBusinessUrl || BUSINESS.googleReviewUrl) && (
+          <div className={styles.google}>
+            {BUSINESS.googleBusinessUrl && (
+              <a href={BUSINESS.googleBusinessUrl} target="_blank" rel="noopener noreferrer" className={styles.googleLink}>
+                Ver ficha en Google
+              </a>
+            )}
+            {BUSINESS.googleReviewUrl && (
+              <a href={BUSINESS.googleReviewUrl} target="_blank" rel="noopener noreferrer" className={styles.reviewBtn} data-evento="review_click">
+                ★ Déjanos tu reseña
+              </a>
+            )}
+          </div>
+        )}
+
+        <nav className={styles.seoNav} aria-label="Productos">
+          <Link to="/portacredenciales" className={styles.seoNavLink}>Portacredenciales y porta carnets</Link>
+          <Link to="/cordones-personalizados" className={styles.seoNavLink}>Cordones personalizados</Link>
           <Link to="/lanyards-ecuador" className={styles.seoNavLink}>Lanyards Ecuador</Link>
+          <Link to="/soportes-acrilicos-escritorio" className={styles.seoNavLink}>Soportes acrílicos de escritorio</Link>
+          <Link to="/soportes-acrilicos-pared" className={styles.seoNavLink}>Habladores de pared</Link>
           <Link to="/habladores-acrilicos" className={styles.seoNavLink}>Habladores acrílicos</Link>
           <Link to="/credenciales-para-eventos" className={styles.seoNavLink}>Credenciales para eventos</Link>
+          <Link to="/portacredenciales-guayaquil" className={styles.seoNavLink}>Portacredenciales Guayaquil</Link>
+          <Link to="/portacredenciales-quito" className={styles.seoNavLink}>Portacredenciales Quito</Link>
           <Link to="/portacredenciales-para-colegios" className={styles.seoNavLink}>Para colegios</Link>
           <Link to="/portacredenciales-para-empresas" className={styles.seoNavLink}>Para empresas y bancos</Link>
         </nav>
 
-        <Link to="/politicas" className={styles.policyLink}>
-          Política de devoluciones
-        </Link>
+        <nav className={styles.infoNav} aria-label="Información">
+          <Link to="/contacto" className={styles.policyLink}>Contacto</Link>
+          <Link to="/preguntas-frecuentes" className={styles.policyLink}>Preguntas frecuentes</Link>
+          <Link to="/politicas" className={styles.policyLink}>Política de devoluciones</Link>
+        </nav>
 
         <p className={styles.copy}>© {new Date().getFullYear()} IMPORTVIDE. Todos los derechos reservados.</p>
       </div>
