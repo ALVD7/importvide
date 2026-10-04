@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Seo from "../components/Seo";
 import Reveal from "../components/Reveal";
 import { productJsonLd, faqJsonLd, breadcrumbJsonLd } from "../lib/structuredData";
-import { CATALOG } from "../data/seoPages";
+import { CATALOG, PENDING_SPEC } from "../data/seoPages";
 import { WHATSAPP_NUMBER } from "../data/products";
 import styles from "./SeoLanding.module.css";
 
@@ -71,6 +71,8 @@ export default function SeoLanding({ page }) {
               target="_blank"
               rel="noopener noreferrer"
               className={styles.primaryBtn}
+              data-producto={page.h1}
+              data-ubicacion="hero"
             >
               Cotizar por WhatsApp
               <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
@@ -110,6 +112,20 @@ export default function SeoLanding({ page }) {
             ))}
           </div>
         </section>
+
+        {page.specs?.length > 0 && (
+          <section className={styles.section}>
+            <Reveal as="h2" className={styles.h2}>Ficha técnica</Reveal>
+            <Reveal as="dl" delay={40} className={styles.specs}>
+              {page.specs.map((spec) => (
+                <div key={spec.label} className={styles.specRow}>
+                  <dt>{spec.label}</dt>
+                  <dd className={spec.value ? undefined : styles.specPending}>{spec.value ?? PENDING_SPEC}</dd>
+                </div>
+              ))}
+            </Reveal>
+          </section>
+        )}
 
         {page.sections.map((s, i) => (
           <section key={i} className={styles.section}>
@@ -173,12 +189,18 @@ export default function SeoLanding({ page }) {
             target="_blank"
             rel="noopener noreferrer"
             className={styles.primaryBtn}
+            data-producto={page.h1}
+            data-ubicacion="cierre"
           >
             Cotizar por WhatsApp
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 12h14M13 6l6 6-6 6" />
             </svg>
           </a>
+          <p className={styles.ctaAlt}>
+            ¿Prefieres un formulario?{" "}
+            <Link to={`/cotizar?producto=${page.slug}`}>Pide tu cotización aquí</Link>
+          </p>
         </Reveal>
 
         <nav className={styles.related} aria-label="Páginas relacionadas">

@@ -133,19 +133,41 @@ const FAQ_FACTURA = {
   a: "Sí, emitimos factura. Trabajamos con colegios, bancos, empresas privadas y entidades públicas de todo el Ecuador.",
 };
 
+// Ficha técnica de las páginas de producto. Un valor en null es un dato que el
+// negocio aún no ha confirmado ([PENDIENTE]): la página muestra PENDING_SPEC en
+// su lugar en vez de inventarlo.
+export const PENDING_SPEC = "Te lo confirmamos al cotizar por WhatsApp";
+
+const SPEC_ENTREGA =
+  "Productos en stock: despacho desde Guayaquil al confirmar el pago. Envío a todo Ecuador; el plazo depende del medio de envío.";
+
 export const seoPages = [
   // ── PILAR ──────────────────────────────────────────────
   {
     slug: "portacredenciales",
-    title: "Portacredenciales en Ecuador — Venta por Mayor | IMPORTVIDE",
+    title: "Portacredenciales y Porta Carnets en Ecuador | IMPORTVIDE",
     description:
-      "Portacredenciales rígidos, deslizables, de acrílico y flexibles tipo carnet. Stock por miles de unidades en Guayaquil con envío a todo Ecuador. Cotiza por WhatsApp.",
-    h1: "Portacredenciales en Ecuador",
+      "Porta carnets y portacredenciales rígidos, deslizables, de acrílico y PVC al por mayor. Stock en Guayaquil y envío a todo Ecuador. Cotiza por WhatsApp.",
+    h1: "Portacredenciales y porta carnets en Ecuador",
     intro: [
       "En IMPORTVIDE importamos y distribuimos portacredenciales al por mayor para colegios, bancos, empresas, entidades públicas y organizadores de eventos en todo el Ecuador. Somos importadores directos con bodega en Guayaquil, por lo que mantenemos stock permanente por miles de unidades y precios competitivos por volumen.",
-      "Un portacredencial (también llamado porta carnet o porta ID) protege la credencial de tu personal o estudiantes y proyecta una imagen institucional ordenada. Elegir el modelo correcto depende del uso: no es lo mismo un carnet que se usa a diario en un banco que una credencial de un evento de tres días.",
+      "Un portacredencial —también llamado porta carnet, porta credencial, tarjetero o porta ID— protege la credencial de tu personal o estudiantes y proyecta una imagen institucional ordenada. Elegir el modelo correcto depende del uso: no es lo mismo un carnet que se usa a diario en un banco que una credencial de un evento de tres días.",
+    ],
+    specs: [
+      { label: "Materiales", value: "Plástico rígido (deslizable, caparazón y cara abierta), acrílico transparente y PVC flexible" },
+      { label: "Medidas", value: "Rígidos: 11 × 7 cm exterior, para carnet estándar de 8,5 × 5,5 cm. Fundas PVC: 6 × 9 cm vertical o 9 × 6 cm horizontal" },
+      { label: "Colores en stock", value: "Deslizable azul, negro y verde · Cara abierta azul, blanco translúcido y rojo · Caparazón y acrílico transparentes" },
+      { label: "Personalización", value: "Consúltanos con tu logo o colores institucionales: te confirmamos opciones, mínimo y tiempo" },
+      { label: "Cantidad mínima", value: null }, // [PENDIENTE]
+      { label: "Tiempo de entrega", value: SPEC_ENTREGA },
     ],
     sections: [
+      {
+        h2: "Porta carnet, tarjetero o porta credencial: ¿cuál necesitas?",
+        paras: [
+          "En Ecuador se usan varios nombres para lo mismo. Si buscas un porta carnet para estudiantes, un tarjetero para el personal de tu empresa o una porta credencial para un evento, la pregunta clave es cuánto uso diario va a tener: para uso intensivo conviene un modelo rígido (deslizable o caparazón); para dotaciones masivas y presupuestos ajustados, la funda flexible de PVC; y si tu edificio usa tarjetas de proximidad, el de cara abierta.",
+        ],
+      },
       {
         h2: "Tipos de portacredenciales que manejamos",
         paras: [
@@ -183,6 +205,7 @@ export const seoPages = [
     related: [
       { to: "/portacredenciales-guayaquil", label: "Portacredenciales en Guayaquil" },
       { to: "/portacredenciales-quito", label: "Portacredenciales en Quito" },
+      { to: "/cordones-personalizados", label: "Cordones personalizados para carnet" },
       { to: "/lanyards-ecuador", label: "Lanyards y cintas portacredenciales" },
       { to: "/credenciales-para-eventos", label: "Credenciales para eventos" },
     ],
@@ -329,6 +352,15 @@ export const seoPages = [
       "Los lanyards —también llamados cintas portacredenciales o cordones para carnet— son el complemento indispensable de cualquier sistema de identificación. En IMPORTVIDE los importamos al por mayor y mantenemos más de 20.000 unidades en stock en Guayaquil, listas para despachar a todo el Ecuador.",
       "Manejamos cordones de cinta con terminación en clip plástico blanco, disponibles en verde, negro y azul, compatibles con todos nuestros portacredenciales: deslizables, caparazón, cara abierta y fundas flexibles de PVC.",
     ],
+    specs: [
+      { label: "Material", value: "Cinta textil con costura reforzada" },
+      { label: "Terminación", value: "Clip plástico blanco de enganche rápido" },
+      { label: "Colores en stock", value: "Verde, negro y azul" },
+      { label: "Medidas (ancho y largo)", value: null }, // [PENDIENTE]
+      { label: "Personalización", value: "Con logo o colores de tu institución: ver cordones personalizados" },
+      { label: "Cantidad mínima", value: null }, // [PENDIENTE]
+      { label: "Tiempo de entrega", value: SPEC_ENTREGA },
+    ],
     sections: [
       {
         h2: "Características de nuestros lanyards",
@@ -371,6 +403,7 @@ export const seoPages = [
       FAQ_PERSONALIZACION,
     ],
     related: [
+      { to: "/cordones-personalizados", label: "Cordones personalizados con tu logo" },
       { to: "/portacredenciales", label: "Portacredenciales" },
       { to: "/credenciales-para-eventos", label: "Credenciales para eventos" },
       { to: "/portacredenciales-guayaquil", label: "Portacredenciales Guayaquil" },
@@ -434,10 +467,248 @@ export const seoPages = [
       FAQ_FACTURA,
     ],
     related: [
+      { to: "/soportes-acrilicos-escritorio", label: "Soportes acrílicos de escritorio" },
+      { to: "/soportes-acrilicos-pared", label: "Habladores de pared acrílicos" },
       { to: "/portacredenciales", label: "Portacredenciales" },
       { to: "/lanyards-ecuador", label: "Lanyards y cordones" },
-      { to: "/portacredenciales-guayaquil", label: "Productos en Guayaquil" },
       { to: "/credenciales-para-eventos", label: "Credenciales para eventos" },
+    ],
+  },
+
+  // ── PRODUCTO: SOPORTES ACRÍLICOS DE ESCRITORIO ────────
+  {
+    slug: "soportes-acrilicos-escritorio",
+    title: "Soportes Acrílicos de Escritorio A4 en Ecuador | IMPORTVIDE",
+    description:
+      "Soporte acrílico de escritorio A4 y hablador de mesa tipo T. Para recepciones, ventanillas y mostradores. Stock en Guayaquil, envío a todo Ecuador.",
+    h1: "Soportes acrílicos de escritorio y habladores de mesa A4",
+    intro: [
+      "Un soporte acrílico de escritorio —también llamado hablador de escritorio, hablador de mesa o porta afiche— es la forma más ordenada de mostrar información en un mostrador: horarios de atención, requisitos de un trámite, precios, menús o el nombre de una ventanilla. En IMPORTVIDE los vendemos al por mayor con stock en Guayaquil y envío a todo el Ecuador.",
+      "Manejamos dos modelos en tamaño A4, ambos de acrílico transparente: el hablador de escritorio con base en L, de una cara y con ligera inclinación, y el hablador tipo T, de doble cara, que se lee desde ambos lados de la mesa.",
+    ],
+    specs: [
+      { label: "Material", value: "Acrílico transparente" },
+      { label: "Tamaño", value: "A4 (hoja de 21 × 29,7 cm)" },
+      { label: "Modelos", value: "Base en L de una cara con ligera inclinación · Tipo T de doble cara con inserción lateral, vertical u horizontal" },
+      { label: "Espesor del acrílico", value: null }, // [PENDIENTE]
+      { label: "Precio referencial", value: "Escritorio A4: $5,99 c/u · Tipo T A4: $6,70 c/u. Descuento por volumen al cotizar" },
+      { label: "Personalización", value: null }, // [PENDIENTE] ¿se puede grabar o rotular el logo?
+      { label: "Cantidad mínima", value: null }, // [PENDIENTE]
+      { label: "Tiempo de entrega", value: SPEC_ENTREGA },
+    ],
+    sections: [
+      {
+        h2: "¿Dónde se usa un hablador de escritorio?",
+        paras: [
+          "Son piezas pequeñas que resuelven mucha señalización del día a día. Nuestros clientes los usan en:",
+        ],
+        bullets: [
+          "Bancos y cooperativas: número o nombre de ventanilla, requisitos y avisos al cliente.",
+          "Colegios y universidades: secretaría, colecturía y mesas de matrícula.",
+          "Entidades públicas: horarios de atención y pasos de cada trámite.",
+          "Empresas y recepciones: nombre del área, códigos QR de pago o de registro.",
+          "Eventos y ferias: mesas de acreditación y stands.",
+          "Restaurantes y cafeterías: menús, promociones y número de mesa.",
+        ],
+      },
+      {
+        h2: "Base en L o tipo T: cómo elegir",
+        paras: [
+          "Si el soporte va contra una pared o en un mostrador donde el público solo lo ve de frente, elige el hablador de escritorio con base en L: es estable, económico y su inclinación facilita la lectura. Si la mesa se ve desde ambos lados —una mesa de restaurante, un mostrador central o una mesa de registro—, el tipo T muestra una hoja por cada cara.",
+          "En los dos modelos la información se cambia en segundos: imprimes una hoja A4 nueva y la insertas en el acrílico, sin reimprimir señalética rígida cada vez que cambia un precio, un horario o un requisito.",
+        ],
+      },
+      {
+        h2: "Acrílico transparente que dura",
+        paras: [
+          "El acrílico deja todo el protagonismo al contenido impreso, se limpia con un paño húmedo y resiste el uso diario en ventanillas y mostradores de alto tráfico. Para cadenas, bancos con varias agencias o instituciones con muchas oficinas, cotizamos por volumen y mantenemos el mismo modelo para tus reposiciones.",
+        ],
+      },
+    ],
+    products: ["habEscritorio", "habT"],
+    gallery: [
+      { src: `${IMG}/hablador-acrilico-escritorio-a4-menu.webp`, alt: "Soporte acrílico de escritorio A4 con afiche de menú" },
+      { src: `${IMG}/hablador-escritorio-a4-afiche-vertical.webp`, alt: "Hablador de escritorio acrílico A4 vertical con afiche" },
+      { src: `${IMG}/hablador-tipo-t-menu-restaurante.webp`, alt: "Hablador de mesa tipo T A4 con menú de restaurante" },
+      { src: `${IMG}/hablador-mesa-tipo-t-insercion-lateral.webp`, alt: "Hablador de mesa tipo T con inserción lateral de la hoja A4" },
+    ],
+    faqs: [
+      {
+        q: "¿Qué diferencia hay entre el hablador de escritorio y el tipo T?",
+        a: "El de escritorio tiene base en L, muestra una sola cara y tiene una ligera inclinación; es ideal para mostradores y ventanillas. El tipo T es de doble cara: se lee desde ambos lados de la mesa, por eso se usa en restaurantes, mesas de registro y mostradores centrales.",
+      },
+      {
+        q: "¿Venden soportes acrílicos de escritorio al por mayor?",
+        a: "Sí. Los precios unitarios de catálogo son $5,99 (escritorio A4) y $6,70 (tipo T A4); por cantidad aplican descuentos que se negocian directamente con el encargado de ventas por WhatsApp.",
+      },
+      {
+        q: "¿Tienen otros tamaños además de A4?",
+        a: "El stock permanente es en tamaño A4. Si necesitas A5, A6 u otro formato, consúltanos disponibilidad y tiempos de importación por WhatsApp.",
+      },
+      FAQ_ENTREGAS,
+      FAQ_FACTURA,
+    ],
+    related: [
+      { to: "/soportes-acrilicos-pared", label: "Habladores de pared acrílicos" },
+      { to: "/habladores-acrilicos", label: "Todos los habladores acrílicos" },
+      { to: "/portacredenciales-para-empresas", label: "Portacredenciales para empresas y bancos" },
+      { to: "/credenciales-para-eventos", label: "Credenciales para eventos" },
+    ],
+  },
+
+  // ── PRODUCTO: SOPORTES ACRÍLICOS DE PARED ─────────────
+  {
+    slug: "soportes-acrilicos-pared",
+    title: "Hablador de Pared Acrílico A4 en Ecuador | IMPORTVIDE",
+    description:
+      "Habladores de pared acrílicos A4 desde $3,00 para avisos, aulas, pasillos y ventanillas. Cambia el afiche en segundos. Stock en Guayaquil.",
+    h1: "Habladores de pared acrílicos A4",
+    intro: [
+      "El hablador de pared —también llamado soporte acrílico de pared o porta afiche de pared— es la solución más económica para señalización que cambia con frecuencia: avisos, horarios, comunicados, precios o instrucciones. Se fija a la pared y la hoja A4 impresa se reemplaza en segundos.",
+      "En IMPORTVIDE lo vendemos al por mayor desde Guayaquil, con envío a todo el Ecuador, para colegios, bancos, entidades públicas, empresas, hospitales, comercios y organizadores de eventos.",
+    ],
+    specs: [
+      { label: "Material", value: "Acrílico transparente" },
+      { label: "Tamaño", value: "A4 (hoja de 21 × 29,7 cm)" },
+      { label: "Cambio de la hoja", value: "Abertura superior con muesca para retirar y cambiar el afiche" },
+      { label: "Método de fijación", value: null }, // [PENDIENTE] ¿cinta doble faz, tornillos, ambos?
+      { label: "Espesor del acrílico", value: null }, // [PENDIENTE]
+      { label: "Precio referencial", value: "$3,00 c/u. Descuento por volumen al cotizar" },
+      { label: "Cantidad mínima", value: null }, // [PENDIENTE]
+      { label: "Tiempo de entrega", value: SPEC_ENTREGA },
+    ],
+    sections: [
+      {
+        h2: "Usos más comunes del hablador de pared",
+        paras: ["Donde haya información que se actualiza, un hablador de pared mantiene el espacio ordenado:"],
+        bullets: [
+          "Colegios: horarios de clase, avisos en aulas, carteleras y pasillos.",
+          "Bancos y cooperativas: tarifas, requisitos y avisos regulatorios junto a las ventanillas.",
+          "Entidades públicas y hospitales: señalización de áreas, turnos y pasos de cada trámite.",
+          "Empresas y edificios: avisos en ascensores, normas de seguridad y comunicados internos.",
+          "Comercios: precios, promociones y menús junto a la caja.",
+        ],
+      },
+      {
+        h2: "Por qué un hablador de pared y no un afiche pegado",
+        paras: [
+          "Un afiche pegado con cinta se dobla, se ensucia y deja marcas en la pared. Dentro de un hablador de pared, la hoja queda protegida, plana y con un acabado profesional; cuando la información cambia, la sacas por la abertura superior y colocas la nueva. No hay que reimprimir señalética rígida ni volver a pegar nada.",
+          "Por su precio unitario es la opción de señalización más económica de nuestro catálogo, ideal para equipar un edificio completo o todas las aulas de una institución en un solo pedido.",
+        ],
+      },
+      {
+        h2: "Pedidos para varias sedes o aulas",
+        paras: [
+          "Si necesitas equipar varias agencias, aulas u oficinas, envíanos la cantidad por WhatsApp o por el formulario de cotización: te confirmamos stock, precio por volumen, factura y envío a tu ciudad. Si además necesitas soportes para mostradores, revisa nuestros soportes acrílicos de escritorio.",
+        ],
+      },
+    ],
+    products: ["habPared"],
+    gallery: [
+      { src: `${IMG}/hablador-pared-a4-vertical-transparente.webp`, alt: "Hablador de pared acrílico A4 vertical transparente con muesca superior" },
+      { src: `${IMG}/hablador-acrilico-pared-a4-poster.webp`, alt: "Hablador acrílico de pared A4 con póster" },
+      { src: `${IMG}/hablador-pared-acrilico-lamina-a4.webp`, alt: "Hablador de pared acrílico con lámina A4" },
+      { src: `${IMG}/hablador-pared-a4-afiche-instalado.webp`, alt: "Hablador de pared acrílico A4 instalado con afiche" },
+    ],
+    faqs: [
+      {
+        q: "¿Cuánto cuesta un hablador de pared A4?",
+        a: "El precio unitario de catálogo es $3,00. Para pedidos por volumen el descuento se negocia directamente con el encargado de ventas por WhatsApp según la cantidad.",
+      },
+      {
+        q: "¿Cómo se cambia el afiche?",
+        a: "La hoja A4 entra por la abertura superior, que tiene una muesca para sacarla con el dedo. Cambiar la información toma segundos y no hace falta descolgar el hablador.",
+      },
+      {
+        q: "¿Tienen otros tamaños además de A4?",
+        a: "El stock permanente es en tamaño A4. Si necesitas A5, A6 u otro formato, consúltanos disponibilidad y tiempos de importación por WhatsApp.",
+      },
+      FAQ_ENTREGAS,
+      FAQ_FACTURA,
+    ],
+    related: [
+      { to: "/soportes-acrilicos-escritorio", label: "Soportes acrílicos de escritorio" },
+      { to: "/habladores-acrilicos", label: "Todos los habladores acrílicos" },
+      { to: "/portacredenciales-para-colegios", label: "Portacredenciales para colegios" },
+      { to: "/portacredenciales-guayaquil", label: "Stock en Guayaquil" },
+    ],
+  },
+
+  // ── PRODUCTO: CORDONES PERSONALIZADOS ─────────────────
+  {
+    slug: "cordones-personalizados",
+    title: "Cordones Personalizados y Lanyards en Ecuador | IMPORTVIDE",
+    description:
+      "Cordones personalizados con tu logo y lanyards lisos en stock para carnet, colegios, empresas y eventos. Desde Guayaquil a todo Ecuador. Cotiza ya.",
+    h1: "Cordones personalizados y lanyards para carnet",
+    intro: [
+      "¿Necesitas cordones personalizados para tu colegio, banco, empresa o evento? En IMPORTVIDE vendemos lanyards —también llamados cintas para carnet o cordones porta credencial— al por mayor desde Guayaquil, con envío a todo el Ecuador.",
+      "Trabajamos de dos formas: cordones lisos en stock (verde, negro y azul, con clip plástico blanco), que salen de inmediato, y cordones personalizados con el logo o los colores de tu institución, que cotizamos según tu diseño y la cantidad que necesitas.",
+    ],
+    specs: [
+      { label: "Material", value: "Cinta textil con costura reforzada" },
+      { label: "Terminación", value: "Clip plástico blanco de enganche rápido" },
+      { label: "Colores lisos en stock", value: "Verde, negro y azul" },
+      { label: "Medidas (ancho y largo)", value: null }, // [PENDIENTE]
+      { label: "Personalización", value: "Logo o colores de tu institución. Técnica de impresión a confirmar según tu diseño" },
+      { label: "Cantidad mínima personalizados", value: null }, // [PENDIENTE]
+      { label: "Tiempo de producción personalizados", value: null }, // [PENDIENTE]
+      { label: "Tiempo de entrega lisos", value: SPEC_ENTREGA },
+    ],
+    sections: [
+      {
+        h2: "Cordones lisos en stock: entrega inmediata",
+        paras: [
+          "Si tu prioridad es el tiempo, los cordones lisos son la opción: mantenemos más de 20.000 unidades en bodega en Guayaquil, en verde, negro y azul. Muchas instituciones usan un color por área o por tipo de acceso —por ejemplo, azul para personal, negro para prensa y verde para visitantes— y así el control de ingreso se hace de un vistazo.",
+          "Todos nuestros cordones son compatibles con los portacredenciales que vendemos: deslizables, caparazón, cara abierta, acrílico y fundas de PVC.",
+        ],
+      },
+      {
+        h2: "Cordones personalizados con tu logo: cómo cotizar",
+        paras: ["El proceso es directo y sin compromiso:"],
+        bullets: [
+          "Envíanos por WhatsApp o por el formulario tu logo, los colores de tu marca y la cantidad aproximada.",
+          "Te confirmamos la técnica de personalización, la cantidad mínima, el precio por volumen y el tiempo de producción.",
+          "Si tienes una fecha límite (inicio de clases, un evento, una feria), indícala desde el primer mensaje para planificar la entrega.",
+          "Coordinamos el pago, la factura y el envío a tu ciudad.",
+        ],
+      },
+      {
+        h2: "Cordones para colegios, empresas y eventos",
+        paras: [
+          "En colegios y universidades, el cordón con los colores institucionales acompaña al carnet estudiantil todo el año lectivo. En bancos, empresas y entidades públicas, refuerza la imagen corporativa y facilita identificar al personal. En congresos, ferias y conciertos, los cordones para eventos permiten distinguir staff, prensa, expositores y asistentes.",
+          "Completa el kit con el portacredencial adecuado y recibe todo en un solo pedido desde la misma bodega.",
+        ],
+      },
+    ],
+    products: ["cordones", "flexEventos", "clip"],
+    gallery: [
+      { src: `${IMG}/credenciales-eventos-personalizadas-cordones.webp`, alt: "Cordones verde, negro y azul con credenciales de evento personalizadas" },
+      { src: `${IMG}/cordones-lanyard-verde-por-mayor.webp`, alt: "Cordones lanyard verdes con clip plástico, venta al por mayor" },
+      { src: `${IMG}/cordones-lanyard-negro-por-mayor.webp`, alt: "Cordones lanyard negros al por mayor para carnet" },
+    ],
+    faqs: [
+      {
+        q: "¿Qué es un lanyard o cordón para carnet?",
+        a: "Es la cinta que se lleva al cuello para colgar el carnet o la credencial. En Ecuador también se le dice cinta para carnet, cordón porta credencial o simplemente cordón. Los nuestros terminan en un clip plástico de enganche rápido.",
+      },
+      {
+        q: "¿Pueden poner el logo de mi institución en los cordones?",
+        a: "Sí, cotizamos cordones personalizados. Envíanos tu logo y la cantidad por WhatsApp y te confirmamos técnica, cantidad mínima, precio y tiempo de producción antes de que decidas.",
+      },
+      {
+        q: "¿Qué colores de cordones tienen en stock?",
+        a: "Verde, negro y azul, con clip plástico blanco. Estos se despachan de inmediato al confirmar el pago.",
+      },
+      FAQ_MAYOREO,
+      FAQ_ENTREGAS,
+      FAQ_FACTURA,
+    ],
+    related: [
+      { to: "/lanyards-ecuador", label: "Lanyards y cintas en stock" },
+      { to: "/credenciales-para-eventos", label: "Credenciales para eventos" },
+      { to: "/portacredenciales", label: "Portacredenciales y porta carnets" },
+      { to: "/portacredenciales-para-colegios", label: "Kits para colegios" },
     ],
   },
 

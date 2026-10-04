@@ -2,6 +2,11 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "redirects": [
     {
+      "source": "/porta-carnets",
+      "destination": "/portacredenciales",
+      "permanent": true
+    },
+    {
       "source": "/",
       "has": [
         {
@@ -14,7 +19,7 @@
       "permanent": false
     },
     {
-      "source": "/:slug(portacredenciales-guayaquil|portacredenciales-para-colegios|portacredenciales-para-empresas|portacredenciales-quito|portacredenciales|credenciales-para-eventos|habladores-acrilicos|lanyards-ecuador)",
+      "source": "/:slug(portacredenciales-guayaquil|portacredenciales-para-colegios|portacredenciales-para-empresas|portacredenciales-quito|portacredenciales|credenciales-para-eventos|habladores-acrilicos|lanyards-ecuador|cordones-personalizados|soportes-acrilicos-escritorio|soportes-acrilicos-pared)",
       "has": [
         {
           "type": "header",
@@ -67,7 +72,7 @@
       ]
     },
     {
-      "source": "/:slug(portacredenciales-guayaquil|portacredenciales-para-colegios|portacredenciales-para-empresas|portacredenciales-quito|portacredenciales|credenciales-para-eventos|habladores-acrilicos|lanyards-ecuador)",
+      "source": "/:slug(portacredenciales-guayaquil|portacredenciales-para-colegios|portacredenciales-para-empresas|portacredenciales-quito|portacredenciales|credenciales-para-eventos|habladores-acrilicos|lanyards-ecuador|cordones-personalizados|soportes-acrilicos-escritorio|soportes-acrilicos-pared)",
       "headers": [
         {
           "key": "Link",

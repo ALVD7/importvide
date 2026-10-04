@@ -403,6 +403,59 @@
   margin: 0 0 26px;
 }
 
+.ctaAlt {
+  margin: 18px 0 0;
+  font-size: 0.92rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.ctaAlt a {
+  color: #ffb066;
+  font-weight: 650;
+}
+
+/* ── Ficha técnica ─────────────────────────────────────── */
+.specs {
+  margin: 0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.specRow {
+  display: grid;
+  grid-template-columns: minmax(150px, 34%) 1fr;
+}
+
+.specRow + .specRow { border-top: 1px solid rgba(0, 0, 0, 0.07); }
+
+.specRow dt,
+.specRow dd {
+  margin: 0;
+  padding: 14px 18px;
+  line-height: 1.6;
+}
+
+.specRow dt {
+  font-weight: 650;
+  color: #1a1a1a;
+  background: #fafafa;
+}
+
+.specRow dd { color: #444; }
+
+.specRow .specPending {
+  color: #8a5a2b;
+  font-style: italic;
+}
+
+@media (max-width: 600px) {
+  .specRow { grid-template-columns: 1fr; }
+  .specRow dt { padding-bottom: 4px; }
+  .specRow dd { padding-top: 4px; background: #fafafa; }
+  .specRow dt { background: #fafafa; }
+}
+
 /* ── Enlaces relacionados ──────────────────────────────── */
 .related {
   margin-top: clamp(48px, 7vh, 72px);
