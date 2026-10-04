@@ -52,7 +52,7 @@ export default function Privacidad() {
             <li>
               <strong>Origen de la visita:</strong> de qué sitio o campaña llegaste (parámetros UTM o
               sitio de referencia) y la primera página que viste. Se guarda en tu navegador durante
-              30 días y se envía con el formulario y con el mensaje de WhatsApp.
+              30 días y se envía con el formulario de cotización.
             </li>
             <li>
               <strong>WhatsApp:</strong> si nos escribes, recibimos tu número y tus mensajes. WhatsApp

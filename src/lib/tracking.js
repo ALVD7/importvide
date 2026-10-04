@@ -1,10 +1,10 @@
 // Origen de la visita (UTM / referrer) y eventos de conversión de GA4.
 //
 // - capturarOrigen() se llama una vez al cargar la app: guarda de dónde vino
-//   el visitante para enviarlo con el formulario y con el mensaje de WhatsApp.
+//   el visitante para enviarlo con el formulario y con los eventos de GA4.
+//   El mensaje de WhatsApp no lo lleva: ese texto lo ve el cliente.
 // - instalarSeguimientoDeClics() escucha todos los clics del documento: no hace
-//   falta tocar cada botón. Los enlaces a wa.me se marcan con el origen justo
-//   antes de abrirse.
+//   falta tocar cada botón.
 //
 // Eventos GA4 (marcarlos como "eventos clave" en GA4 para usarlos en Ads):
 //   whatsapp_click  { producto, ubicacion, origen }
@@ -103,16 +103,6 @@ export function track(evento, params = {}) {
   window.gtag?.("event", evento, datos);
 }
 
-const MARCA_ORIGEN = "Ref. web:";
-
-// Añade el origen al texto prellenado de WhatsApp para saber de dónde vino
-// cada conversación sin preguntarle al cliente.
-export function textoConOrigen(texto) {
-  const base = texto || "Hola IMPORTVIDE! Quiero una cotización.";
-  if (base.includes(MARCA_ORIGEN)) return base;
-  return `${base}\n\n(${MARCA_ORIGEN} ${origenTexto()})`;
-}
-
 function productoDeLaPagina() {
   if (window.location.pathname === "/") return "general";
   return document.querySelector("h1")?.textContent?.trim() || "general";
@@ -124,8 +114,6 @@ function alHacerClic(e) {
   const href = a.getAttribute("href") ?? "";
 
   if (a.hostname === "wa.me") {
-    const texto = new URL(a.href).searchParams.get("text");
-    a.href = `https://wa.me${a.pathname}?text=${encodeURIComponent(textoConOrigen(texto))}`;
     track("whatsapp_click", {
       producto: a.dataset.producto || productoDeLaPagina(),
       ubicacion: a.dataset.ubicacion || "general",
