@@ -142,6 +142,7 @@ export default function HeroBanner() {
             href={`https://wa.me/${WHATSAPP_NUMBER}`}
             target="_blank"
             rel="noopener noreferrer"
+            data-ubicacion="portada-hero"
           >
             <span>Cotizar por WhatsApp</span>
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">

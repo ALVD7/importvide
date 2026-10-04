@@ -48,6 +48,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className={`${styles.socialBtn} ${styles.whatsapp}`}
             aria-label="WhatsApp de IMPORTVIDE"
+            data-ubicacion="footer"
           >
             <WhatsAppIcon />
             <span>WhatsApp</span>

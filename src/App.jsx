@@ -24,6 +24,7 @@ import SeoLanding from "./pages/SeoLanding";
 import Contacto from "./pages/Contacto";
 import PreguntasFrecuentes from "./pages/PreguntasFrecuentes";
 import NotFound from "./pages/NotFound";
+import WhatsAppFloat from "./components/WhatsAppFloat";
 import { seoPages } from "./data/seoPages";
 import styles from "./App.module.css";
 
@@ -396,6 +397,7 @@ export default function App() {
           ))}
           <Route path="*"         element={<NotFound />} />
         </Routes>
+        <WhatsAppFloat />
       </AuthProvider>
     </BrowserRouter>
   );
