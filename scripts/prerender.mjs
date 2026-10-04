@@ -13,6 +13,7 @@ import {
   faqJsonLd,
   breadcrumbJsonLd,
   localBusinessJsonLd,
+  organizationJsonLd,
   metaDescription,
 } from "../src/lib/structuredData.js";
 import { cargarProductos, linkWhatsApp } from "./products.mjs";
@@ -264,6 +265,7 @@ const portada = `
 // La portada es una página de listado: Google espera ItemList, no 13 entidades
 // Product sueltas. El Product completo va en la ficha de cada producto.
 const jsonLdPortada = ldTags([
+  organizationJsonLd(),
   localBusinessJsonLd(),
   {
     "@context": "https://schema.org",

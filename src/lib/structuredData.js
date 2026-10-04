@@ -1,29 +1,68 @@
-export const SITE_URL = "https://importvide.com";
+import { BUSINESS } from "../data/business.js";
+
+export const SITE_URL = BUSINESS.url;
 export const DEFAULT_OG_IMAGE = "/img/productos/portacredencial-acrilico-rigido-vertical-cinta-naranja.webp";
+
+const ORG_ID = `${SITE_URL}/#organizacion`;
+const NEGOCIO_ID = `${SITE_URL}/#negocio`;
+
+// Solo los datos confirmados en business.js: lo que está en null ([PENDIENTE])
+// no se publica. Sin aggregateRating ni reseñas: Google exige que sean reales.
+const sameAs = () => [BUSINESS.instagram, BUSINESS.googleBusinessUrl].filter(Boolean);
+
+export function organizationJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": ORG_ID,
+    name: BUSINESS.name,
+    url: SITE_URL,
+    logo: `${SITE_URL}${BUSINESS.logo}`,
+    sameAs: sameAs(),
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "sales",
+      telephone: BUSINESS.phone,
+      ...(BUSINESS.email && { email: BUSINESS.email }),
+      areaServed: "EC",
+      availableLanguage: ["es"],
+    },
+  };
+}
 
 export function localBusinessJsonLd() {
   return {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    name: "IMPORTVIDE",
+    "@id": NEGOCIO_ID,
+    name: BUSINESS.name,
     url: SITE_URL,
+    logo: `${SITE_URL}${BUSINESS.logo}`,
     image: `${SITE_URL}${DEFAULT_OG_IMAGE}`,
-    telephone: "+593980118073",
+    telephone: BUSINESS.phone,
+    ...(BUSINESS.email && { email: BUSINESS.email }),
     address: {
       "@type": "PostalAddress",
-      addressLocality: "Guayaquil",
-      addressCountry: "EC",
+      ...(BUSINESS.streetAddress && { streetAddress: BUSINESS.streetAddress }),
+      addressLocality: BUSINESS.city,
+      addressRegion: BUSINESS.region,
+      addressCountry: BUSINESS.country,
     },
-    areaServed: "Ecuador",
+    areaServed: [
+      { "@type": "City", name: "Guayaquil" },
+      { "@type": "Country", name: "Ecuador" },
+    ],
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      opens: "08:00",
-      closes: "17:00",
+      dayOfWeek: BUSINESS.hours.days,
+      opens: BUSINESS.hours.opens,
+      closes: BUSINESS.hours.closes,
     },
-    sameAs: ["https://www.instagram.com/importvide/"],
+    ...(BUSINESS.googleBusinessUrl && { hasMap: BUSINESS.googleBusinessUrl }),
+    sameAs: sameAs(),
+    parentOrganization: { "@id": ORG_ID },
     description:
-      "Importador y distribuidor de portacredenciales, lanyards y habladores acrílicos en Ecuador. Venta al por mayor para colegios, bancos, entidades públicas y eventos.",
+      "Importador y distribuidor de portacredenciales, cordones (lanyards) y soportes acrílicos en Ecuador. Venta al por mayor para colegios, bancos, entidades públicas, empresas y eventos.",
   };
 }
 
@@ -43,7 +82,7 @@ export function productJsonLd(p) {
       availability: p.inStock
         ? "https://schema.org/InStock"
         : "https://schema.org/OutOfStock",
-      seller: { "@type": "Organization", name: "IMPORTVIDE" },
+      seller: { "@type": "Organization", "@id": ORG_ID, name: BUSINESS.name },
     },
   };
 }

@@ -15,7 +15,7 @@ import ProductCard from "./components/ProductCard";
 const SalesDashboard = lazy(() => import("./components/SalesDashboard"));
 import Footer from "./components/Footer";
 import Seo from "./components/Seo";
-import { localBusinessJsonLd } from "./lib/structuredData";
+import { localBusinessJsonLd, organizationJsonLd } from "./lib/structuredData";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import ProductDetail from "./pages/ProductDetail";
@@ -170,7 +170,7 @@ function Home() {
         title="Portacredenciales, Cordones y Acrílicos | IMPORTVIDE Ecuador"
         description="Importador directo en Guayaquil de portacredenciales, cordones y soportes acrílicos. Venta al por mayor para colegios, bancos y eventos en todo Ecuador."
         path="/"
-        jsonLd={[localBusinessJsonLd()]}
+        jsonLd={[organizationJsonLd(), localBusinessJsonLd()]}
       />
       <Header />
       <HeroBanner />
