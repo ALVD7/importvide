@@ -4,22 +4,16 @@ import Footer from "../components/Footer";
 import Seo from "../components/Seo";
 import Reveal from "../components/Reveal";
 import { productJsonLd, faqJsonLd, breadcrumbJsonLd } from "../lib/structuredData";
-import { CATALOG, PENDING_SPEC } from "../data/seoPages";
+import { CATALOG, PENDING_SPEC, heroVideo } from "../data/seoPages";
 import { WHATSAPP_NUMBER } from "../data/products";
 import styles from "./SeoLanding.module.css";
-
-// Cada familia de producto tiene su propio plano de fondo.
-const HERO_VIDEO = {
-  "lanyards-ecuador": "/video/lanyards.mp4",
-  "habladores-acrilicos": "/video/habladores.mp4",
-};
 
 export default function SeoLanding({ page }) {
   const products = page.products.map((key) => CATALOG[key]);
   const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
     `Hola IMPORTVIDE! Vi la página de ${page.h1} y quiero una cotización.`
   )}`;
-  const heroVideo = HERO_VIDEO[page.slug] ?? "/video/hero-loop.mp4";
+  const video = heroVideo(page.slug);
   const [leadIntro, ...restIntro] = page.intro;
 
   const jsonLd = [
@@ -45,7 +39,8 @@ export default function SeoLanding({ page }) {
       <header className={styles.hero}>
         <video
           className={styles.heroVideo}
-          src={heroVideo}
+          src={video.src}
+          poster={video.poster}
           autoPlay
           muted
           loop

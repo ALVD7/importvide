@@ -136,6 +136,21 @@ const FAQ_FACTURA = {
 // Ficha técnica de las páginas de producto. Un valor en null es un dato que el
 // negocio aún no ha confirmado ([PENDIENTE]): la página muestra PENDING_SPEC en
 // su lugar en vez de inventarlo.
+// Video de fondo del encabezado de cada landing. El póster (primer cuadro, ~15 KB)
+// se pinta mientras el video carga y es lo que mide Google como LCP en móvil.
+const HERO_VIDEO = {
+  "lanyards-ecuador": "/video/lanyards.mp4",
+  "cordones-personalizados": "/video/lanyards.mp4",
+  "habladores-acrilicos": "/video/habladores.mp4",
+  "soportes-acrilicos-escritorio": "/video/habladores.mp4",
+  "soportes-acrilicos-pared": "/video/habladores.mp4",
+};
+
+export function heroVideo(slug) {
+  const src = HERO_VIDEO[slug] ?? "/video/hero-loop.mp4";
+  return { src, poster: src.replace(/\.mp4$/, "-poster.jpg") };
+}
+
 export const PENDING_SPEC = "Te lo confirmamos al cotizar por WhatsApp";
 
 const SPEC_ENTREGA =

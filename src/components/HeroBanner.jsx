@@ -104,6 +104,7 @@ export default function HeroBanner() {
         <video
           className={styles.video}
           src="/video/hero-loop.mp4"
+          poster="/video/hero-loop-poster.jpg"
           autoPlay
           muted
           loop

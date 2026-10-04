@@ -4,7 +4,7 @@
 // <div id="root"> vacío. El navegador carga igual el bundle de React, que toma
 // el control al montar.
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
-import { seoPages, CATALOG, PENDING_SPEC } from "../src/data/seoPages.js";
+import { seoPages, CATALOG, PENDING_SPEC, heroVideo } from "../src/data/seoPages.js";
 import { STATIC_PAGES, FAQ_GROUPS, PRODUCTOS_COTIZABLES } from "../src/data/staticPages.js";
 import { BUSINESS } from "../src/data/business.js";
 import {
@@ -46,7 +46,7 @@ const PIE = `<p><strong>${BUSINESS.name}</strong> — Importador directo en ${BU
   <p><a href="/cotizar">Cotizar</a> · <a href="/contacto">Contacto</a> · <a href="/preguntas-frecuentes">Preguntas frecuentes</a> · <a href="/politicas">Devoluciones</a> · <a href="/privacidad">Privacidad</a></p>`;
 
 // Documento completo para las rutas que Vite no genera (landings y fichas).
-function documento({ title, description, canonical, ogImage, markdown, jsonLd = "", content, noindex = false }) {
+function documento({ title, description, canonical, ogImage, markdown, jsonLd = "", content, noindex = false, preloadImage }) {
   return `<!doctype html>
 <html lang="es-EC">
   <head>
@@ -74,6 +74,7 @@ function documento({ title, description, canonical, ogImage, markdown, jsonLd = 
     <link rel="api-catalog" href="/.well-known/api-catalog" />
     <link rel="preconnect" href="https://cbfvcyxrrpseasuujkcz.supabase.co" crossorigin />
     <link rel="preload" href="/fonts/sora-latin.woff2" as="font" type="font/woff2" crossorigin />
+    ${preloadImage ? `<link rel="preload" href="${preloadImage}" as="image" fetchpriority="high" />` : ""}
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-HPFQPCHE9W"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -149,6 +150,7 @@ for (const page of seoPages) {
       canonical,
       ogImage: `${SITE_URL}${products[0]?.img ?? ""}`,
       markdown: `/${page.slug}.md`,
+      preloadImage: heroVideo(page.slug).poster,
       jsonLd: ldTags([
         breadcrumbJsonLd([
           { name: "Inicio", path: "/" },
