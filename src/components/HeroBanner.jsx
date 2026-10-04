@@ -122,15 +122,19 @@ export default function HeroBanner() {
           Importador directo · Guayaquil, Ecuador
         </span>
 
-        <h1 className={styles.title}>
+        {/* El eslogan es el texto grande, pero el H1 es la frase con las palabras
+            clave: es lo que Google usa para entender de qué trata la portada. */}
+        <p className={styles.title}>
           <span className={styles.line}>{renderLine(LINE_1, 0, false)}</span>
           <span className={styles.line}>{renderLine(LINE_2, LINE_1.length, true)}</span>
-        </h1>
-
-        <p className={styles.subtitle}>
-          Portacredenciales, lanyards y habladores acrílicos al por mayor.
-          Importamos el volumen, tú te quedas con el margen.
         </p>
+
+        <div className={styles.subtitle}>
+          <h1 className={styles.subtitleH1}>
+            Portacredenciales, cordones y soportes acrílicos al por mayor en Ecuador.
+          </h1>{" "}
+          Importamos el volumen, tú te quedas con el margen.
+        </div>
 
         <div className={styles.actions}>
           <a

@@ -1,16 +1,31 @@
-import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Seo from "../components/Seo";
+import Breadcrumbs from "../components/Breadcrumbs";
+import { STATIC_PAGES } from "../data/staticPages";
+import { breadcrumbJsonLd } from "../lib/structuredData";
 import styles from "./Info.module.css";
+
+const PAGE = STATIC_PAGES.politicas;
+const CRUMBS = [
+  { name: "Inicio", path: "/" },
+  { name: PAGE.h1, path: PAGE.path },
+];
 
 export default function Politicas() {
   return (
     <div className={styles.page}>
+      <Seo
+        title={PAGE.title}
+        description={PAGE.description}
+        path={PAGE.path}
+        jsonLd={[breadcrumbJsonLd(CRUMBS)]}
+      />
       <Header />
       <main className={styles.main}>
-        <Link to="/" className={styles.breadcrumb}>← Volver al inicio</Link>
+        <Breadcrumbs items={CRUMBS} />
 
-        <h1 className={styles.title}>Política de Devoluciones</h1>
+        <h1 className={styles.title}>{PAGE.h1}</h1>
         <p className={styles.updated}>Última actualización: mayo 2026</p>
 
         <div className={styles.card}>

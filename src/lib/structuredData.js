@@ -72,3 +72,12 @@ export function breadcrumbJsonLd(items) {
     })),
   };
 }
+
+// Recorta una descripción a la longitud que Google muestra (~155 caracteres)
+// sin cortar palabras.
+export function metaDescription(text, max = 155) {
+  const clean = String(text ?? "").replace(/\s+/g, " ").trim();
+  if (clean.length <= max) return clean;
+  const cut = clean.slice(0, max - 1);
+  return `${cut.slice(0, cut.lastIndexOf(" ")).replace(/[,;:.\s]+$/, "")}…`;
+}

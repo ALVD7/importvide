@@ -214,9 +214,9 @@ export const seoPages = [
   // ── CIUDAD: GUAYAQUIL ──────────────────────────────────
   {
     slug: "portacredenciales-guayaquil",
-    title: "Portacredenciales en Guayaquil — Entrega Inmediata | IMPORTVIDE",
+    title: "Portacredenciales en Guayaquil al por Mayor | IMPORTVIDE",
     description:
-      "Compra portacredenciales en Guayaquil directo al importador: deslizables, caparazón, cara abierta y fundas PVC. Stock local y entrega rápida. Cotiza por WhatsApp.",
+      "Portacredenciales en Guayaquil directo del importador: deslizables, caparazón, cara abierta y fundas PVC. Stock local. Cotiza por WhatsApp.",
     h1: "Portacredenciales en Guayaquil",
     intro: [
       "¿Buscas portacredenciales en Guayaquil con entrega rápida? IMPORTVIDE tiene su bodega en la ciudad, así que tu pedido no depende de tiempos de importación ni de envíos desde otras provincias: el stock está aquí, listo para despachar al confirmar tu pedido.",
@@ -346,7 +346,7 @@ export const seoPages = [
     slug: "lanyards-ecuador",
     title: "Lanyards y Cintas Portacredenciales en Ecuador | IMPORTVIDE",
     description:
-      "Cordones lanyard y cintas portacredenciales al por mayor en Ecuador: verde, negro y azul con clip plástico. Más de 20.000 unidades en stock. Cotiza por WhatsApp.",
+      "Lanyards y cintas para carnet al por mayor en Ecuador: verde, negro y azul con clip plástico. Más de 20.000 en stock. Cotiza por WhatsApp.",
     h1: "Lanyards y cintas portacredenciales en Ecuador",
     intro: [
       "Los lanyards —también llamados cintas portacredenciales o cordones para carnet— son el complemento indispensable de cualquier sistema de identificación. En IMPORTVIDE los importamos al por mayor y mantenemos más de 20.000 unidades en stock en Guayaquil, listas para despachar a todo el Ecuador.",
@@ -416,7 +416,7 @@ export const seoPages = [
     slug: "habladores-acrilicos",
     title: "Habladores Acrílicos y Exhibidores en Ecuador | IMPORTVIDE",
     description:
-      "Habladores acrílicos de mesa, escritorio y pared tamaño A4 desde $3,00. Exhibidores y porta precios de acrílico con stock en Guayaquil. Cotiza por WhatsApp.",
+      "Habladores acrílicos A4 de mesa, escritorio y pared desde $3,00. Exhibidores y porta precios con stock en Guayaquil. Cotiza por WhatsApp.",
     h1: "Habladores acrílicos y exhibidores en Ecuador",
     intro: [
       "Los habladores acrílicos (también conocidos como exhibidores acrílicos, porta afiches o porta precios) son la forma más profesional de mostrar menús, precios, promociones e información en mostradores, mesas y paredes. En IMPORTVIDE los importamos y vendemos con stock en Guayaquil y envío a todo el Ecuador.",
@@ -715,9 +715,9 @@ export const seoPages = [
   // ── VERTICAL: EVENTOS ──────────────────────────────────
   {
     slug: "credenciales-para-eventos",
-    title: "Credenciales para Eventos en Ecuador — Staff y Prensa | IMPORTVIDE",
+    title: "Credenciales y Cordones para Eventos en Ecuador | IMPORTVIDE",
     description:
-      "Credenciales PVC flexibles para congresos, ferias y conciertos: staff, prensa y organizadores. Con cordones de colores y stock por miles. Cotiza por WhatsApp.",
+      "Credenciales PVC y cordones para congresos, ferias y conciertos: staff, prensa y organizadores. Stock por miles en Guayaquil. Cotiza por WhatsApp.",
     h1: "Credenciales para eventos en Ecuador",
     intro: [
       "Organizar un congreso, feria, concierto o seminario implica identificar a cientos de personas en pocos días: staff, prensa, organizadores, expositores y asistentes. En IMPORTVIDE tenemos las credenciales para eventos que necesitas, con stock por miles de unidades en Guayaquil y despacho inmediato a todo el Ecuador.",
@@ -777,9 +777,9 @@ export const seoPages = [
   // ── VERTICAL: COLEGIOS ─────────────────────────────────
   {
     slug: "portacredenciales-para-colegios",
-    title: "Portacredenciales para Colegios y Estudiantes | IMPORTVIDE Ecuador",
+    title: "Porta Carnets para Colegios y Estudiantes | IMPORTVIDE",
     description:
-      "Porta carnets estudiantiles resistentes para colegios y universidades: fundas PVC, rígidos de colores y cordones. Precios por volumen para instituciones educativas.",
+      "Porta carnets estudiantiles resistentes para colegios y universidades: fundas PVC, rígidos de colores y cordones. Precios por volumen.",
     h1: "Portacredenciales para colegios y estudiantes",
     intro: [
       "Los carnets estudiantiles viven una vida dura: mochilas, recreos, lluvia y uso diario durante todo el año lectivo. En IMPORTVIDE proveemos a colegios, escuelas y universidades del Ecuador portacredenciales resistentes que protegen el carnet del estudiante desde la matrícula hasta el fin de año.",
@@ -839,7 +839,7 @@ export const seoPages = [
   // ── VERTICAL: EMPRESAS / BANCOS ────────────────────────
   {
     slug: "portacredenciales-para-empresas",
-    title: "Portacredenciales para Empresas y Bancos | IMPORTVIDE Ecuador",
+    title: "Portacredenciales para Empresas y Bancos | IMPORTVIDE",
     description:
       "Identificación corporativa: portacredenciales deslizables, de acrílico y cara abierta para bancos, empresas y entidades públicas. Cotización con factura.",
     h1: "Portacredenciales para empresas y bancos",

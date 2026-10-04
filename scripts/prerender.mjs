@@ -4,13 +4,16 @@
 // <div id="root"> vacío. El navegador carga igual el bundle de React, que toma
 // el control al montar.
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
-import { seoPages, CATALOG } from "../src/data/seoPages.js";
+import { seoPages, CATALOG, PENDING_SPEC } from "../src/data/seoPages.js";
+import { STATIC_PAGES, FAQ_GROUPS } from "../src/data/staticPages.js";
+import { BUSINESS } from "../src/data/business.js";
 import {
   SITE_URL,
   productJsonLd,
   faqJsonLd,
   breadcrumbJsonLd,
   localBusinessJsonLd,
+  metaDescription,
 } from "../src/lib/structuredData.js";
 import { cargarProductos, linkWhatsApp } from "./products.mjs";
 
@@ -38,10 +41,11 @@ const ldTags = (objetos) =>
     .map((o) => `<script type="application/ld+json">${JSON.stringify(o)}</script>`)
     .join("\n    ");
 
-const PIE = `<p><strong>IMPORTVIDE</strong> — Importador directo en Guayaquil, Ecuador. WhatsApp: +593 98 011 8073.</p>`;
+const PIE = `<p><strong>${BUSINESS.name}</strong> — Importador directo en ${BUSINESS.city}, Ecuador. WhatsApp: ${BUSINESS.phoneDisplay}. ${BUSINESS.hours.label}.</p>
+  <p><a href="/cotizar">Cotizar</a> · <a href="/contacto">Contacto</a> · <a href="/preguntas-frecuentes">Preguntas frecuentes</a> · <a href="/politicas">Devoluciones</a> · <a href="/privacidad">Privacidad</a></p>`;
 
 // Documento completo para las rutas que Vite no genera (landings y fichas).
-function documento({ title, description, canonical, ogImage, markdown, jsonLd, content }) {
+function documento({ title, description, canonical, ogImage, markdown, jsonLd = "", content, noindex = false }) {
   return `<!doctype html>
 <html lang="es-EC">
   <head>
@@ -53,7 +57,7 @@ function documento({ title, description, canonical, ogImage, markdown, jsonLd, c
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}" />
-    <link rel="canonical" href="${canonical}" />
+    ${noindex ? '<meta name="robots" content="noindex, follow" />' : `<link rel="canonical" href="${canonical}" />`}
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="IMPORTVIDE" />
     <meta property="og:title" content="${esc(title)}" />
@@ -62,7 +66,7 @@ function documento({ title, description, canonical, ogImage, markdown, jsonLd, c
     <meta property="og:image" content="${ogImage}" />
     <meta property="og:locale" content="es_EC" />
     <meta name="twitter:card" content="summary_large_image" />
-    <link rel="alternate" type="text/markdown" href="${markdown}" title="Esta página en Markdown" />
+    ${markdown ? `<link rel="alternate" type="text/markdown" href="${markdown}" title="Esta página en Markdown" />` : ""}
     <link rel="describedby" type="text/plain" href="/llms.txt" />
     <link rel="ai-catalog" type="application/json" href="/.well-known/ai-catalog.json" />
     <link rel="service-desc" type="application/json" href="/.well-known/mcp/server-card.json" />
@@ -107,6 +111,10 @@ for (const page of seoPages) {
       )
       .join("\n    ")}
   </ul>
+  ${page.specs?.length
+    ? `<h2>Ficha técnica</h2>
+  <dl>${page.specs.map((sp) => `<dt>${esc(sp.label)}</dt><dd>${esc(sp.value ?? PENDING_SPEC)}</dd>`).join("")}</dl>`
+    : ""}
   ${page.sections
     .map(
       (s) => `<section>
@@ -165,9 +173,10 @@ const landingsDe = (id) => {
 
 for (const producto of productos) {
   const canonical = `${SITE_URL}/product/${producto.id}`;
-  const description =
+  const descripcionCompleta =
     producto.description ||
     `${producto.name} disponible en IMPORTVIDE. Venta al por mayor en Guayaquil con envío a todo Ecuador. Consulta precio y stock por WhatsApp.`;
+  const description = metaDescription(descripcionCompleta);
   const disponibilidad = producto.inStock
     ? `En stock${producto.stock ? ` — ${producto.stock} disponibles` : ""}`
     : "Sin stock";
@@ -180,7 +189,7 @@ for (const producto of productos) {
   <p><strong>$ ${producto.price.toFixed(2)} USD</strong> — ${esc(disponibilidad)}</p>
   ${producto.category ? `<p>Categoría: ${esc(producto.category)}</p>` : ""}
   <h2>Descripción</h2>
-  <p>${esc(description)}</p>
+  <p>${esc(descripcionCompleta)}</p>
   <p>Precio referencial: para compras al por mayor el descuento se cotiza por volumen.
   <a href="${esc(linkWhatsApp(producto))}">Consultar por WhatsApp</a>.</p>
   <h2>Categorías relacionadas</h2>
@@ -210,7 +219,7 @@ for (const producto of productos) {
           price: producto.price,
           inStock: producto.inStock,
           img: producto.image,
-          alt: description,
+          alt: descripcionCompleta,
         }),
       ]),
       content,
@@ -224,8 +233,8 @@ console.log(`prerender: ${productos.length} fichas de producto`);
 // ya produjo Vite, para no perder nada de su <head>.
 const portada = `
 <div class="pre-wrap">
-  <h1>Todo lo que tu negocio necesita, lo importamos por ti</h1>
-  <p>Artículos de identificación y señalización para tu negocio.</p>
+  <p>Todo lo que tu negocio necesita, lo importamos por ti.</p>
+  <h1>Portacredenciales, cordones y soportes acrílicos al por mayor en Ecuador</h1>
   <p>En IMPORTVIDE somos importadores directos de portacredenciales, lanyards y habladores
   acrílicos, con bodega en Guayaquil y envío a todo Ecuador. Vendemos al por mayor a colegios,
   bancos, empresas, entidades públicas y organizadores de eventos, y también por unidad.</p>
@@ -272,11 +281,94 @@ const jsonLdPortada = ldTags([
 if (!shell.includes('<div id="root"></div>')) {
   throw new Error("dist/index.html no tiene el <div id=\"root\"> vacío esperado");
 }
+// Shell vacío para las rutas que resuelve React en el cliente (fichas nuevas
+// aún no prerenderizadas, /login, /register, /admin). vercel.json las reescribe
+// a /app.html para que no hereden el contenido, el canonical ni el JSON-LD de
+// la portada.
+writeFileSync(new URL("app.html", dist), shell);
+
 const indexHtml = shell
-  .replace("</head>", `  ${baseStyle}\n    ${jsonLdPortada}\n  </head>`)
+  .replace("</head>", `  <link rel="canonical" href="${SITE_URL}/" />\n    ${baseStyle}\n    ${jsonLdPortada}\n  </head>`)
   .replace('<div id="root"></div>', `<div id="root">${portada}\n    </div>`);
 writeFileSync(new URL("index.html", dist), indexHtml);
 console.log("prerender: / (portada)");
+
+// ── Páginas informativas ─────────────────────────────────────────────────
+// Mismo título, descripción y H1 que los componentes React (staticPages.js).
+const migas = (page) => [
+  { name: "Inicio", path: "/" },
+  { name: page.h1, path: page.path },
+];
+const navMigas = (page) => `<nav><a href="/">Inicio</a> › ${esc(page.h1)}</nav>`;
+
+const CONTENIDO_ESTATICO = {
+  contacto: () => `
+  <p>Cotizamos portacredenciales, cordones y soportes acrílicos al por mayor. La forma más rápida es WhatsApp.</p>
+  <dl>
+    <dt>Empresa</dt><dd>${esc(BUSINESS.name)}</dd>
+    <dt>WhatsApp y teléfono</dt><dd><a href="tel:${BUSINESS.phone}">${esc(BUSINESS.phoneDisplay)}</a></dd>
+    ${BUSINESS.email ? `<dt>Correo</dt><dd><a href="mailto:${BUSINESS.email}">${esc(BUSINESS.email)}</a></dd>` : ""}
+    <dt>Horario</dt><dd>${esc(BUSINESS.hours.label)}</dd>
+    <dt>Ubicación</dt><dd>${esc(BUSINESS.city)}, ${esc(BUSINESS.region)}, Ecuador. Operamos 100 % en línea, sin local de atención al público.</dd>
+    <dt>Cobertura</dt><dd>${esc(BUSINESS.serviceArea)}</dd>
+  </dl>
+  <p><a href="https://wa.me/${BUSINESS.whatsapp}">Escribir por WhatsApp</a> · <a href="/cotizar">Usar el formulario</a></p>`,
+  faq: () =>
+    FAQ_GROUPS.map(
+      (g) => `<h2>${esc(g.title)}</h2>
+  ${g.faqs.map((f) => `<details><summary>${esc(f.q)}</summary><p>${esc(f.a)}</p></details>`).join("\n  ")}`
+    ).join("\n  "),
+  politicas: () => `
+  <p>No realizamos devoluciones ni reembolsos una vez despachado el pedido, salvo si se pierde en tránsito o llega totalmente dañado o con un daño significativo. Repórtalo por WhatsApp dentro de las 48 horas de recibido, con fotos del producto y del empaque y el comprobante de compra.</p>`,
+};
+
+const jsonLdEstatico = {
+  contacto: () => [localBusinessJsonLd()],
+  faq: () => [faqJsonLd(FAQ_GROUPS.flatMap((g) => g.faqs))],
+};
+
+for (const [clave, contenido] of Object.entries(CONTENIDO_ESTATICO)) {
+  const page = STATIC_PAGES[clave];
+  const html = documento({
+    title: page.title,
+    description: page.description,
+    canonical: `${SITE_URL}${page.path}`,
+    ogImage: `${SITE_URL}${CATALOG.acrilico.img}`,
+    jsonLd: ldTags([breadcrumbJsonLd(migas(page)), ...(jsonLdEstatico[clave]?.() ?? [])]),
+    content: `
+<div class="pre-wrap">
+  ${navMigas(page)}
+  <h1>${esc(page.h1)}</h1>
+  ${contenido()}
+  ${PIE}
+</div>`,
+  });
+  mkdirSync(new URL(`${page.path.slice(1)}/`, dist), { recursive: true });
+  writeFileSync(new URL(`${page.path.slice(1)}/index.html`, dist), html);
+  console.log(`prerender: ${page.path}`);
+}
+
+// ── 404 ──────────────────────────────────────────────────────────────────
+// Vercel sirve dist/404.html con status 404 a toda ruta que no exista (ver
+// vercel.json: ya no hay rewrite comodín). React monta NotFound encima.
+writeFileSync(
+  new URL("404.html", dist),
+  documento({
+    title: "Página no encontrada | IMPORTVIDE",
+    description: "La página que buscas no existe. Revisa nuestros portacredenciales, cordones y soportes acrílicos o escríbenos por WhatsApp.",
+    noindex: true,
+    ogImage: `${SITE_URL}${CATALOG.acrilico.img}`,
+    content: `
+<div class="pre-wrap">
+  <h1>No encontramos esta página</h1>
+  <ul>
+    ${seoPages.map((p) => `<li><a href="/${p.slug}">${esc(p.h1)}</a></li>`).join("\n    ")}
+  </ul>
+  ${PIE}
+</div>`,
+  })
+);
+console.log("prerender: 404.html");
 
 // ── Sitemap ──────────────────────────────────────────────────────────────
 // Se genera aquí para que liste exactamente las páginas que se acaban de
@@ -284,7 +376,7 @@ console.log("prerender: / (portada)");
 const hoy = new Date().toISOString().slice(0, 10);
 // Fecha del copy de las landings y de la página de políticas: vive en el
 // repositorio, así que solo cambia cuando se edita ese texto.
-const LASTMOD_CONTENIDO = "2026-07-02";
+const LASTMOD_CONTENIDO = "2026-10-04";
 
 const entrada = (loc, lastmod, priority) =>
   `  <url><loc>${loc}</loc><lastmod>${lastmod}</lastmod><priority>${priority}</priority></url>`;
@@ -297,12 +389,16 @@ const sitemap = [
   ...productos.map((p) =>
     entrada(`${SITE_URL}/product/${p.id}`, (p.createdAt ?? hoy).slice(0, 10), "0.7")
   ),
-  entrada(`${SITE_URL}/politicas`, LASTMOD_CONTENIDO, "0.3"),
+  ...Object.keys(CONTENIDO_ESTATICO).map((clave) =>
+    entrada(`${SITE_URL}${STATIC_PAGES[clave].path}`, LASTMOD_CONTENIDO, clave === "politicas" ? "0.3" : "0.6")
+  ),
   "</urlset>",
 ].join("\n");
 
 writeFileSync(new URL("sitemap.xml", dist), `${sitemap}\n`);
-console.log(`prerender: sitemap.xml con ${productos.length + seoPages.length + 2} URLs`);
+console.log(
+  `prerender: sitemap.xml con ${productos.length + seoPages.length + Object.keys(CONTENIDO_ESTATICO).length + 1} URLs`
+);
 
 console.log(
   `prerender OK: portada + ${productos.length} fichas + ${seoPages.length} landings`

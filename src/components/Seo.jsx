@@ -5,7 +5,7 @@ import { SITE_URL, DEFAULT_OG_IMAGE } from "../lib/structuredData";
  * automáticamente. El JSON-LD se renderiza inline (Google lo lee también
  * dentro del <body>).
  */
-export default function Seo({ title, description, path, image, jsonLd = [] }) {
+export default function Seo({ title, description, path, image, jsonLd = [], noindex = false }) {
   const canonical = `${SITE_URL}${path}`;
   const ogImage = image?.startsWith("http") ? image : `${SITE_URL}${image ?? DEFAULT_OG_IMAGE}`;
 
@@ -13,7 +13,8 @@ export default function Seo({ title, description, path, image, jsonLd = [] }) {
     <>
       <title>{title}</title>
       <meta name="description" content={description} />
-      <link rel="canonical" href={canonical} />
+      {noindex && <meta name="robots" content="noindex, follow" />}
+      {!noindex && <link rel="canonical" href={canonical} />}
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="IMPORTVIDE" />
       <meta property="og:title" content={title} />

@@ -208,3 +208,8 @@
   .dataList { grid-template-columns: 1fr; gap: 2px; }
   .dataList dd { margin-bottom: 10px; }
 }
+
+.list a {
+  color: #ff6b00;
+  font-weight: 600;
+}

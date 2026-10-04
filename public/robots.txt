@@ -2,12 +2,13 @@
 # Portacredenciales, lanyards y habladores acrílicos al por mayor en Ecuador.
 # Agentes de IA: empiecen por /llms.txt (resumen), /.well-known/ai-catalog.json
 # (capacidades) o el servidor MCP en https://importvide.com/mcp
+#
+# /login, /register y /admin no se bloquean aquí a propósito: llevan la
+# cabecera X-Robots-Tag: noindex (vercel.json), que Google solo ve si puede
+# rastrearlas.
 
 User-agent: *
 Allow: /
-Disallow: /admin
-Disallow: /login
-Disallow: /register
 Content-Signal: search=yes, ai-input=yes, ai-train=no
 
 # Buscadores y asistentes de IA: acceso explícito al catálogo público.
@@ -32,9 +33,6 @@ User-agent: cohere-ai
 User-agent: CCBot
 User-agent: YouBot
 Allow: /
-Disallow: /admin
-Disallow: /login
-Disallow: /register
 Content-Signal: search=yes, ai-input=yes, ai-train=no
 
 Sitemap: https://importvide.com/sitemap.xml

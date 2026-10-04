@@ -53,8 +53,12 @@
       "destination": "/api/well-known"
     },
     {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "source": "/product/:id",
+      "destination": "/app.html"
+    },
+    {
+      "source": "/:ruta(login|register|admin)",
+      "destination": "/app.html"
     }
   ],
   "headers": [
@@ -103,6 +107,10 @@
         {
           "key": "Access-Control-Allow-Origin",
           "value": "*"
+        },
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
         }
       ]
     },
@@ -160,6 +168,15 @@
         {
           "key": "Access-Control-Allow-Origin",
           "value": "*"
+        }
+      ]
+    },
+    {
+      "source": "/:ruta(login|register|admin)",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex"
         }
       ]
     }

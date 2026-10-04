@@ -23,6 +23,7 @@ import Politicas from "./pages/Politicas";
 import SeoLanding from "./pages/SeoLanding";
 import Contacto from "./pages/Contacto";
 import PreguntasFrecuentes from "./pages/PreguntasFrecuentes";
+import NotFound from "./pages/NotFound";
 import { seoPages } from "./data/seoPages";
 import styles from "./App.module.css";
 
@@ -166,8 +167,8 @@ function Home() {
   return (
     <div className={styles.app}>
       <Seo
-        title="IMPORTVIDE — Portacredenciales, Lanyards y Habladores Acrílicos en Ecuador"
-        description="Importador directo en Guayaquil de portacredenciales, lanyards y habladores acrílicos. Venta al por mayor para colegios, bancos y eventos con envío a todo Ecuador."
+        title="Portacredenciales, Cordones y Acrílicos | IMPORTVIDE Ecuador"
+        description="Importador directo en Guayaquil de portacredenciales, cordones y soportes acrílicos. Venta al por mayor para colegios, bancos y eventos en todo Ecuador."
         path="/"
         jsonLd={[localBusinessJsonLd()]}
       />
@@ -393,7 +394,7 @@ export default function App() {
           {seoPages.map((page) => (
             <Route key={page.slug} path={`/${page.slug}`} element={<SeoLanding page={page} />} />
           ))}
-          <Route path="*"         element={<Navigate to="/" replace />} />
+          <Route path="*"         element={<NotFound />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>

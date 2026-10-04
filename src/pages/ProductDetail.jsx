@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Seo from "../components/Seo";
 import Breadcrumbs from "../components/Breadcrumbs";
-import { productJsonLd, breadcrumbJsonLd } from "../lib/structuredData";
+import { productJsonLd, breadcrumbJsonLd, metaDescription } from "../lib/structuredData";
 import styles from "./ProductDetail.module.css";
 
 export default function ProductDetail() {
@@ -39,6 +39,12 @@ export default function ProductDetail() {
   if (!product) {
     return (
       <div className={styles.page}>
+        <Seo
+          title="Producto no encontrado | IMPORTVIDE"
+          description="Este producto ya no está en el catálogo de IMPORTVIDE."
+          path={`/product/${id}`}
+          noindex
+        />
         <Header />
         <div className={styles.notFound}>
           <p>Producto no encontrado.</p>
@@ -64,10 +70,10 @@ export default function ProductDetail() {
     <div className={styles.page}>
       <Seo
         title={`${product.name} | IMPORTVIDE Ecuador`}
-        description={
+        description={metaDescription(
           product.description ||
           `${product.name} disponible en IMPORTVIDE. Venta al por mayor en Guayaquil con envío a todo Ecuador. Consulta precio y stock por WhatsApp.`
-        }
+        )}
         path={`/product/${product.id}`}
         image={product.image}
         jsonLd={[
@@ -97,7 +103,9 @@ export default function ProductDetail() {
                     src={allImages[currentIdx]}
                     alt={`${product.name} — foto ${currentIdx + 1} de ${allImages.length}`}
                     className={styles.mainImage}
-                    decoding="async"
+                    width="600"
+                    height="600"
+                    fetchPriority={currentIdx === 0 ? "high" : "auto"}
                   />
                   {allImages.length > 1 && (
                     <>
@@ -137,7 +145,7 @@ export default function ProductDetail() {
                     className={`${styles.thumb} ${i === currentIdx ? styles.thumbActive : ""}`}
                     onClick={() => setCurrentIdx(i)}
                   >
-                    <img src={src} alt={`${product.name} miniatura ${i + 1}`} className={styles.thumbImg} loading="lazy" />
+                    <img src={src} alt={`${product.name} miniatura ${i + 1}`} className={styles.thumbImg} loading="lazy" width="80" height="80" />
                   </button>
                 ))}
               </div>

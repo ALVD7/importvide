@@ -159,6 +159,14 @@
   animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) 0.85s forwards;
 }
 
+/* El H1 va en línea dentro del subtítulo: misma tipografía, sin salto */
+.subtitleH1 {
+  display: inline;
+  font: inherit;
+  color: inherit;
+  margin: 0;
+}
+
 @keyframes fadeUp {
   from { opacity: 0; transform: translate3d(0, 22px, 0); }
   to   { opacity: 1; transform: none; }
