@@ -196,12 +196,10 @@ function Home() {
               Consulta disponibilidad y precio por WhatsApp con un solo clic
             </Reveal>
             <Reveal as="p" delay={180} className={styles.sectionSub}>
-              Somos importadores directos de <Link to="/portacredenciales">portacredenciales</Link>,{" "}
-              <Link to="/lanyards-ecuador">lanyards y cintas</Link> y{" "}
-              <Link to="/habladores-acrilicos">habladores acrílicos</Link> en Guayaquil, con venta al
-              por mayor para <Link to="/portacredenciales-para-colegios">colegios</Link>,{" "}
-              <Link to="/portacredenciales-para-empresas">empresas y bancos</Link> y{" "}
-              <Link to="/credenciales-para-eventos">eventos</Link> en todo Ecuador.
+              Somos importadores directos de <Link to="/portacredenciales">porta credenciales</Link>,{" "}
+              <Link to="/cordones-personalizados">cordones</Link> y{" "}
+              <Link to="/habladores-acrilicos">habladores de acrílico</Link> de excelente calidad que se
+              adaptan a tu presupuesto.
             </Reveal>
             {isAdmin && (
               <button className={styles.addBtn} onClick={openCreate}>
