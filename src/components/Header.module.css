@@ -61,7 +61,7 @@ a.topItem:hover { color: #ff9a3c; }
 }
 
 .logoMark {
-  height: 54px;
+  height: 50px;
   width: auto;
   display: block;
 }
@@ -323,7 +323,8 @@ a.topItem:hover { color: #ff9a3c; }
   .topbar { font-size: 0.8rem; }
   .topInner { height: 34px; gap: 18px; }
   .inner { padding: 0 14px; gap: 8px; }
-  .logoMark { height: 42px; }
+  .logoMark { height: 38px; }
+  .logoWord { height: 14px; }
   .pillWhite { height: 40px; padding: 0 14px; }
   .menuBtn { width: 40px; height: 40px; }
 }

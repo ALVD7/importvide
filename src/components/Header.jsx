@@ -17,7 +17,6 @@ const IconAcrilico = () => <Icon><rect x="5" y="2.5" width="14" height="17" rx="
 const IconUsuario = () => <Icon><circle cx="12" cy="8" r="4" /><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6" /></Icon>;
 const IconCotizar = () => <Icon><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" /><path d="M14 3v6h6M8 13h8M8 17h5" /></Icon>;
 const IconTelefono = () => <Icon size={16}><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" /></Icon>;
-const IconReloj = () => <Icon size={16}><circle cx="12" cy="12" r="9" /><path d="M12 7v5l3 2" /></Icon>;
 const IconUbicacion = () => <Icon size={16}><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z" /><circle cx="12" cy="10" r="2.5" /></Icon>;
 
 // Enlaces del menú "⋯" (y del menú móvil, debajo de los principales)
@@ -126,14 +125,14 @@ export default function Header() {
             <WhatsAppIcon size={16} />
             <span>Cotiza por WhatsApp</span>
           </a>
-          <span className={`${styles.topItem} ${styles.topOptional}`}>
-            <IconReloj />
-            <span>Lun a vie, 08:00 a 17:00</span>
-          </span>
           <Link to="/contacto" className={`${styles.topItem} ${styles.topOptional}`}>
             <IconUbicacion />
-            <span>Guayaquil · Envíos a todo Ecuador</span>
+            <span>Guayaquil - Ecuador</span>
           </Link>
+          <span className={`${styles.topItem} ${styles.topOptional}`}>
+            <span aria-hidden="true">🚚</span>
+            <span>Envíos a todo el país</span>
+          </span>
         </div>
       </div>
 
@@ -141,11 +140,12 @@ export default function Header() {
         <div className={styles.inner}>
           <Link to="/" className={styles.logoLink} onClick={goHome} aria-label="IMPORTVIDE, ir al inicio">
             <img src="/img/marca/vd-blanco.png" alt="" className={styles.logoMark} width="562" height="295" />
+            <img src="/img/marca/importvide-blanco.png" alt="IMPORTVIDE" className={styles.logoWord} width="1062" height="139" />
           </Link>
 
           <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ""}`} aria-label="Principal">
             <Link to="/portacredenciales" className={styles.pill} onClick={closeMenus}>
-              <IconCarnet /><span>Portacredenciales</span>
+              <IconCarnet /><span>Porta credenciales</span>
             </Link>
             <Link to="/cordones-personalizados" className={styles.pill} onClick={closeMenus}>
               <IconCordon /><span>Cordones</span>
