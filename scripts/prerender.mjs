@@ -82,6 +82,7 @@ function documento({ title, description, canonical, ogImage, markdown, jsonLd = 
       gtag('js', new Date());
 
       gtag('config', 'G-HPFQPCHE9W');
+      gtag('config', 'AW-18494452191');
     </script>
     ${baseStyle}
     ${assetTags}

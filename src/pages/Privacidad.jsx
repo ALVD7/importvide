@@ -64,7 +64,8 @@ export default function Privacidad() {
             </li>
             <li>
               <strong>Analítica:</strong> datos de navegación anónimos o seudónimos (páginas vistas,
-              clics, dispositivo, ciudad aproximada) mediante Google Analytics.
+              clics, dispositivo, ciudad aproximada) mediante Google Analytics, y la medición de
+              anuncios de Google Ads (si llegaste desde un anuncio y si luego pediste una cotización).
             </li>
           </ul>
         </div>
@@ -83,7 +84,7 @@ export default function Privacidad() {
           <h2 className={styles.sectionTitle}>Con quién se comparten</h2>
           <p className={styles.text}>
             Solo con los proveedores que necesitamos para operar el sitio, que tratan los datos por
-            cuenta nuestra: Vercel (alojamiento web), Supabase (base de datos), Google (Analytics) y
+            cuenta nuestra: Vercel (alojamiento web), Supabase (base de datos), Google (Analytics y Ads) y
             el servicio de correo con el que recibimos los avisos de cotización. Algunos de estos
             servidores están fuera del Ecuador.
           </p>
@@ -116,6 +117,10 @@ export default function Privacidad() {
               años.
             </li>
             <li>
+              <strong>Google Ads</strong> (_gcl_au y similares): mide qué anuncios terminan en una
+              cotización y permite mostrar anuncios a quien ya visitó el sitio. Duran hasta 90 días.
+            </li>
+            <li>
               <strong>iv_origen</strong> (almacenamiento local): recuerda el origen de tu visita
               durante 30 días.
             </li>
@@ -124,8 +129,9 @@ export default function Privacidad() {
             </li>
           </ul>
           <p className={styles.text}>
-            Puedes borrarlas o bloquearlas desde la configuración de tu navegador, o desactivar
-            Google Analytics con el complemento oficial de inhabilitación de Google. El sitio sigue
+            Puedes borrarlas o bloquearlas desde la configuración de tu navegador, desactivar
+            Google Analytics con el complemento oficial de inhabilitación de Google y elegir qué
+            anuncios ves en la configuración de anuncios de tu cuenta de Google. El sitio sigue
             funcionando sin ellas.
           </p>
         </div>
