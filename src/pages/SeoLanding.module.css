@@ -261,14 +261,16 @@
   position: relative;
   overflow: hidden;
   border-radius: 11px;
-  background: #fafafa;
+  background: #fff;
 }
 
 .productImg {
   width: 100%;
   height: auto;
   aspect-ratio: 1 / 1;
-  object-fit: cover;
+  padding: 6px;
+  box-sizing: border-box;
+  object-fit: contain;
   display: block;
   transition: transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
 }
