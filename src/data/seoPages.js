@@ -163,10 +163,20 @@ export const seoPages = [
     title: "Portacredenciales y Porta Carnets en Ecuador | IMPORTVIDE",
     description:
       "Porta carnets y portacredenciales rígidos, deslizables, de acrílico y PVC al por mayor. Stock en Guayaquil y envío a todo Ecuador. Cotiza por WhatsApp.",
-    h1: "Portacredenciales y porta carnets en Ecuador",
+    h1: "Porta credenciales",
+    h1Upper: true,
     intro: [
-      "En IMPORTVIDE importamos y distribuimos portacredenciales al por mayor para colegios, bancos, empresas, entidades públicas y organizadores de eventos en todo el Ecuador. Somos importadores directos con bodega en Guayaquil, por lo que mantenemos stock permanente por miles de unidades y precios competitivos por volumen.",
+      "Ligeros, cómodos y resistentes. Se adaptan cómodamente a las credenciales de PVC, tarjetas de acceso, carnet estudiantil, etc.",
       "Un portacredencial —también llamado porta carnet, porta credencial, tarjetero o porta ID— protege la credencial de tu personal o estudiantes y proyecta una imagen institucional ordenada. Elegir el modelo correcto depende del uso: no es lo mismo un carnet que se usa a diario en un banco que una credencial de un evento de tres días.",
+    ],
+    heroList: [
+      "Porta credencial rígido vertical",
+      "Porta credencial de acrílico",
+      "Porta credencial deslizable",
+      "Porta credencial tipo caparazón",
+      "Porta credencial flexible para eventos",
+      "Porta credencial flexible para carnet",
+      "Porta credencial flexible con zipper",
     ],
     specs: [
       { label: "Materiales", value: "Plástico rígido (deslizable, caparazón y cara abierta), acrílico transparente y PVC flexible" },

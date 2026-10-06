@@ -81,6 +81,37 @@
   animation: heroIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.05s forwards;
 }
 
+.h1Upper { text-transform: uppercase; }
+
+.heroList {
+  list-style: none;
+  padding: 0;
+  margin: -12px 0 32px;
+  display: grid;
+  gap: 8px;
+  opacity: 0;
+  animation: heroIn 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.28s forwards;
+}
+
+.heroList li {
+  position: relative;
+  padding-left: 22px;
+  color: rgba(255, 255, 255, 0.85);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.heroList li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ff6b00;
+}
+
 .heroIntro {
   text-align: justify;
   font-size: clamp(1rem, 1.45vw, 1.13rem);
@@ -507,5 +538,5 @@
 
 @media (prefers-reduced-motion: reduce) {
   .heroVideo { display: none; }
-  .h1, .heroIntro, .heroActions { opacity: 1; animation: none; }
+  .h1, .heroIntro, .heroList, .heroActions { opacity: 1; animation: none; }
 }

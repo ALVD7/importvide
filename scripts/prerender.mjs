@@ -106,6 +106,7 @@ for (const page of seoPages) {
   <nav><a href="/">Inicio</a> › ${esc(page.h1)}</nav>
   <h1>${esc(page.h1)}</h1>
   ${page.intro.map((p) => `<p>${esc(p)}</p>`).join("\n  ")}
+  ${page.heroList ? `<ul>${page.heroList.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>` : ""}
   <h2>Productos disponibles en stock</h2>
   <ul>
     ${products

@@ -57,8 +57,15 @@ export default function SeoLanding({ page }) {
             <Link to="/">Inicio</Link> <span aria-hidden="true">›</span> {page.h1}
           </nav>
 
-          <h1 className={styles.h1}>{page.h1}</h1>
+          <h1 className={`${styles.h1} ${page.h1Upper ? styles.h1Upper : ""}`}>{page.h1}</h1>
           <p className={styles.heroIntro}>{leadIntro}</p>
+          {page.heroList && (
+            <ul className={styles.heroList}>
+              {page.heroList.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
+          )}
 
           <div className={styles.heroActions}>
             <a
