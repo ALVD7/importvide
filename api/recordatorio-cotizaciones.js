@@ -40,8 +40,17 @@ export default async function handler(req, res) {
     { headers: { apikey: SUPABASE_SERVICE_ROLE_KEY, Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}` } }
   );
   if (!r.ok) {
-    console.error("recordatorio: Supabase", r.status, await r.text());
-    return res.status(502).json({ error: "supabase" });
+    const detalle = await r.text();
+    console.error("recordatorio: Supabase", r.status, detalle);
+    // El mensaje de Supabase ("Invalid API key", columna inexistente…) no
+    // contiene la clave, y ayuda a diagnosticar sin entrar a los logs.
+    let mensaje = detalle.slice(0, 200);
+    try {
+      mensaje = JSON.parse(detalle).message ?? mensaje;
+    } catch {
+      // respuesta no JSON: se deja el texto recortado
+    }
+    return res.status(502).json({ error: "supabase", status: r.status, mensaje });
   }
 
   const { sinContactar, seguimientos } = pendientes(await r.json());
