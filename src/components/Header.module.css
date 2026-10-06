@@ -61,7 +61,7 @@ a.topItem:hover { color: #ff9a3c; }
 }
 
 .logoMark {
-  height: 46px;
+  height: 54px;
   width: auto;
   display: block;
 }
@@ -91,7 +91,10 @@ a.topItem:hover { color: #ff9a3c; }
 .nav {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  padding: 5px;
+  border-radius: 999px;
+  background: rgba(120, 40, 0, 0.18);
 }
 
 .pill,
@@ -102,13 +105,13 @@ a.topItem:hover { color: #ff9a3c; }
   align-items: center;
   justify-content: center;
   gap: 7px;
-  height: 44px;
+  height: 38px;
   padding: 0 16px;
   border-radius: 999px;
   font: inherit;
-  font-size: 0.8rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
@@ -119,11 +122,11 @@ a.topItem:hover { color: #ff9a3c; }
 .pill {
   color: #fff;
   background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.95);
+  border: 0;
 }
 
 .pill:hover {
-  background: rgba(255, 255, 255, 0.16);
+  background: rgba(255, 255, 255, 0.22);
 }
 
 .pillSolid {
@@ -147,10 +150,11 @@ a.topItem:hover { color: #ff9a3c; }
 }
 
 .pillWhite {
+  height: 44px;
   color: #ee6614;
   background: #fff;
-  border: 2px solid #fff;
-  padding: 0 20px;
+  border: 0;
+  padding: 0 22px;
 }
 
 .pillWhite:hover {
@@ -267,6 +271,8 @@ a.topItem:hover { color: #ff9a3c; }
   .menuBtn { display: inline-flex; }
 
   .nav {
+    padding: 16px 20px 22px;
+    border-radius: 0;
     display: none;
     position: absolute;
     top: 100%;
@@ -317,15 +323,11 @@ a.topItem:hover { color: #ff9a3c; }
   .topbar { font-size: 0.8rem; }
   .topInner { height: 34px; gap: 18px; }
   .inner { padding: 0 14px; gap: 8px; }
-  .logoMark { height: 36px; }
-  .logoWord { height: 15px; }
-  .tagline { font-size: 0.68rem; }
-  .logoLink { gap: 9px; }
+  .logoMark { height: 42px; }
   .pillWhite { height: 40px; padding: 0 14px; }
   .menuBtn { width: 40px; height: 40px; }
 }
 
 @media (max-width: 380px) {
-  .tagline { display: none; }
   .pillWhite svg { display: none; }
 }

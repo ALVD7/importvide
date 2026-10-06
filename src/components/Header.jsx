@@ -141,10 +141,6 @@ export default function Header() {
         <div className={styles.inner}>
           <Link to="/" className={styles.logoLink} onClick={goHome} aria-label="IMPORTVIDE, ir al inicio">
             <img src="/img/marca/vd-blanco.png" alt="" className={styles.logoMark} width="562" height="295" />
-            <span className={styles.logoText}>
-              <img src="/img/marca/importvide-blanco.png" alt="IMPORTVIDE" className={styles.logoWord} width="1062" height="139" />
-              <span className={styles.tagline}>Importador directo</span>
-            </span>
           </Link>
 
           <nav className={`${styles.nav} ${menuOpen ? styles.navOpen : ""}`} aria-label="Principal">
@@ -157,10 +153,10 @@ export default function Header() {
             <Link to="/habladores-acrilicos" className={styles.pill} onClick={closeMenus}>
               <IconAcrilico /><span>Acrílicos</span>
             </Link>
-            <a href="/#productos" className={styles.pillSolid} onClick={(e) => goToSection(e, "productos")}>
+            <a href="/#productos" className={styles.pill} onClick={(e) => goToSection(e, "productos")}>
               Productos
             </a>
-            <Link to="/contacto" className={styles.textLink} onClick={closeMenus}>
+            <Link to="/contacto" className={styles.pill} onClick={closeMenus}>
               Contacto
             </Link>
 
