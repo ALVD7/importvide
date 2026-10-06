@@ -34,16 +34,12 @@ export default function CtaBand() {
       <div className={styles.scrim} aria-hidden="true" />
 
       <div className={styles.inner}>
-        <span className={styles.kicker}>Pedidos al por mayor</span>
         <h2 className={styles.title}>
-          Cotiza tu pedido hoy
+          Cotiza tu pedido hoy.
           <br />
-          <em className={styles.em}>y despachamos esta semana</em>
+          <em className={styles.em}>¡Estamos listos para atenderte!</em>
         </h2>
-        <p className={styles.text}>
-          Atendemos de lunes a viernes, de 08:00 a 17:00. Emitimos factura para empresas
-          e instituciones y coordinamos el envío a todo el país.
-        </p>
+        <p className={styles.text}>Hacemos envíos a todo el país.</p>
         <div className={styles.actions}>
           <a
             className={styles.primaryBtn}
