@@ -15,15 +15,25 @@ const linea = (c) =>
 
 export default async function handler(req, res) {
   res.setHeader("Cache-Control", "no-store");
-  const { CRON_SECRET, SUPABASE_SERVICE_ROLE_KEY, RESEND_API_KEY, NOTIFY_EMAIL, NOTIFY_FROM } = process.env;
+  const { CRON_SECRET, RESEND_API_KEY, NOTIFY_EMAIL, NOTIFY_FROM } = process.env;
+  // Supabase llama de varias formas a la clave secreta según la versión del panel.
+  const SUPABASE_SERVICE_ROLE_KEY =
+    process.env.SUPABASE_SERVICE_ROLE_KEY ?? process.env.SUPABASE_SECRET_KEY ?? process.env.SUPABASE_SERVICE_KEY;
 
   if (!CRON_SECRET || req.headers.authorization !== `Bearer ${CRON_SECRET}`) {
     return res.status(401).json({ error: "no_autorizado" });
   }
   const url = process.env.SUPABASE_URL ?? process.env.VITE_SUPABASE_URL;
-  if (!url || !SUPABASE_SERVICE_ROLE_KEY || !RESEND_API_KEY || !NOTIFY_EMAIL) {
-    return res.status(500).json({ error: "faltan_variables" });
-  }
+  // Solo nombres, nunca valores: la ruta ya exige CRON_SECRET.
+  const faltan = Object.entries({
+    VITE_SUPABASE_URL: url,
+    SUPABASE_SERVICE_ROLE_KEY,
+    RESEND_API_KEY,
+    NOTIFY_EMAIL,
+  })
+    .filter(([, v]) => !v)
+    .map(([k]) => k);
+  if (faltan.length) return res.status(500).json({ error: "faltan_variables", faltan });
 
   const r = await fetch(
     `${url}/rest/v1/cotizaciones?select=*&estado=in.(${ESTADOS_ABIERTOS.join(",")})&order=created_at.asc`,
