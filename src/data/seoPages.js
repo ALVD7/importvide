@@ -442,9 +442,10 @@ export const seoPages = [
     title: "Habladores Acrílicos y Exhibidores en Ecuador | IMPORTVIDE",
     description:
       "Habladores acrílicos A4 de mesa, escritorio y pared desde $3,00. Exhibidores y porta precios con stock en Guayaquil. Cotiza por WhatsApp.",
-    h1: "Habladores acrílicos y exhibidores en Ecuador",
+    h1: "Habladores de acrílico",
+    h1Upper: true,
     intro: [
-      "Los habladores acrílicos (también conocidos como exhibidores acrílicos, porta afiches o porta precios) son la forma más profesional de mostrar menús, precios, promociones e información en mostradores, mesas y paredes. En IMPORTVIDE los importamos y vendemos con stock en Guayaquil y envío a todo el Ecuador.",
+      "Nuestros habladores de acrílico están elaborados en materia prima de alta transparencia, ideales para mostrar anuncios y más, perfectos para el hogar, restaurantes, oficinas, escuelas, hoteles, ferias comerciales, áreas de recepción, etc. Disponemos en tamaño A4, A5 y A6.",
       "Trabajamos con restaurantes y cafeterías, hoteles, bancos (señalización de ventanillas), farmacias, retail y organizadores de eventos que necesitan señalizar espacios con una imagen limpia y durable.",
     ],
     sections: [
