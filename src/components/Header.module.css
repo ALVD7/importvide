@@ -6,9 +6,9 @@
 }
 
 .topInner {
-  max-width: 1280px;
+  max-width: 1560px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 40px;
   height: 40px;
   display: flex;
   align-items: center;
@@ -41,13 +41,13 @@ a.topItem:hover { color: #ff9a3c; }
 }
 
 .inner {
-  max-width: 1280px;
+  max-width: 1560px;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 40px;
   height: var(--header-h);
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 24px;
 }
 
 /* ── Logo ── */
@@ -91,10 +91,7 @@ a.topItem:hover { color: #ff9a3c; }
 .nav {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 5px;
-  border-radius: 999px;
-  background: rgba(120, 40, 0, 0.18);
+  gap: 10px;
 }
 
 .pill,
@@ -122,16 +119,16 @@ a.topItem:hover { color: #ff9a3c; }
 .pill {
   color: #fff;
   background: transparent;
-  border: 0;
+  border: 2px solid rgba(255, 255, 255, 0.95);
 }
 
 .pill:hover {
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.18);
 }
 
 .pillSolid {
   color: #fff;
-  background: rgba(150, 50, 0, 0.28);
+  background: rgba(150, 50, 0, 0.3);
   border: 2px solid transparent;
 }
 
@@ -256,10 +253,14 @@ a.topItem:hover { color: #ff9a3c; }
 }
 
 /* ── Pantallas medianas: píldoras sin ícono ── */
-@media (max-width: 1400px) {
+@media (max-width: 1560px) {
   .nav .pill svg { display: none; }
-  .pill, .pillSolid { padding: 0 13px; }
-  .inner { gap: 12px; padding: 0 24px; }
+}
+
+@media (max-width: 1400px) {
+  .pill, .pillSolid { padding: 0 14px; }
+  .nav { gap: 8px; }
+  .inner { gap: 16px; padding: 0 24px; }
 }
 
 /* ── Tablet y móvil: menú desplegable ── */

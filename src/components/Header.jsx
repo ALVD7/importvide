@@ -153,10 +153,10 @@ export default function Header() {
             <Link to="/habladores-acrilicos" className={styles.pill} onClick={closeMenus}>
               <IconAcrilico /><span>Acrílicos</span>
             </Link>
-            <a href="/#productos" className={styles.pill} onClick={(e) => goToSection(e, "productos")}>
+            <a href="/#productos" className={styles.pillSolid} onClick={(e) => goToSection(e, "productos")}>
               Productos
             </a>
-            <Link to="/contacto" className={styles.pill} onClick={closeMenus}>
+            <Link to="/contacto" className={styles.textLink} onClick={closeMenus}>
               Contacto
             </Link>
 
