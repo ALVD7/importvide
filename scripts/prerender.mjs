@@ -34,7 +34,9 @@ const baseStyle = `<style>
   .pre-wrap{max-width:860px;margin:0 auto;padding:32px 20px;line-height:1.65}
   .pre-wrap img{max-width:240px;height:auto;border-radius:8px}
   .pre-wrap a{color:#ff6b00}
-</style>`;
+  #root>.pre-wrap{visibility:hidden}
+</style>
+<noscript><style>#root>.pre-wrap{visibility:visible}</style></noscript>`;
 
 const ldTags = (objetos) =>
   objetos
