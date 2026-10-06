@@ -39,7 +39,25 @@ export default function CtaBand() {
           <br />
           <em className={styles.em}>¡Estamos listos para atenderte!</em>
         </h2>
-        <p className={styles.text}>🚚 Hacemos envíos a todo el país.</p>
+        <p className={styles.text}>
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+            style={{ verticalAlign: "-4px", marginRight: 8 }}
+          >
+            <path d="M1 3h13v13H1zM14 8h4l4 4v4h-8" />
+            <circle cx="6" cy="18" r="2" />
+            <circle cx="18" cy="18" r="2" />
+          </svg>
+          Hacemos envíos a todo el país.
+        </p>
         <div className={styles.actions}>
           <a
             className={styles.primaryBtn}
