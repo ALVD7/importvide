@@ -11,7 +11,7 @@
 .track {
   display: flex;
   width: max-content;
-  animation: slide 90s linear infinite;
+  animation: slide 70s linear infinite;
 }
 
 @keyframes slide {
