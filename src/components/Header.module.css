@@ -73,7 +73,7 @@ a.topItem:hover { color: #ff9a3c; }
 }
 
 .logoWord {
-  height: 19px;
+  height: 30px;
   width: auto;
   display: block;
 }
@@ -258,9 +258,11 @@ a.topItem:hover { color: #ff9a3c; }
 }
 
 @media (max-width: 1400px) {
-  .pill, .pillSolid { padding: 0 14px; }
-  .nav { gap: 8px; }
-  .inner { gap: 16px; padding: 0 24px; }
+  .pill, .pillSolid { padding: 0 11px; font-size: 0.74rem; }
+  .nav { gap: 6px; }
+  .inner { gap: 12px; padding: 0 20px; }
+  .logoWord { height: 25px; }
+  .logoMark { height: 46px; }
 }
 
 /* ── Tablet y móvil: menú desplegable ── */
@@ -325,7 +327,7 @@ a.topItem:hover { color: #ff9a3c; }
   .topInner { height: 34px; gap: 18px; }
   .inner { padding: 0 14px; gap: 8px; }
   .logoMark { height: 38px; }
-  .logoWord { height: 14px; }
+  .logoWord { height: 18px; }
   .pillWhite { height: 40px; padding: 0 14px; }
   .menuBtn { width: 40px; height: 40px; }
 }

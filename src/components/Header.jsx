@@ -17,6 +17,7 @@ const IconAcrilico = () => <Icon><rect x="5" y="2.5" width="14" height="17" rx="
 const IconUsuario = () => <Icon><circle cx="12" cy="8" r="4" /><path d="M4 21c1.2-4 4.3-6 8-6s6.8 2 8 6" /></Icon>;
 const IconCotizar = () => <Icon><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" /><path d="M14 3v6h6M8 13h8M8 17h5" /></Icon>;
 const IconTelefono = () => <Icon size={16}><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z" /></Icon>;
+const IconCamion = () => <Icon size={16}><path d="M1 3h13v13H1zM14 8h4l4 4v4h-8" /><circle cx="6" cy="18" r="2" /><circle cx="18" cy="18" r="2" /></Icon>;
 const IconUbicacion = () => <Icon size={16}><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z" /><circle cx="12" cy="10" r="2.5" /></Icon>;
 
 // Enlaces del menú "⋯" (y del menú móvil, debajo de los principales)
@@ -130,7 +131,7 @@ export default function Header() {
             <span>Guayaquil - Ecuador</span>
           </Link>
           <span className={`${styles.topItem} ${styles.topOptional}`}>
-            <span aria-hidden="true">🚚</span>
+            <IconCamion />
             <span>Envíos a todo el país</span>
           </span>
         </div>
@@ -153,10 +154,10 @@ export default function Header() {
             <Link to="/habladores-acrilicos" className={styles.pill} onClick={closeMenus}>
               <IconAcrilico /><span>Acrílicos</span>
             </Link>
-            <a href="/#productos" className={styles.pillSolid} onClick={(e) => goToSection(e, "productos")}>
+            <a href="/#productos" className={styles.pill} onClick={(e) => goToSection(e, "productos")}>
               Productos
             </a>
-            <Link to="/contacto" className={styles.textLink} onClick={closeMenus}>
+            <Link to="/contacto" className={styles.pill} onClick={closeMenus}>
               Contacto
             </Link>
 
