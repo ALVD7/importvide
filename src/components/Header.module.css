@@ -1,22 +1,43 @@
+/* ── Franja superior negra ─────────────────────────────── */
+.topbar {
+  background: #111;
+  color: #f2f2f2;
+  font-size: 0.86rem;
+}
+
+.topInner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 32px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.topItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: inherit;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+a.topItem:hover { color: #ff9a3c; }
+
+/* ── Barra naranja (sticky) ────────────────────────────── */
 .header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(12, 12, 12, 0.72);
-  backdrop-filter: blur(18px) saturate(1.5);
-  -webkit-backdrop-filter: blur(18px) saturate(1.5);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
-  transition: background 0.45s ease, border-color 0.45s ease, box-shadow 0.45s ease;
+  background: linear-gradient(90deg, #ff8c22 0%, #f8761b 55%, #ee6614 100%);
+  transition: box-shadow 0.3s ease;
 }
 
-/* Sobre el hero de la portada la barra desaparece y deja ver el video */
-.overlay {
-  background: transparent;
-  border-bottom-color: transparent;
-  box-shadow: none;
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
+.scrolled {
+  box-shadow: 0 6px 22px -10px rgba(0, 0, 0, 0.55);
 }
 
 .inner {
@@ -26,264 +47,285 @@
   height: var(--header-h);
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  gap: 18px;
 }
 
 /* ── Logo ── */
 .logoLink {
-  text-decoration: none;
   display: flex;
   align-items: center;
-  line-height: 1;
+  gap: 12px;
+  text-decoration: none;
   flex-shrink: 0;
+  margin-right: auto;
 }
 
-.logoImport {
-  font-size: 1.35rem;
-  font-weight: 900;
-  letter-spacing: 2px;
-  color: #ffffff;
+.logoMark {
+  height: 46px;
+  width: auto;
+  display: block;
 }
 
-.logoVide {
-  font-size: 1.35rem;
-  font-weight: 900;
-  letter-spacing: 2px;
-  color: #ff6b00;
-}
-
-/* ── Nav ── */
-.nav {
+.logoText {
   display: flex;
-  align-items: center;
-  gap: 4px;
+  flex-direction: column;
+  gap: 3px;
 }
 
-.navLink {
-  color: #aaaaaa;
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 500;
-  padding: 8px 14px;
-  border-radius: 7px;
-  transition: color 0.2s, background 0.2s;
-  white-space: nowrap;
+.logoWord {
+  height: 19px;
+  width: auto;
+  display: block;
+}
+
+.tagline {
+  color: #fff;
+  font-size: 0.78rem;
+  font-style: italic;
+  font-weight: 600;
   line-height: 1;
+  opacity: 0.95;
 }
 
-.navLink:hover {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.navLink[data-cta="true"] {
-  color: #ff6b00;
-  font-weight: 700;
-}
-
-.navLink[data-admin="true"] {
-  color: #ff6b00;
-}
-
-.navLink[data-admin="true"]:hover {
-  background: rgba(255, 107, 0, 0.1);
-  color: #ff8533;
-}
-
-/* ── Right group (nav + auth) ── */
-.right {
+/* ── Navegación ── */
+.nav {
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
-.userRow {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.userEmail {
-  font-size: 0.82rem;
-  color: #777;
-  max-width: 160px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.loginBtn {
+.pill,
+.pillSolid,
+.pillWhite,
+.textLink {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 36px;
-  padding: 0 20px;
-  background: #ff6b00;
-  color: #fff;
+  gap: 7px;
+  height: 44px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
   text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 700;
-  border-radius: 8px;
-  transition: background 0.2s, transform 0.1s;
-  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
 }
 
-.loginBtn:hover {
-  background: #e55d00;
+.pill {
+  color: #fff;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.95);
+}
+
+.pill:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.pillSolid {
+  color: #fff;
+  background: rgba(150, 50, 0, 0.28);
+  border: 2px solid transparent;
+}
+
+.pillSolid:hover {
+  background: rgba(150, 50, 0, 0.4);
+}
+
+.textLink {
+  color: #fff;
+  padding: 0 8px;
+}
+
+.textLink:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.pillWhite {
+  color: #ee6614;
+  background: #fff;
+  border: 2px solid #fff;
+  padding: 0 20px;
+}
+
+.pillWhite:hover {
   transform: translateY(-1px);
+  box-shadow: 0 8px 20px -10px rgba(0, 0, 0, 0.5);
 }
 
-.loginWrap {
+.pill:focus-visible,
+.pillSolid:focus-visible,
+.pillWhite:focus-visible,
+.textLink:focus-visible,
+.masBtn:focus-visible,
+.menuBtn:focus-visible {
+  outline: 3px solid #111;
+  outline-offset: 2px;
+}
+
+/* ── Acciones a la derecha ── */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.masWrap {
   position: relative;
 }
 
-.loginTooltip {
-  position: absolute;
-  top: calc(100% + 10px);
-  right: 0;
-  background: #1a1a1a;
-  border: 1px solid rgba(255, 107, 0, 0.35);
-  border-radius: 10px;
-  padding: 10px 14px;
-  width: 210px;
-  font-size: 0.82rem;
-  color: #ddd;
-  line-height: 1.45;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
-  pointer-events: none;
-  opacity: 0;
-  transform: translateY(-4px);
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  white-space: normal;
-  z-index: 200;
-}
-
-.loginTooltip::before {
-  content: "";
-  position: absolute;
-  top: -6px;
-  right: 16px;
-  width: 10px;
-  height: 10px;
-  background: #1a1a1a;
-  border-left: 1px solid rgba(255, 107, 0, 0.35);
-  border-top: 1px solid rgba(255, 107, 0, 0.35);
-  transform: rotate(45deg);
-}
-
-.loginWrap:hover .loginTooltip {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.logoutBtn {
+.masBtn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 0;
+  background: #fff;
+  color: #ee6614;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 36px;
-  padding: 0 16px;
-  background: transparent;
-  color: #888;
-  border: 1.5px solid #333;
-  font-size: 0.85rem;
-  font-weight: 600;
-  border-radius: 8px;
   cursor: pointer;
-  transition: border-color 0.2s, color 0.2s;
-  line-height: 1;
 }
 
-.logoutBtn:hover {
-  border-color: #ff6b00;
-  color: #ff6b00;
+.masMenu {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  min-width: 240px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.35);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  z-index: 110;
 }
 
-/* ── Hamburguesa (oculta en escritorio) ── */
+.masMenu a {
+  color: #222;
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+  padding: 10px 12px;
+  border-radius: 8px;
+}
+
+.masMenu a:hover {
+  background: #fff3ea;
+  color: #ee6614;
+}
+
+.masMenu .masAdmin {
+  color: #ee6614;
+}
+
+.masUser {
+  font-size: 0.8rem;
+  color: #888;
+  padding: 8px 12px;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .menuBtn {
   display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.95);
+  background: transparent;
+  color: #fff;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  background: transparent;
-  border: 1.5px solid #333;
-  border-radius: 8px;
-  color: #ddd;
   cursor: pointer;
-  transition: border-color 0.2s, color 0.2s;
-  flex-shrink: 0;
 }
 
-.menuBtn:hover {
-  border-color: #ff6b00;
-  color: #ff6b00;
+.mobileMore {
+  display: none;
 }
 
-/* ── Mobile / tablet ── */
-@media (max-width: 960px) {
-  .menuBtn {
-    display: inline-flex;
-  }
+/* ── Pantallas medianas: píldoras sin ícono ── */
+@media (max-width: 1400px) {
+  .nav .pill svg { display: none; }
+  .pill, .pillSolid { padding: 0 13px; }
+  .inner { gap: 12px; padding: 0 24px; }
+}
+
+/* ── Tablet y móvil: menú desplegable ── */
+@media (max-width: 1219px) {
+  .topOptional { display: none; }
+  .topInner { justify-content: center; gap: 28px; padding: 0 16px; }
+
+  .masWrap { display: none; }
+  .menuBtn { display: inline-flex; }
 
   .nav {
     display: none;
-  }
-
-  .navOpen {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
     position: absolute;
     top: 100%;
     left: 0;
     right: 0;
-    background: #111;
-    border-bottom: 1px solid rgba(255, 107, 0, 0.25);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.45);
-    padding: 8px 16px 14px;
-    gap: 2px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    padding: 16px 20px 22px;
+    background: linear-gradient(180deg, #f8761b 0%, #ee6614 100%);
+    box-shadow: 0 18px 30px -16px rgba(0, 0, 0, 0.5);
+    max-height: calc(100vh - var(--header-h));
+    overflow-y: auto;
   }
 
-  .navOpen .navLink {
-    padding: 13px 12px;
+  .navOpen { display: flex; }
+
+  .nav .pill svg { display: inline; }
+  .nav .pill,
+  .nav .pillSolid,
+  .nav .textLink {
+    justify-content: flex-start;
+    padding: 0 18px;
+  }
+
+  .mobileMore {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid rgba(255, 255, 255, 0.35);
+    margin-top: 6px;
+    padding-top: 10px;
+  }
+
+  .mobileMore a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
     font-size: 0.95rem;
-    border-radius: 8px;
+    padding: 9px 18px;
+  }
+
+  .mobileMore .mobileAdmin {
+    color: #111;
   }
 }
 
 @media (max-width: 600px) {
-  .inner {
-    padding: 0 16px;
-    height: var(--header-h);
-  }
-  .logoImport,
-  .logoVide {
-    font-size: 1.15rem;
-  }
-  .userEmail {
-    display: none;
-  }
-  .loginBtn {
-    padding: 0 14px;
-    font-size: 0.84rem;
-  }
-  .loginTooltip {
-    display: none;
-  }
+  .topbar { font-size: 0.8rem; }
+  .topInner { height: 34px; gap: 18px; }
+  .inner { padding: 0 14px; gap: 8px; }
+  .logoMark { height: 36px; }
+  .logoWord { height: 15px; }
+  .tagline { font-size: 0.68rem; }
+  .logoLink { gap: 9px; }
+  .pillWhite { height: 40px; padding: 0 14px; }
+  .menuBtn { width: 40px; height: 40px; }
 }
 
-/* Portada: logo más grande */
-.home .logoImport,
-.home .logoVide {
-  font-size: 1.9rem;
-  letter-spacing: 2.5px;
-}
-
-@media (max-width: 600px) {
-  .home .logoImport,
-  .home .logoVide {
-    font-size: 1.5rem;
-    letter-spacing: 2px;
-  }
+@media (max-width: 380px) {
+  .tagline { display: none; }
+  .pillWhite svg { display: none; }
 }
