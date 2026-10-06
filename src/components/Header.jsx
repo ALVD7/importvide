@@ -53,7 +53,7 @@ export default function Header() {
   };
 
   return (
-    <header className={`${styles.header} ${overlay ? styles.overlay : ""}`}>
+    <header className={`${styles.header} ${overlay ? styles.overlay : ""} ${pathname === "/" ? styles.home : ""}`}>
       <div className={styles.inner}>
 
         {/* Logo */}

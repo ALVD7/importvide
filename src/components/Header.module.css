@@ -272,3 +272,18 @@
     display: none;
   }
 }
+
+/* Portada: logo más grande */
+.home .logoImport,
+.home .logoVide {
+  font-size: 1.9rem;
+  letter-spacing: 2.5px;
+}
+
+@media (max-width: 600px) {
+  .home .logoImport,
+  .home .logoVide {
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+  }
+}
