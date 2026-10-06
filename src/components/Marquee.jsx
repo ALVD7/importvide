@@ -1,14 +1,15 @@
 import styles from "./Marquee.module.css";
 
 const ITEMS = [
-  "Portacredenciales",
-  "Lanyards y cintas",
-  "Habladores acrílicos",
-  "Clips metálicos",
-  "Fundas de PVC",
-  "Credenciales para eventos",
-  "Porta carnet",
-  "Acrílico A4",
+  "Porta credencial rígido",
+  "Porta credencial de acrílico",
+  "Porta credencial deslizable",
+  "Porta credencial tipo caparazón",
+  "Porta credencial flexible para eventos",
+  "Porta credencial flexible para carnet",
+  "Cordones en varios colores",
+  "Habladores de acrílico para pared",
+  "Habladores de acrílico para escritorio",
 ];
 
 export default function Marquee() {
