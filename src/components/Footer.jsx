@@ -26,10 +26,9 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.inner}>
         <div className={styles.logo}>
-          <span className={styles.logoImport}>IMPORT</span>
-          <span className={styles.logoVide}>VIDE</span>
+          <img src="/img/marca/vd-blanco.png" alt="" className={styles.logoMark} width="562" height="295" loading="lazy" />
+          <img src="/img/marca/importvide-blanco.png" alt="IMPORTVIDE" className={styles.logoWord} width="1062" height="139" loading="lazy" />
         </div>
-        <p className={styles.tagline}>Importaciones con calidad y confianza</p>
 
         <div className={styles.socials}>
           <a
@@ -67,7 +66,6 @@ export default function Footer() {
               </>
             )}
           </span>
-          <span>{BUSINESS.hours.label}</span>
         </address>
 
         {(BUSINESS.googleBusinessUrl || BUSINESS.googleReviewUrl) && (

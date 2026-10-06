@@ -15,17 +15,20 @@
 }
 
 .logo {
-  font-size: 1.4rem;
-  font-weight: 900;
-  letter-spacing: 2px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 
-.logoImport {
-  color: #ffffff;
+.logoMark {
+  height: 64px;
+  width: auto;
 }
 
-.logoVide {
-  color: #ff6b00;
+.logoWord {
+  height: 24px;
+  width: auto;
 }
 
 .tagline {
