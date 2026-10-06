@@ -251,6 +251,7 @@
 }
 
 .desc {
+  text-align: justify;
   font-size: 0.97rem;
   color: #444;
   line-height: 1.7;

@@ -58,6 +58,7 @@
 }
 
 .text {
+  text-align: justify;
   font-size: 0.93rem;
   color: #444;
   line-height: 1.7;
@@ -84,6 +85,7 @@
 }
 
 .list {
+  text-align: justify;
   padding-left: 20px;
   margin: 4px 0;
   display: flex;
@@ -124,6 +126,7 @@
 
 /* ── Compartido por /contacto, /preguntas-frecuentes, /cotizar y /privacidad ── */
 .lead {
+  text-align: justify;
   font-size: 1rem;
   color: #444;
   line-height: 1.7;
@@ -186,6 +189,7 @@
 }
 
 .faq p {
+  text-align: justify;
   margin: 0 0 16px;
   color: #444;
   line-height: 1.7;
