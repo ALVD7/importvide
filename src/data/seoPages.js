@@ -665,10 +665,23 @@ export const seoPages = [
     title: "Cordones Personalizados y Lanyards en Ecuador | IMPORTVIDE",
     description:
       "Cordones personalizados con tu logo y lanyards lisos en stock para carnet, colegios, empresas y eventos. Desde Guayaquil a todo Ecuador. Cotiza ya.",
-    h1: "Cordones personalizados y lanyards para carnet",
+    h1: "Cordones",
+    h1Upper: true,
     intro: [
-      "¿Necesitas cordones personalizados para tu colegio, banco, empresa o evento? En IMPORTVIDE vendemos lanyards —también llamados cintas para carnet o cordones porta credencial— al por mayor desde Guayaquil, con envío a todo el Ecuador.",
+      "Cordones de textura lisa. Colores disponibles:",
       "Trabajamos de dos formas: cordones lisos en stock (verde, negro y azul, con clip plástico blanco), que salen de inmediato, y cordones personalizados con el logo o los colores de tu institución, que cotizamos según tu diseño y la cantidad que necesitas.",
+    ],
+    heroList: [
+      "Azul eléctrico",
+      "Verde",
+      "Negro",
+      "Amarillo",
+      "Rojo",
+      "Naranja",
+      "Rosado",
+      "Púrpura",
+      "Plomo",
+      "Celeste",
     ],
     specs: [
       { label: "Material", value: "Cinta textil con costura reforzada" },
