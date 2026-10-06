@@ -39,7 +39,7 @@ export default function CtaBand() {
           <br />
           <em className={styles.em}>¡Estamos listos para atenderte!</em>
         </h2>
-        <p className={styles.text}>Hacemos envíos a todo el país.</p>
+        <p className={styles.text}>🚚 Hacemos envíos a todo el país.</p>
         <div className={styles.actions}>
           <a
             className={styles.primaryBtn}
