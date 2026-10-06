@@ -64,13 +64,13 @@
   font-weight: 800;
   letter-spacing: -0.035em;
   line-height: 1.06;
-  color: #0a0a0a;
+  color: #ff6b00;
   margin: 0;
 }
 
 .sectionSub {
   color: #000;
-  font-weight: 700;
+  font-weight: 400;
   font-size: 1rem;
   line-height: 1.7;
   max-width: 680px;

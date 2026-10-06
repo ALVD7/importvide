@@ -186,9 +186,6 @@ function Home() {
       <main className={styles.main} id="productos">
         <div className={styles.sectionHeader}>
           <div className={styles.sectionTop}>
-            <Reveal as="span" variant="fade" className={styles.sectionKicker}>
-              Catálogo
-            </Reveal>
             <Reveal as="h2" delay={60} className={styles.sectionTitle}>
               Nuestros productos
             </Reveal>
