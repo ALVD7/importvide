@@ -73,15 +73,10 @@ export default function Contacto() {
                 </dd>
               </>
             )}
-            <dt>Horario</dt>
-            <dd>{BUSINESS.hours.label}</dd>
             <dt>Ubicación</dt>
-            <dd>
-              {BUSINESS.city}, {BUSINESS.region}, Ecuador. Operamos 100 % en línea, sin local de
-              atención al público.
-            </dd>
+            <dd>{BUSINESS.city}, {BUSINESS.region}, Ecuador.</dd>
             <dt>Cobertura</dt>
-            <dd>{BUSINESS.serviceArea}</dd>
+            <dd>Envíos a todo el país</dd>
             <dt>Instagram</dt>
             <dd>
               <a href={BUSINESS.instagram} target="_blank" rel="noopener noreferrer">@importvide</a>
