@@ -74,7 +74,7 @@ export default function Cotizar() {
         }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      track("generate_lead", { producto: form.producto, origen: origenTexto() });
+      track("generate_lead", { producto: form.producto, origen: origenTexto(), currency: "USD", value: 1 });
       setEstado("enviado");
     } catch {
       setEstado("error");

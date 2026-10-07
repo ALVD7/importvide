@@ -8,7 +8,7 @@
 //
 // Eventos GA4 (marcarlos como "eventos clave" en GA4 para usarlos en Ads):
 //   whatsapp_click  { producto, ubicacion, origen }
-//   generate_lead   { producto, origen }        (formulario /cotizar enviado)
+//   generate_lead   { producto, origen, currency, value }      (formulario /cotizar enviado)
 //   phone_click     { ubicacion }
 //   email_click     { ubicacion }
 //   review_click    {}                          (botón "Déjanos tu reseña")
