@@ -445,7 +445,7 @@ export const seoPages = [
     h1: "Habladores de acrílico",
     h1Upper: true,
     intro: [
-      "Nuestros habladores de acrílico están elaborados en materia prima de alta transparencia, ideales para mostrar anuncios y más, perfectos para el hogar, restaurantes, oficinas, escuelas, hoteles, ferias comerciales, áreas de recepción, etc. Disponemos en tamaño A4, A5 y A6.",
+      "Nuestros habladores de acrílico están elaborados en materia prima de alta transparencia, ideales para mostrar anuncios y más, perfectos para el hogar, restaurantes, oficinas, escuelas, hoteles, ferias comerciales, áreas de recepción, etc.\nDisponemos en tamaño A4, A5 y A6.",
       "Trabajamos con restaurantes y cafeterías, hoteles, bancos (señalización de ventanillas), farmacias, retail y organizadores de eventos que necesitan señalizar espacios con una imagen limpia y durable.",
     ],
     sections: [
