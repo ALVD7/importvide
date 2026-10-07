@@ -97,7 +97,7 @@ export default function Cotizar() {
         <h1 className={info.title}>{PAGE.h1}</h1>
         <p className={info.lead}>
           Cuéntanos qué necesitas y te respondemos con disponibilidad, precio por volumen y
-          opciones de envío. Atendemos {BUSINESS.hours.label.toLowerCase()}. ¿Lo quieres más
+          opciones de envío. ¿Lo quieres más
           rápido? Escríbenos directo por{" "}
           <a href={whatsappUrl("Hola IMPORTVIDE! Quiero una cotización.")} target="_blank" rel="noopener noreferrer" data-ubicacion="cotizar-intro">
             WhatsApp
