@@ -28,11 +28,6 @@ export default function Contacto() {
       <main className={styles.main}>
         <Breadcrumbs items={CRUMBS} />
         <h1 className={styles.title}>{PAGE.h1}</h1>
-        <p className={styles.lead}>
-          Cotizamos portacredenciales, cordones y soportes acrílicos al por mayor para colegios,
-          bancos, empresas, entidades públicas y eventos. La forma más rápida de recibir tu
-          cotización es WhatsApp.
-        </p>
 
         <div className={styles.card}>
           <h2 className={styles.sectionTitle}>Cotiza por WhatsApp</h2>
