@@ -6,6 +6,7 @@ const quitarTildes = (t) => t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCa
 function grupo(nombre = "") {
   const n = quitarTildes(nombre);
   if (/caparazon/.test(n)) return -1;
+  if (/^(clip|cordon|lanyard)/.test(n)) return /^clip/.test(n) ? 2 : 1;
   if (/portacredencial|porta cred|porta carnet|portacarnet/.test(n)) return 0;
   if (/cordon|lanyard|cinta/.test(n)) return 1;
   if (/clip/.test(n)) return 2;

@@ -13,7 +13,7 @@ const FOTOS = {
 // inicio; las de aquí se agregan después.
 // Nombres que se muestran en la web, por id de producto.
 const NOMBRES = {
-  "6dd12d50-8fd1-4756-8795-b4c364f90d07": "Clips para porta credenciales",
+  "6dd12d50-8fd1-4756-8795-b4c364f90d07": "Clips para credenciales",
 };
 
 export function conImagenes(original, base = "") {

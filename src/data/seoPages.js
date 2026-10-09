@@ -8,7 +8,7 @@ const IMG = "/img/productos";
 export const CATALOG = {
   clip: {
     id: "6dd12d50-8fd1-4756-8795-b4c364f90d07",
-    name: "Clips para porta credenciales",
+    name: "Clips para credenciales",
     price: 12.0,
     inStock: true,
     img: `${IMG}/clips-metalicos-para-credenciales-correa-vinilo.webp`,
