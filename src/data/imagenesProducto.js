@@ -1,5 +1,9 @@
 // Fotos extra de productos concretos, por id de producto.
 const FOTOS = {
+  // Portacredencial deslizable negro
+  "f82f4976-0ca2-4ed8-9844-4226c1e10f9d": [
+    "/img/productos/portacredencial-deslizable-negro-abierto.webp",
+  ],
   // Portacredencial tipo caparazón
   "8fb078a8-d0ae-4812-bdc9-4fa26a957591": [
     "/img/productos/portacredencial-caparazon-mano-abierto.webp",
