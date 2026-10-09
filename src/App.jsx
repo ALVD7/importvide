@@ -8,7 +8,6 @@ import Marquee from "./components/Marquee";
 import { ordenarProductos } from "./data/productosOrden";
 import { PRODUCTOS_OCULTOS } from "./data/productosOcultos";
 import ScrollStory from "./components/ScrollStory";
-import StatsBand from "./components/StatsBand";
 import CtaBand from "./components/CtaBand";
 import Reveal from "./components/Reveal";
 import ProductCard from "./components/ProductCard";
@@ -188,7 +187,6 @@ function Home() {
       <HeroBanner />
       <Marquee />
       <ScrollStory />
-      <StatsBand productCount={products.length} />
       <main className={styles.main} id="productos">
         <div className={styles.sectionHeader}>
           <div className={styles.sectionTop}>
