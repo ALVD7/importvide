@@ -1,3 +1,4 @@
+import { conImagenes } from "../data/imagenesProducto";
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { supabase } from "../lib/supabase";
@@ -22,7 +23,7 @@ export default function ProductDetail() {
       .eq("id", id)
       .single()
       .then(({ data }) => {
-        setProduct(data ?? null);
+        setProduct(data ? conImagenes(data) : null);
         setLoading(false);
       });
   }, [id]);

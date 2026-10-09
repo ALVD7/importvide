@@ -5,6 +5,7 @@ import { supabase } from "./lib/supabase";
 import Header from "./components/Header";
 import HeroBanner from "./components/HeroBanner";
 import Marquee from "./components/Marquee";
+import { conImagenes } from "./data/imagenesProducto";
 import { ordenarProductos } from "./data/productosOrden";
 import { PRODUCTOS_OCULTOS } from "./data/productosOcultos";
 import ScrollStory from "./components/ScrollStory";
@@ -61,7 +62,7 @@ function Home() {
   const [formError, setFormError]   = useState("");
 
   const applyProducts = ({ data }) => {
-    setProducts(ordenarProductos(data ?? []));
+    setProducts(ordenarProductos((data ?? []).map((p) => conImagenes(p))));
     setLoadingProducts(false);
   };
 
