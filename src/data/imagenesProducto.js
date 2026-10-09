@@ -11,7 +11,13 @@ const FOTOS = {
 
 // Las fotos que ya tiene el producto (la portada incluida) se conservan al
 // inicio; las de aquí se agregan después.
-export function conImagenes(producto, base = "") {
+// Nombres que se muestran en la web, por id de producto.
+const NOMBRES = {
+  "6dd12d50-8fd1-4756-8795-b4c364f90d07": "Clips para porta credenciales",
+};
+
+export function conImagenes(original, base = "") {
+  const producto = NOMBRES[original?.id] ? { ...original, name: NOMBRES[original.id] } : original;
   const fotos = FOTOS[producto?.id];
   if (!fotos) return producto;
   const previas = producto.images?.length ? producto.images : producto.image ? [producto.image] : [];
