@@ -13,7 +13,6 @@ export const WHATSAPP = "593980118073";
 const DETALLE = {
   desliAzul:     { categoria: "portacredenciales", medidas: "11 × 7 cm (carnet de 8,5 × 5,5 cm)", keywords: "deslizable azul rigido porta carnet id" },
   desliNegro:    { categoria: "portacredenciales", medidas: "11 × 7 cm (carnet de 8,5 × 5,5 cm)", keywords: "deslizable negro rigido porta carnet id" },
-  desliVerde:    { categoria: "portacredenciales", medidas: "11 × 7 cm (carnet de 8,5 × 5,5 cm)", keywords: "deslizable verde rigido porta carnet id" },
   caparazon:     { categoria: "portacredenciales", medidas: "11 × 7 cm (carnet de 8,5 × 5,5 cm)", keywords: "caparazon carcasa transparente rigido uso diario" },
   caraAbierta:   { categoria: "portacredenciales", medidas: "11 × 7 cm (carnet de 8,5 × 5,5 cm)", keywords: "cara abierta proximidad rfid lector azul blanco rojo" },
   acrilico:      { categoria: "portacredenciales", medidas: "para carnet de 8,5 × 5,5 cm",        keywords: "acrilico premium corporativo transparente cristalino" },

@@ -86,14 +86,6 @@ export const CATALOG = {
     img: `${IMG}/portacredencial-caparazon-transparente-vertical.webp`,
     alt: "Portacredencial tipo caparazón transparente vertical de 11 x 7 cm",
   },
-  desliVerde: {
-    id: "db0e5685-3b22-462b-8c84-c7fb824ffb93",
-    name: "Portacredencial deslizable verde",
-    price: 35.0,
-    inStock: true,
-    img: `${IMG}/portacredencial-deslizable-verde-vertical.webp`,
-    alt: "Portacredencial deslizable verde vertical para carnet de 8,5 x 5,5 cm",
-  },
   desliNegro: {
     id: "f82f4976-0ca2-4ed8-9844-4226c1e10f9d",
     name: "Portacredencial deslizable negro",
@@ -181,7 +173,7 @@ export const seoPages = [
     specs: [
       { label: "Materiales", value: "Plástico rígido (deslizable, caparazón y cara abierta), acrílico transparente y PVC flexible" },
       { label: "Medidas", value: "Rígidos: 11 × 7 cm exterior, para carnet estándar de 8,5 × 5,5 cm. Fundas PVC: 6 × 9 cm vertical o 9 × 6 cm horizontal" },
-      { label: "Colores en stock", value: "Deslizable azul, negro y verde · Cara abierta azul, blanco translúcido y rojo · Caparazón y acrílico transparentes" },
+      { label: "Colores en stock", value: "Deslizable azul y negro · Cara abierta azul, blanco translúcido y rojo · Caparazón y acrílico transparentes" },
       { label: "Personalización", value: "Consúltanos con tu logo o colores institucionales: te confirmamos opciones, mínimo y tiempo" },
       { label: "Cantidad mínima", value: null }, // [PENDIENTE]
       { label: "Tiempo de entrega", value: SPEC_ENTREGA },
@@ -199,7 +191,7 @@ export const seoPages = [
           "Nuestro catálogo cubre los formatos más pedidos por instituciones ecuatorianas:",
         ],
         bullets: [
-          "Portacredencial deslizable (11 × 7 cm, para carnet de 8,5 × 5,5 cm): cuerpo plástico rígido con mecanismo deslizante que protege la credencial por ambas caras. Disponible en azul, negro y verde.",
+          "Portacredencial deslizable (11 × 7 cm, para carnet de 8,5 × 5,5 cm): cuerpo plástico rígido con mecanismo deslizante que protege la credencial por ambas caras. Disponible en azul y negro.",
           "Portacredencial tipo caparazón (11 × 7 cm): carcasa rígida transparente que deja visible el carnet completo. Ideal para uso diario intensivo.",
           "Portacredencial rígido de cara abierta: plástico resistente con frente abierto para acceso rápido a la tarjeta (lectores de proximidad). Colores azul, blanco translúcido y rojo.",
           "Portacredencial de acrílico: cristalino y elegante, pensado para imagen corporativa premium.",
@@ -254,7 +246,7 @@ export const seoPages = [
           "Mantenemos inventario permanente por miles de unidades de los modelos más usados por instituciones:",
         ],
         bullets: [
-          "Deslizables en azul, negro y verde (11 × 7 cm, para carnet estándar de 8,5 × 5,5 cm).",
+          "Deslizables en azul y negro (11 × 7 cm, para carnet estándar de 8,5 × 5,5 cm).",
           "Tipo caparazón transparente: nuestro modelo con mayor stock (más de 40.000 unidades).",
           "Rígidos de cara abierta en azul, blanco y rojo, ideales para tarjetas de proximidad.",
           "Fundas flexibles de PVC tipo carnet en formato vertical (6 × 9 cm) y horizontal (9 × 6 cm).",
@@ -319,7 +311,7 @@ export const seoPages = [
           "Estos son los formatos que más despachamos a la capital:",
         ],
         bullets: [
-          "Portacredencial deslizable (azul, negro o verde): protección total del carnet de 8,5 × 5,5 cm, el preferido de bancos y entidades públicas.",
+          "Portacredencial deslizable (azul o negro): protección total del carnet de 8,5 × 5,5 cm, el preferido de bancos y entidades públicas.",
           "Portacredencial tipo caparazón transparente: rígido y económico para dotaciones grandes de personal.",
           "Portacredencial de cara abierta: acceso rápido a la tarjeta, compatible con controles de acceso por proximidad.",
           "Fundas flexibles de PVC (6 × 9 cm y 9 × 6 cm): la opción más económica para congresos y eventos masivos.",
@@ -340,9 +332,8 @@ export const seoPages = [
         ],
       },
     ],
-    products: ["desliVerde", "desliAzul", "caparazon", "flexEventos"],
+    products: ["desliAzul", "desliNegro", "caparazon", "flexEventos"],
     gallery: [
-      { src: `${IMG}/portacredencial-deslizable-verde-anverso-reverso.webp`, alt: "Portacredencial deslizable verde, anverso y reverso con carnet de muestra" },
       { src: `${IMG}/cordones-lanyard-azul-por-mayor.webp`, alt: "Cordones lanyard azules al por mayor listos para envío a Quito" },
     ],
     faqs: [
@@ -891,7 +882,7 @@ export const seoPages = [
         h2: "Formatos corporativos disponibles",
         paras: ["Los tres modelos que más piden las áreas de talento humano y seguridad:"],
         bullets: [
-          "Portacredencial deslizable (azul, negro o verde): cuerpo rígido de 11 × 7 cm con mecanismo deslizante; protege la credencial por ambas caras y proyecta imagen ejecutiva. El negro es el clásico corporativo.",
+          "Portacredencial deslizable (azul o negro): cuerpo rígido de 11 × 7 cm con mecanismo deslizante; protege la credencial por ambas caras y proyecta imagen ejecutiva. El negro es el clásico corporativo.",
           "Portacredencial de acrílico transparente: acabado cristalino premium para gerencias, atención al cliente y personal de imagen.",
           "Portacredencial de cara abierta: frente descubierto para usar la tarjeta en lectores de proximidad sin sacarla del porta; clave para edificios con torniquetes o control de acceso.",
         ],
