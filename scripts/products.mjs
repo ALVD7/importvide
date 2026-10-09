@@ -3,12 +3,13 @@
 // stock reales, e incluyen los productos que se añadan desde el panel) y, si
 // no hay credenciales o la API falla, cae al catálogo estático de seoPages.js.
 import { CATALOG } from "../src/data/seoPages.js";
+import { ordenarProductos } from "../src/data/productosOrden.js";
 import { PRODUCTOS_OCULTOS } from "../src/data/productosOcultos.js";
 
 const IMG_BASE = "https://importvide.com";
 
 const desdeCatalogoEstatico = () =>
-  Object.values(CATALOG).map((p) => ({
+  ordenarProductos(Object.values(CATALOG)).map((p) => ({
     id: p.id,
     name: p.name,
     price: p.price,
@@ -53,7 +54,7 @@ export async function cargarProductos() {
     const filas = await res.json();
     if (!Array.isArray(filas) || filas.length === 0) throw new Error("Supabase devolvió 0 productos");
     console.log(`prerender: ${filas.length} productos leídos de Supabase`);
-    return filas.filter((f) => !PRODUCTOS_OCULTOS.includes(f.id)).map(normalizar);
+    return ordenarProductos(filas.filter((f) => !PRODUCTOS_OCULTOS.includes(f.id)).map(normalizar));
   } catch (error) {
     console.warn(`prerender: fallo al leer Supabase (${error.message}), uso el catálogo estático`);
     return desdeCatalogoEstatico();
