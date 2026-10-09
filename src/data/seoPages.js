@@ -83,7 +83,7 @@ export const CATALOG = {
     name: "Portacredencial tipo caparazón",
     price: 20.0,
     inStock: true,
-    img: `${IMG}/portacredencial-caparazon-mano-abierto.webp`,
+    img: `${IMG}/portacredencial-caparazon-transparente-vertical.webp`,
     alt: "Portacredencial tipo caparazón transparente vertical de 11 x 7 cm",
   },
   desliNegro: {
