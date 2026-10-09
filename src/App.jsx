@@ -5,6 +5,7 @@ import { supabase } from "./lib/supabase";
 import Header from "./components/Header";
 import HeroBanner from "./components/HeroBanner";
 import Marquee from "./components/Marquee";
+import { PRODUCTOS_OCULTOS } from "./data/productosOcultos";
 import ScrollStory from "./components/ScrollStory";
 import StatsBand from "./components/StatsBand";
 import CtaBand from "./components/CtaBand";
@@ -34,7 +35,11 @@ import styles from "./App.module.css";
 const EMPTY_FORM = { name: "", price: "", stock: "", description: "", image: "", category: "" };
 
 const queryProducts = () =>
-  supabase.from("products").select("*").order("created_at", { ascending: false });
+  supabase
+    .from("products")
+    .select("*")
+    .not("id", "in", `(${PRODUCTOS_OCULTOS.join(",")})`)
+    .order("created_at", { ascending: false });
 
 function Home() {
   const { role } = useAuth();
